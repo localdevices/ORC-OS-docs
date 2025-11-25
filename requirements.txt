@@ -1,0 +1,6 @@
+git+https://github.com/localdevices/ORC-OS.git
+sphinx
+sphinx_autosummary_accessors
+sphinx_rtd_theme
+pydata_sphinx_theme
+
