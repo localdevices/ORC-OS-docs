@@ -3,6 +3,14 @@
 User guide
 ==========
 
+This user guide is intended for field hydrologists that wish to configure ORC-OS for use in the field. In summary, it
+runs through:
+
+* who or for what the software can be used.
+* prerequisites, needed materials, site conditions and required hydrology and surveying skills.
+* How to use the software through the web interface, focussing on general settings, entering field survey information,
+  and handling of data and data synchronization with a LiveOpenRiverCam server.
+
 .. toctree::
     :maxdepth: 1
     :hidden:
@@ -14,13 +22,13 @@ User guide
     Suitable site conditions <general/site_conditions>
     Required field survey measurements <general/field_survey>
 
-ORC-OS has several settings pages. These are elaborately described below.
 
 .. toctree::
     :maxdepth: 1
     :hidden:
     :caption: Settings
 
+    General <settings/general>
     Disk management <settings/disk_management>
     Automated water level retrieval <settings/water_level_settings>
     Setting up LiveORC link <settings/liveorc>
