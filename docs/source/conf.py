@@ -15,6 +15,7 @@ extensions = [
     "sphinx.ext.viewcode",
     "sphinx.ext.todo",
     "sphinx.ext.napoleon",
+    "sphinxcontrib.screenshot",
     # "sphinxcontrib.programoutput",
     "sphinx_autosummary_accessors",
     # "sphinx_design"
