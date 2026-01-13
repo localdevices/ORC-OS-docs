@@ -9,8 +9,8 @@ server. We start with an empty database and gradually fill the first parts.
 
 Some critical settings
 ----------------------
-All settings are available through the right-side menu at the ... icon. Just hover over the icon to show the Settings
-context menu.
+All settings are available through the right-side menu at the  icon. Just hover over the |settings_icon| icon to show
+the Settings context menu.
 
 .. screenshot:: http://localhost:5173
   :browser: chromium
@@ -24,20 +24,54 @@ context menu.
     if (settingsMenu) {
       settingsMenu.dispatchEvent(new MouseEvent('mouseover', { bubbles: true, cancelable: true }));
     }
-    
+    const menuItem = document.querySelectorAll('[class="user-menu-item"]')[1];
+    if (menuItem) {
+      // hover!
+      // menuItem.dispatchEvent(new MouseEvent('hoverover', { bubbles: true, cancelable: true }));
+      // menuItem.dispatchEvent(new MouseEvent('mouseenter', { bubbles: true, cancelable: true }));
+      // Apply the hover styles directly:
+      menuItem.style.backgroundColor = '#495057';
+    }
+    // Wait for animation
+    const end = Date.now() + 300;
+    while (Date.now() < end) {}
 
 
-We first make sure that the internal drive of the device always has some space.
+We first make sure that the internal drive of the device always has some space. Click on ``Disk management``.
 
-LOREM IPSUM
+.. screenshot:: http://localhost:5173/disk_management
+  :browser: chromium
+  :viewport-width: 1280
+  :viewport-height: 960
+  :color-scheme: dark
+  :status-code: 200,302
+  :interactions:
+    // Find the elements by their IDs, change values
+    const field1 = document.getElementById('min_free_space');
+    if (field1) {
+        field1.value = 5;
+    }
+    const field2 = document.getElementById('critical_space');
+    if (field2) {
+        field2.value = 2;
+    }
+    const field3 = document.getElementById('frequency');
+    if (field3) {
+        field3.value = 3600;
+    }
 
-We also set up a connection with a LiveORC server and a specific measurement site, pre-configured in LiveORC, so that
-incoming videos can be reported.
+Insert the values indicated. This will ensure that disk space remains above 5 GB. The critical space value is not yet
+used but may get a role in a future update. The application will check every 3600 seconds (one hour) if space needs
+to be freed up, and will do so by removing the oldest video data and analyses first.
+
+Let's also set up a LiveORC connection if you have a LiveORC server running. If not skip the next step.
 
 .. note::
 
   For this step, you do need a functional LiveORC server with username and password running, accessible over the
   internet. Replace your server url and login details by your own details above.
+
+Go to the settings menu and select ``LiveORC API``.
 
 .. screenshot:: http://localhost:5173/callback_url
   :browser: chromium
@@ -68,7 +102,7 @@ incoming videos can be reported.
         access.value = '';
     }
 
-Fill out the url (without suffix ``api/`` and your user email address and password in the relevant fields. Click
+Fill out your own url (without suffix ``api/`` and your user email address and password in the relevant fields. Click
 submit to check the details. Your username and password will disappear and a access and refresh token will appear.
 You will see that your server is online also.
 
@@ -76,8 +110,34 @@ Let's now continue to uploading a sample video.
 
 Video configuration
 -------------------
-Before going through the next steps, download our sample videos from this link. Navigate to ``Videos`` in the left
+Before going through the next steps, download our sample videos from this link. Navigate to the  ``Videos`` in the left
 menu.
+
+
+.. screenshot:: http://localhost:5173
+  :browser: chromium
+  :viewport-width: 1280
+  :viewport-height: 960
+  :color-scheme: dark
+  :status-code: 200,302
+  :interactions:
+    // find element of main menu, and click on it.
+    const mainMenu = document.querySelectorAll('[class="navbar-toggler-icon"]')[0];
+    if (mainMenu) {
+      mainMenu.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    }
+    // Find element of video menu
+    const el = document.querySelectorAll('[href="video"]')[0];
+    if (el) {
+      // hover!
+      el.dispatchEvent(new MouseEvent('hoverover', { bubbles: true, cancelable: true }));
+    }
+    // Wait 300ms for the menu animation to complete
+    // Synchronous delay using a busy-wait loop (300ms)
+    const end = Date.now() + 300;
+    while (Date.now() < end) {}
+
+  Location of the video menu in ORC-OS.
 
 .. screenshot:: http://localhost:5173/video
   :browser: chromium
@@ -106,5 +166,13 @@ menu.
       document.body.appendChild(overlay);
     }
 
+  Drag-and-drop window for new videos.
 
-You can drag and drop a video in the indicated box.
+You can drag and drop a video in the indicated box. Drag and drop it into the window. You can also click on
+the drag-and-drop zone to find the video file in your file browser.
+
+
+
+.. |settings_icon| raw:: html
+
+   <i class="fa-solid fa-gear" aria-hidden="true"></i>

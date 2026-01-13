@@ -25,21 +25,21 @@ runs through:
   // Find the element by its CSS selector
   const el = document.querySelector('.custom-logo-link');
   if (el) {
-      const rect = el.getBoundingClientRect();
-      const overlay = document.createElement('div');
-      Object.assign(overlay.style, {
-        position: 'absolute',
-        top: (rect.top + window.scrollY - 30) + 'px',
-        left: (rect.left + window.scrollX - 20) + 'px',
-        width: (rect.width + 40) + 'px',
-        height: (rect.height + 60) + 'px',
-        border: '10px solid red',
-        borderRadius: '5px',
-        zIndex: '999999',
-        pointerEvents: 'none',
-        boxSizing: 'border-box'
-      });
-      document.body.appendChild(overlay);
+    const rect = el.getBoundingClientRect();
+    const overlay = document.createElement('div');
+    Object.assign(overlay.style, {
+      position: 'absolute',
+      top: (rect.top + window.scrollY - 30) + 'px',
+      left: (rect.left + window.scrollX - 20) + 'px',
+      width: (rect.width + 40) + 'px',
+      height: (rect.height + 60) + 'px',
+      border: '10px solid red',
+      borderRadius: '5px',
+      zIndex: '999999',
+      pointerEvents: 'none',
+      boxSizing: 'border-box'
+    });
+    document.body.appendChild(overlay);
   }
 
 .. toctree::
@@ -64,7 +64,7 @@ runs through:
     Automated water level retrieval <settings/water_level_settings>
     Setting up LiveORC link <settings/liveorc>
     Over-The-Air Updates <settings/updates>
-
+    Daemon for automated processing <settings/daemon>
 
 .. toctree::
     :maxdepth: 1
