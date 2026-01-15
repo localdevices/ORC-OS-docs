@@ -1,0 +1,14 @@
+.figure-text-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.figure-text-pair .column {
+    flex: 1 1 45%;
+    min-width: 250px;
+}
+
+.figure-text-pair .column figure {
+    margin: 0;
+}

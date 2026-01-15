@@ -15,7 +15,8 @@ What and for whom is ORC-OS?
    .. container:: column
 
       A relatively simple camera system can be utilized to measure accurately in m3/s how much water flows
-      through a stream.
+      through a stream. Look at this example, where a staggering 5 meter per second velocity was observed in a storm
+      drain in Lusaka. There is no other method in the world that can measure such extreme flows.
 
       OpenRiverCam OS (ORC-OS) is an entirely open-source dashboard to organize automated measurements of water levels and river flows
       using camera videos. It is currently only supporting usage on single measurement sites, and is meant to be deployed on

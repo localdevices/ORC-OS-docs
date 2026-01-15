@@ -15,7 +15,7 @@ We list here what is needed to get ORC-OS installed on a typical field device in
   a buck step down converter (check your favorite electronics store or web store). Ensure that you find one with 12V
   input (up to 24V if your battery has a higher voltage) that delivers 5V at minimum 3A (2A for Raspberry Pi 4), and
   ideally 5V 5A for a more stable and reliable power.
-   supply.
+  supply.
 
 - Enough storage. For Raspberry Pi, an SD card (micro) of good quality (really...try to not underspend on cheap SD
   cards) of at least 32GB in size; OR
@@ -114,6 +114,9 @@ creating a Github issue on the `ORC-OS-docs GitHub repository <https://github.co
 
 You will need basic tools such as a wire stripper, screw drivers, crimping pliers, 12V electric wire (wire used for
 speakers usually is great for 12V projects, but never use this for 220V applications!).
+
+Assemblage
+----------
 
 Below a rough guide to assemblage is provided:
 

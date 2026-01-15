@@ -33,7 +33,7 @@ master_doc = "index"
 
 html_theme = 'pydata_sphinx_theme'
 html_static_path = ['_static']
-html_css_files = ["theme-localdevices.css"]
+html_css_files = ["theme-localdevices.css", "docs.css"]
 html_logo = "_static/orc_logo_color.svg"
 html_favicon = "_static/orc_favicon.svg"
 
