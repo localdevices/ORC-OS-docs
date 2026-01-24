@@ -57,9 +57,137 @@ The required data are:
           with an in-situ measurement device. Both will have a different vertical datum.
         - Measure this by holding your survey device on the line where water touches the land.
       * - Camera position
-        - LOREM IPSUM
-        - LOREM IPSUM
+        - Can be used as a strong extra constraint on the camera calibration process.
+        - Measure as close to the lens as possible.
 
 .. figure:: ../../_images/_general/gcps.jpg
 
    A good spread of control points, painted on the sides of a channel
+
+Below, we have provided some notes on two typical survey approaches, using a Leica P2P set or a RTK GNSS device.
+
+
+.. tab-set::
+
+    .. tab-item:: Leica Disto P2P set
+
+        .. container:: figure-text-pair
+
+           .. container:: column
+
+                .. figure:: ../../_images/_general/leica_disto_x6.jpg
+
+                   Leica disto X6 P2P set
+
+           .. container:: column
+
+                What is a disto
+                +++++++++++++++
+
+                A "disto" measures distances between a device carrying a strong laser and an object at a certain distance
+                away from the device. It is used a lot in construction, for instance to measure distances between two walls.
+
+                A P2P set connects points collected during a survey into a 3-dimensional coordinate system. Such a device
+                uses a connected spirit level to understand what the horizontal plane is, gives the first point measured
+                a coordinate x=0,y=0,z=0 where z is the vertical (up is positive) coordinate axis. For the second coordinate
+                the disto will keep x=0, and define the y-coordinate as the horizontal distance between the first and second
+                point and the z-coordinate derived as the vertical distance based on the spirit level and angular difference
+                the device is making from point one to two. The Leica disto systems add to this that each recorded point can
+                be easily found using a small camera system and by taking a small photograph of the point for later reference.
+                This makes the disto X6 one of the most robust and error-free measurement methods.
+
+        .. container:: figure-text-pair
+
+           .. container:: column
+
+                Our experience is that with
+                points surveyed with the Leica disto X6 P2P system (latest at the time of writing), an average reconstructed
+                point accuracy of less than one centimeter can be reached. The cool thing is that you may use a lot of easy to
+                find objects lying around during the survey, e.g. a rock, recognizable points on a wall perimeter, a bridge or
+                other built objects, painted markers, and so on. It therefore may also be far less intrusive for the
+                environment and may make it easier to do a survey in urban environments where you may not be allowed to place
+                control points on certain places due to privacy reasons.
+
+           .. container:: column
+
+                .. figure:: ../../_images/_general/disto_point_example.jpg
+
+                    Example of photo of control point by Leica disto X6 P2P set
+
+        The disadvantage is that points should not be too far away, more than 100 meters is usually very difficult, and
+        that the texture and color of the points matters. Very dark objects are usually extremely difficult to survey so
+        make sure the inside of the points you measure is light. Spray painted dark circles with white centres can work
+        well.
+
+        .. warning::
+
+           Make sure the one carrying around survey points does NEVER look into the laser direectly. It can severely
+           damage your eyes as it is very powerful.
+
+        .. tip::
+
+           Try out the device in a "dry" environment to test it and make sure you understand its features
+           before taking it into the field. Try out to measure points closeby, far away and points of differing
+           texture and colour to see under what conditions the points can be easily recorded.
+           Also try to import a result into Excel or LibreOffice and see if you can work with the
+           points, e.g. plot a top-view (X-Y scatter plot) and a side-view of the cross-section
+
+        Procedure
+        +++++++++
+
+        - fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
+          to use.
+        - Spread or look for suitable objects as control points.
+        - IMPORTANT: make a sample video with all GCP points in view. Make sure nothing or no-one is within line of
+          sight.
+        - Prepare a marker on a stick of sufficient length for the bottom cross section survey.
+        - Measure and note down the length of the stick from bottom to the centre of the marker.
+        - look for a position from which you can see all points that you wish to survey. Usually you place the device
+          somewhere near the camera in view of both banks where you likely have control points. Set up the disto with
+          spirit level and tripod such that it cannot move. This is extremely important. Consider putting some weight
+          on the tripod legs to ensure the device is more stable.
+        - Remove any blocking things such as rocks in the line of sight and overhanging leaves, grass or other
+          vegetation.
+        - When you start your survey, we recommend to take control over the axes. For instance first measure
+          two random points that lie in upstream - downstream direction. This fixes the x-axis to upstream to
+          downstream direction. These two points will not be used in further processing in ORC.
+        - Measure GCPs, cross-section (with the stick), water level (with the stick) camera position in one single
+          survey.
+        - Store the results immediately in a CSV file.
+        - Make another control video in case you made any changes in the layout during the survey for whatever reason.
+        - Whilst in the field and before wrapping up, do some postprocessing on the CSV file where needed (see below)
+          and feed in the control video, GCPs and cross section (split the CSV in parts for GCP and cross section)
+          and check if the fit of the control points and the layout of the cross-section looks accurate.
+        - Considering doing the survey again if anything seems wrong. Otherwise, clear out all control points and make
+          sure no rubbish is left behind.
+
+        Guidance in use
+        +++++++++++++++
+        By using a disto P2P device, you will get very high accuracy measurements if you follow the following
+        guidelines:
+
+        - Make sure you survey everything in one single survey. Bear in mind the devices tend to turn off themselves
+          after a few minutes idling. You can extend the amount of minutes in the settings which is highly recommended.
+        - Make sure there are no leaves, overhanging branches, etcetera blocking the laser.
+        - With every point collected, check if the device really recorded it. It may give an error code if the point is
+          not good. This can be due to movements of the device or point during the recording.
+        - In hot environments, upward moving eddies, especially above hot surfaces can attenuate the laser beam as it
+          travels through air. Considering doing the survey at cooler moments, when there is sufficient light. This can
+          be early morning or during a moment that the area to survey is in the shade.
+        - If a persistent error code appears, note it down and look it up in online documentation. It can give a clear
+          idea what the problem is and lead to resolving it.
+        - After the survey, you may need to do some postprocessing to get all points in the same system. For instance,
+          if you use a marker on a stick to survey the cross section, then you should remove the length between the
+          bottom of the stick and the centre of the marker to get the bottom coordinates. The exported file is CSV
+          format and can be read into Excel directly. Also, if you surveyed two points to fix the axes, then those two
+          points should be removed from the result CSV file.
+        - Split your data into two files: one only containing the GCPs and one only containing the cross section.
+
+
+    .. tab-item:: RTK GNSS
+
+        Real-Time Kinematics Global Navigation Satellite Systems measure geographical coordinates at an extremely high
+        accuracy and in real-time (i.e. only a very short survey period is needed per point). This is done by
+        using a fixed nearby GNSS station that continuously records and sends out survey data of its own position.
+        The mobile station (a.k.a. "rover") uses the real-time collected data at the base station and at its own position
+        to make an accurate

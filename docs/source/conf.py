@@ -18,7 +18,7 @@ extensions = [
     "sphinxcontrib.screenshot",
     # "sphinxcontrib.programoutput",
     "sphinx_autosummary_accessors",
-    # "sphinx_design"
+    "sphinx_design"
 ]
 templates_path = ['_templates', sphinx_autosummary_accessors.templates_path]
 

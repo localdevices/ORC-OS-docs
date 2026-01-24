@@ -5,3 +5,4 @@ sphinx
 sphinx_autosummary_accessors
 sphinx_rtd_theme
 sphinxcontrib-screenshot
+sphinx-design
