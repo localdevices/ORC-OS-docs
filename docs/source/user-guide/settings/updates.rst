@@ -2,6 +2,17 @@
 
 Over-The-Air updates
 --------------------
+
+Setting up LiveORC API
+----------------------
+
+.. screenshot:: http://localhost:5173/updates
+  :browser: chromium
+  :viewport-width: 1280
+  :viewport-height: 960
+  :color-scheme: dark
+  :status-code: 200,302
+
 ORC-OS has its own OTA update system. If an update is available, at this page you will see
 - your current ORC-OS version
 - whether an update is available (with the version number)

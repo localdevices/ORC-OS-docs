@@ -42,18 +42,13 @@ runs through:
     document.body.appendChild(overlay);
   }
 
-
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Settings
+    :caption: General
 
-    General <settings/general>
-    Disk management <settings/disk_management>
-    Automated water level retrieval <settings/water_level_settings>
-    Setting up LiveORC link <settings/liveorc>
-    Over-The-Air Updates <settings/updates>
-    Daemon for automated processing <settings/daemon>
+    First use <general/first_use>
+    Menus <general/menus>
 
 .. toctree::
     :maxdepth: 1
@@ -67,6 +62,19 @@ runs through:
     Aim your camera <app/aim>
     Recipes <app/recipes>
     Cross sections <app/cross_sections>
+
+
+.. toctree::
+    :maxdepth: 1
+    :hidden:
+    :caption: Settings
+
+    General <settings/general>
+    Disk management <settings/disk_management>
+    Automated water level retrieval <settings/water_level_settings>
+    Setting up LiveORC link <settings/liveorc>
+    Over-The-Air Updates <settings/updates>
+    Daemon for automated processing <settings/daemon>
 
 .. toctree::
     :maxdepth: 1

@@ -2,7 +2,15 @@
 
 Disk management
 ---------------
+.. screenshot:: http://localhost:5173/disk_management
+  :browser: chromium
+  :viewport-width: 1280
+  :viewport-height: 960
+  :color-scheme: dark
+  :status-code: 200,302
+
 Under disk management, you can set:
+
 - Minimum space [GB] below which cleanup will take place
 - Critical space [GB] below which service will be turned off.
 - Frequency [s] for checking space and performing cleanup.
