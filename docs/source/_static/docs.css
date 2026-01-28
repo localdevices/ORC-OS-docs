@@ -1,0 +1,42 @@
+.figure-text-pair {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.figure-text-pair .column {
+    flex: 1 1 45%;
+    min-width: 250px;
+}
+
+.figure-text-pair .column figure {
+    margin: 0;
+}
+
+/* for text + figure with wider column size for first (text) and a small image next to it */
+.figure-text-pair.wide-text {
+    align-items: flex-start;
+}
+
+.figure-text-pair.wide-text .column:first-child {
+    flex: 0 0 400px;
+    max-width: 400px;
+}
+
+.figure-text-pair.wide-text .column:last-child {
+    flex: 1 1 auto;
+}
+
+/* for figure + text with wider column size for second (text) column and a small image left */
+.figure-text-pair.wide-text-right {
+    align-items: flex-start;
+}
+
+.figure-text-pair.wide-text .column:first-child {
+    flex: 0 0 200px;
+    max-width: 200px;
+}
+
+.figure-text-pair.wide-text .column:last-child {
+    flex: 1 1 auto;
+}
