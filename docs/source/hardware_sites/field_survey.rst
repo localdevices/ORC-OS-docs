@@ -11,7 +11,7 @@ Required field survey measurements
     We highly recommend to carefully read this section before doing any installation, and test out the entire survey
     procedure before going into the field.
 
-.. figure:: ../../_images/_general/survey_points.png
+.. figure:: ../_images/_general/survey_points.png
 
     Information collected through surveying. The "pose" lines and "bbox" (bounding box) rectangles are derived in the
     software based on the measurements. The pose is the orientation of the camera. Bounding box is the area of interest
@@ -70,7 +70,7 @@ The required data are given and described in the table below:
         - Can be used as a strong extra constraint on the camera calibration process.
         - Measure as close to the lens as possible.
 
-.. figure:: ../../_images/_general/gcps.jpg
+.. figure:: ../_images/_general/gcps.jpg
 
    A good spread of control points, painted on the sides of a channel
 
@@ -87,7 +87,7 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
            .. container:: column
 
-                .. figure:: ../../_images/_general/leica_disto_x6.jpg
+                .. figure:: ../_images/_general/leica_disto_x6.jpg
 
                    Leica disto X6 P2P set
 
@@ -119,7 +119,7 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
            .. container:: column
 
-                .. figure:: ../../_images/_general/leica_3d_capture.jpg
+                .. figure:: ../_images/_general/leica_3d_capture.jpg
                     :width: 200px
 
                     3D capture functionality
@@ -128,7 +128,7 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
            .. container:: column
 
-                .. figure:: ../../_images/_general/disto_point_example.jpg
+                .. figure:: ../_images/_general/disto_point_example.jpg
 
                     Example of photo of control point by Leica disto X6 P2P set
 
@@ -211,7 +211,7 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
            .. container:: column
 
-                .. figure:: ../../_images/_general/RTKGNSS.jpg
+                .. figure:: ../_images/_general/RTKGNSS.jpg
 
                    Ardusimple rover station, used to measure a cross section and red/white GCPs. The markers are
                    slightly tilted towards the camera so that they can be easily identified in the video image later on.
@@ -265,29 +265,29 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
         .. rubric:: Guidance in use
 
-            RTK-GNSS use is more complex and error prone than a Leica disto P2P device. Therefore read the guidelines
-            below and make sure you practice the entire procedure in a controlled environment before going into the
-            field:
+        RTK-GNSS use is more complex and error prone than a Leica disto P2P device. Therefore read the guidelines
+        below and make sure you practice the entire procedure in a controlled environment before going into the
+        field:
 
-            - First consider if RTK-GNSS will work in the chosen environment. RTK-GNSS does not work well in areas with
-              very high buildings or just next to a wall. Make sure that you can position GCPs in some clear part of
-              the area.
-            - When placing GCPs, make sure you can easily reach the point with the survey pole, while still being able
-              to read the spirit level and whether a "FIX" status is reached or not. A steep slope is usually not ideal.
-            - Before taking a point (especially a GCP), make sure the survey pole is kept perfectly vertical! A small
-              deviation from vertical can easily result in errors of 10cm (several inches) or more. A spirit level on
-              the pole is a MUST!
-            - Only record a point when the status is "FIX". If the status is "FLOAT" or (even worse) "DGPS" or "SINGLE"
-              the accuracy of the measurement will be too low to give a good result. Most surveying software like SW
-              Maps have settings that accept points only when they have a certain minimum status. Set this setting to
-              "FIX"!
-            - With every point collected, check if the device really recorded it. If "FIX" is not reached, the point
-              should not have been recorded. Sometimes, keeping the pole stable for a few seconds helps to obtain
-              status "FIX".
-            - After the survey, you may need to do some postprocessing to get all points in the same system.
-              The exported file may be a geographical file such as Shapefile or GeoJSON. Ensure the file is first
-              converted into a GeoJSON with a local projection with unit metre (not degrees!). You can do this with
-              the free and open-source and excellent [QGIS](https://qgis.org) software.
-            - After converting, split your data into two files: one only containing the GCPs and one only containing
-              the cross section. Also this can be done in [QGIS](https://qgis.org).
+        - First consider if RTK-GNSS will work in the chosen environment. RTK-GNSS does not work well in areas with
+          very high buildings or just next to a wall. Make sure that you can position GCPs in some clear part of
+          the area.
+        - When placing GCPs, make sure you can easily reach the point with the survey pole, while still being able
+          to read the spirit level and whether a "FIX" status is reached or not. A steep slope is usually not ideal.
+        - Before taking a point (especially a GCP), make sure the survey pole is kept perfectly vertical! A small
+          deviation from vertical can easily result in errors of 10cm (several inches) or more. A spirit level on
+          the pole is a MUST!
+        - Only record a point when the status is "FIX". If the status is "FLOAT" or (even worse) "DGPS" or "SINGLE"
+          the accuracy of the measurement will be too low to give a good result. Most surveying software like SW
+          Maps have settings that accept points only when they have a certain minimum status. Set this setting to
+          "FIX"!
+        - With every point collected, check if the device really recorded it. If "FIX" is not reached, the point
+          should not have been recorded. Sometimes, keeping the pole stable for a few seconds helps to obtain
+          status "FIX".
+        - After the survey, you may need to do some postprocessing to get all points in the same system.
+          The exported file may be a geographical file such as Shapefile or GeoJSON. Ensure the file is first
+          converted into a GeoJSON with a local projection with unit metre (not degrees!). You can do this with
+          the free and open-source and excellent [QGIS](https://qgis.org) software.
+        - After converting, split your data into two files: one only containing the GCPs and one only containing
+          the cross section. Also this can be done in [QGIS](https://qgis.org).
 

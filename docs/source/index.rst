@@ -7,12 +7,16 @@
 OpenRiverCam Operating System documentation
 ===========================================
 
+.. include:: what.rst
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
    :caption: Table of contents:
 
-   intro.rst
+   intro/index.rst
+   hardware_sites/index.rst
+   getting_orcos.rst
    quickstart
    user-guide/index.rst
 

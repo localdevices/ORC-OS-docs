@@ -1,7 +1,7 @@
 .. _getting_orcos:
 
-How to obtain ORC-OS
---------------------
+Getting ORC-OS
+==============
 
 Raspberry Pi images
 +++++++++++++++++++
@@ -24,7 +24,8 @@ Please do not contact us for support on installation if you do an installation w
 Training
 ++++++++
 
-We also provide training packages for field installation, field survey, image-based processing and principles,
+We can provide training packages for field installation, field survey, image-based processing and principles,
 LiveOpenRiverCam server deployment and maintenance (central API for storage and further use of data).
 Contact us on info@rainbowsensing.com for this.
 
+.. _

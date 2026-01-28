@@ -42,17 +42,6 @@ runs through:
     document.body.appendChild(overlay);
   }
 
-.. toctree::
-    :maxdepth: 1
-    :hidden:
-    :caption: How to use ORC-OS
-
-    What and for whom is ORC-OS? <general/whom>
-    How to obtain ORC-OS <general/getting_orcos>
-    Prerequisites for using ORC-OS <general/prerequisites>
-    Suitable site conditions <general/site_conditions>
-    Required field survey measurements <general/field_survey>
-
 
 .. toctree::
     :maxdepth: 1

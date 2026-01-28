@@ -47,12 +47,12 @@ A typical hardware setup in the field
 Once the software is installed, you will need a proper setup in the field. We try to provide
 some guidance here how to establish a complete field setup here.
 
-.. figure:: ../../_images/_general/hardware_setup_example.png
+.. figure:: ../_images/_general/hardware_setup_example.png
+
+   Impression of a typical hardware setup and the required connections
 
    :scale: 50 %
    :alt: hardware setup
-
-   Impression of a typical hardware setup and the required connections
 
 
 To help you build your own camera setup we here give an overview of possible parts that we have ourselves tested with.
