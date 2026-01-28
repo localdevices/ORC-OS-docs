@@ -3,9 +3,19 @@
 Required field survey measurements
 ----------------------------------
 
-Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
-velocities and river flow. All of the observations needed are points in a 3D space, for which several methods
-may be used.
+.. note::
+
+    Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
+    velocities and river flow. All of the observations needed are points in a 3D space, for which several methods
+    may be used. A schematic 3D overview of the information obtained through the survey is provided in the image below.
+    We highly recommend to carefully read this section before doing any installation, and test out the entire survey
+    procedure before going into the field.
+
+.. figure:: ../../_images/_general/survey_points.png
+
+    Information collected through surveying. The "pose" lines and "bbox" (bounding box) rectangles are derived in the
+    software based on the measurements. The pose is the orientation of the camera. Bounding box is the area of interest
+    within the camera objective.
 
 .. important::
 
@@ -19,9 +29,9 @@ may be used.
 
    If you do split the survey in smaller parts, make sure you measure at least two points again in the second survey,
    so that you can correct that x, y, z offset between the different survey parts afterwards. Always check your
-   observations in excel.
+   observations with some simple plots. This can be done for instance in Excel using scatter plots.
 
-The required data are:
+The required data are given and described in the table below:
 
 .. list-table::
       :header-rows: 1
@@ -71,6 +81,8 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
     .. tab-item:: Leica Disto P2P set
 
+        .. rubric:: What is a disto
+
         .. container:: figure-text-pair
 
            .. container:: column
@@ -80,9 +92,6 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
                    Leica disto X6 P2P set
 
            .. container:: column
-
-                What is a disto
-                +++++++++++++++
 
                 A "disto" measures distances between a device carrying a strong laser and an object at a certain distance
                 away from the device. It is used a lot in construction, for instance to measure distances between two walls.
@@ -96,7 +105,7 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
                 be easily found using a small camera system and by taking a small photograph of the point for later reference.
                 This makes the disto X6 one of the most robust and error-free measurement methods.
 
-        .. container:: figure-text-pair
+        .. container:: figure-text-pair wide-text
 
            .. container:: column
 
@@ -110,14 +119,25 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
            .. container:: column
 
+                .. figure:: ../../_images/_general/leica_3d_capture.jpg
+                    :width: 200px
+
+                    3D capture functionality
+
+        .. container:: figure-text-pair
+
+           .. container:: column
+
                 .. figure:: ../../_images/_general/disto_point_example.jpg
 
                     Example of photo of control point by Leica disto X6 P2P set
 
-        The disadvantage is that points should not be too far away, more than 100 meters is usually very difficult, and
-        that the texture and color of the points matters. Very dark objects are usually extremely difficult to survey so
-        make sure the inside of the points you measure is light. Spray painted dark circles with white centres can work
-        well.
+           .. container:: column
+
+                The disadvantage is that points should not be too far away, more than 100 meters is usually very difficult, and
+                that the texture and color of the points matters. Very dark objects are usually extremely difficult to survey so
+                make sure the inside of the points you measure is light. Spray painted dark circles with white centres can work
+                well.
 
         .. warning::
 
@@ -132,14 +152,13 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
            Also try to import a result into Excel or LibreOffice and see if you can work with the
            points, e.g. plot a top-view (X-Y scatter plot) and a side-view of the cross-section
 
-        Procedure
-        +++++++++
+        .. rubric:: Procedure
 
         - fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
           to use.
         - Spread or look for suitable objects as control points.
         - IMPORTANT: make a sample video with all GCP points in view. Make sure nothing or no-one is within line of
-          sight.
+          sight. This video is essential, and used later in the calibration process.
         - Prepare a marker on a stick of sufficient length for the bottom cross section survey.
         - Measure and note down the length of the stick from bottom to the centre of the marker.
         - look for a position from which you can see all points that you wish to survey. Usually you place the device
@@ -161,8 +180,8 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
         - Considering doing the survey again if anything seems wrong. Otherwise, clear out all control points and make
           sure no rubbish is left behind.
 
-        Guidance in use
-        +++++++++++++++
+        .. rubric:: Guidance in use
+
         By using a disto P2P device, you will get very high accuracy measurements if you follow the following
         guidelines:
 
@@ -186,8 +205,89 @@ Below, we have provided some notes on two typical survey approaches, using a Lei
 
     .. tab-item:: RTK GNSS
 
-        Real-Time Kinematics Global Navigation Satellite Systems measure geographical coordinates at an extremely high
-        accuracy and in real-time (i.e. only a very short survey period is needed per point). This is done by
-        using a fixed nearby GNSS station that continuously records and sends out survey data of its own position.
-        The mobile station (a.k.a. "rover") uses the real-time collected data at the base station and at its own position
-        to make an accurate
+        .. rubric:: What is RTK GNSS
+
+        .. container:: figure-text-pair
+
+           .. container:: column
+
+                .. figure:: ../../_images/_general/RTKGNSS.jpg
+
+                   Ardusimple rover station, used to measure a cross section and red/white GCPs. The markers are
+                   slightly tilted towards the camera so that they can be easily identified in the video image later on.
+
+           .. container:: column
+
+            Real-Time Kinematics Global Navigation Satellite Systems (RTK-GNSS) measure geographical coordinates at an
+            extremely high accuracy and in real-time (i.e. only a very short survey period is needed per point). This is
+            done by using a fixed nearby GNSS station that continuously records and sends out survey data of its own
+            position. The mobile station (a.k.a. "rover") uses the real-time collected data at the base station and at its
+            own position to make an accurate estimation of its own position, essentially by comparing the resolved location
+            of the base station with its known position. Through data assimilation in time, the solution becomes more
+            accurate when more satellite data has been received.
+
+        .. tip::
+
+            RTK-GNSS base-rover sets used to be a very expensive piece of equipment. Since a few years, company uBlox
+            started producing low cost GNSS chipsets that have the ability to perform RTK computations on the chip
+            using a large amount of satellite constellations and several wavelengths. Company Ardusimple sells ready to
+            use base-rover kits based on these chipsets. These are very affordable. Including a measurement pole with
+            spirit level you can expect to spend about 1000 euros for a complete set. It is ideal in sites where quite
+            large distances are involved (50 - 100 meter or even wider river sections) as there disto measurements may
+            become infeasible.
+
+        .. rubric:: Procedure
+
+        - First setup your base station following the user manual of the equipment. Let it measure long enough so that
+          it has a stable point. Absolute accuracy is not needed, so usually a survey of 15-30 minutes is sufficient.
+          Once survey is completed, the base station will send out correction messages. DO NOT switch off the base
+          station during the survey if you use Survey-In mode for a short period.
+        - Fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
+          to use.
+        - Spread or look for suitable objects as control points. Make sure any object is clearly marked and slightly
+          tilted towards the camera, such that you can
+          find it back in the image. Only white, or only dark usually is not sufficient. Use a combination of white and
+          dark.
+        - IMPORTANT: make a sample video with all GCP points in view. Make sure nothing or no-one is within line of
+          sight. This video is essential, and used later in the calibration process.
+        - Prepare your rover, putting the antenna on a pole with a spirit level. The pole should be high enough so that
+          it can be used for the bottom cross section survey.
+        - Measure and note down the length of the stick from bottom to the centre of the marker if needed.
+        - Measure GCPs, cross-section, water level, and camera position. Again make sure that during this survey
+          the base station is never switched on/off.
+        - Store the results immediately in a CSV or Shapefile or other geographical format.
+        - Make another control video in case you made any changes in the layout during the survey for whatever reason.
+        - Whilst in the field and before wrapping up, do some postprocessing on the CSV file where needed (see below)
+          and feed in the control video, GCPs and cross section (split the CSV in parts for GCP and cross section)
+          and check if the fit of the control points and the layout of the cross-section looks accurate.
+        - Considering doing the survey again if anything seems wrong. Otherwise, clear out all control points, pack up
+          the base and rover stations and make sure no rubbish is left behind.
+
+        .. rubric:: Guidance in use
+
+            RTK-GNSS use is more complex and error prone than a Leica disto P2P device. Therefore read the guidelines
+            below and make sure you practice the entire procedure in a controlled environment before going into the
+            field:
+
+            - First consider if RTK-GNSS will work in the chosen environment. RTK-GNSS does not work well in areas with
+              very high buildings or just next to a wall. Make sure that you can position GCPs in some clear part of
+              the area.
+            - When placing GCPs, make sure you can easily reach the point with the survey pole, while still being able
+              to read the spirit level and whether a "FIX" status is reached or not. A steep slope is usually not ideal.
+            - Before taking a point (especially a GCP), make sure the survey pole is kept perfectly vertical! A small
+              deviation from vertical can easily result in errors of 10cm (several inches) or more. A spirit level on
+              the pole is a MUST!
+            - Only record a point when the status is "FIX". If the status is "FLOAT" or (even worse) "DGPS" or "SINGLE"
+              the accuracy of the measurement will be too low to give a good result. Most surveying software like SW
+              Maps have settings that accept points only when they have a certain minimum status. Set this setting to
+              "FIX"!
+            - With every point collected, check if the device really recorded it. If "FIX" is not reached, the point
+              should not have been recorded. Sometimes, keeping the pole stable for a few seconds helps to obtain
+              status "FIX".
+            - After the survey, you may need to do some postprocessing to get all points in the same system.
+              The exported file may be a geographical file such as Shapefile or GeoJSON. Ensure the file is first
+              converted into a GeoJSON with a local projection with unit metre (not degrees!). You can do this with
+              the free and open-source and excellent [QGIS](https://qgis.org) software.
+            - After converting, split your data into two files: one only containing the GCPs and one only containing
+              the cross section. Also this can be done in [QGIS](https://qgis.org).
+

@@ -14,9 +14,9 @@ What and for whom is ORC-OS?
 
    .. container:: column
 
-      A relatively simple camera system can be utilized to measure accurately in m3/s how much water flows
-      through a stream. Look at this example, where a staggering 5 meter per second velocity was observed in a storm
-      drain in Lusaka. There is no other method in the world that can measure such extreme flows.
+      A relatively simple camera system can be utilized to measure accurately in *m3/s* how much water flows
+      through a stream. Look at this example, where a staggering 5 meter per second (!) velocity was observed in a storm
+      drain in Lusaka. There is *no other method* in the world that can measure such extreme flows.
 
       OpenRiverCam OS (ORC-OS) is an entirely open-source dashboard to organize automated measurements of water levels and river flows
       using camera videos. It is currently only supporting usage on single measurement sites, and is meant to be deployed on
@@ -41,8 +41,8 @@ How does it work in 6 bullets?
 
 - These measurements are fed into the software using a user-friendly interface
 - The software is set to record and analyze videos at set intervals.
-- Each video is analyzed for movements of patterns around the cross-section. Thanks to the measurements, pixels per
-  second can be converted in meters per second.
+- Each video is automatically analyzed for movements of patterns around the cross-section. Thanks to the measurements,
+  pixels per second can be converted in meters per second.
 - Data is sent automatically to a central [LiveORC](https://github.com/localdevices/LiveORC) server for further use in
   decision support or other operational processes.
 
@@ -63,7 +63,10 @@ Features
 For whom
 ++++++++
 ORC-OS is meant for professional organizations that want to set up their own image-based discharge measurement sites
-withcameras.
+with cameras. These could be water management organizations, hydrology service providers and commercial entities
+offering maintenance of sites and datasets.
 
-
-
+Acknowledgements
+++++++++++++++++
+Development of ORC-OS has been made possible thanks to funding of the European Commission under grant no. 101086209
+(HORIZON Europe - TEMBO Africa) and The Netherlands Enterprise Agency under the Partners for Water programme.
