@@ -117,3 +117,6 @@ User menu
     }
 
   User menu
+
+The user menu allows you to logout and change your password. Make sure to save or remember the password. You can only
+reset it by logging into the backend of the device running ORC-OS, if you are not logged in.
