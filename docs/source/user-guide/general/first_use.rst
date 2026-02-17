@@ -25,7 +25,7 @@ shown below.
 .. tip::
 
    With our annual support packages, you will also receive remote access options to devices that are installed in the field
-   with a remote internet connection, such as 4G or starlink. Contact us at info@rainbowsensing.com for the available
+   with a remote internet connection, such as 4G or starlink. Please check https://openrivercam.or/ for the available
    options.
 
 

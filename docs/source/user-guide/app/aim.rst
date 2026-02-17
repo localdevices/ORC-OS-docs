@@ -6,14 +6,12 @@ This page should only be used in the field. It is meant to capture a live view f
 so that you can aim the camera. In case you have at least one Raspberry Pi camera connected to the device, the
 page shows specific options for Raspberry Pi camera's.
 
-Use with a camera with an IP or other remote address
-++++++++++++++++++++++++++++++++++++++++++++++++++++
+Camera with IP-camera
++++++++++++++++++++++
 Make sure that you have a camera that is set up to broadcast live over a IP-address, or public web address.
 Simply fill out the address including prefix (such as ``rtsp://``) over which the camera broadcasts live footage
-to bring up the camera's live view. You can then go ahead and aim
+to bring up the camera's live view. You can then go ahead and aim.
 
-Setting up LiveORC API
-----------------------
 .. screenshot:: http://localhost:5173/camera_aim
   :browser: chromium
   :viewport-width: 1280

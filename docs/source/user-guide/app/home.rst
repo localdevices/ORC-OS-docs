@@ -10,7 +10,10 @@ Home page
   :color-scheme: dark
   :status-code: 200,302
 
-Welcome to ORC-OS! The home page is where you see the most prominent information about your device's current status.
+Welcome to ORC-OS! Once all required ORC-OS services are running on your device, you can go to the web app to continue
+configuration. Refer to the :ref:`first use <first_use>` section how to find the web app on your network.
+The home page is where you see the most prominent information about your device's current status.
+
 The page is subdivided in two parts:
 
 - on the left side you see the latest (in timestamp) processed video. For real-time operating devices, this gives a very quick
