@@ -57,6 +57,7 @@ runs through:
 
     Home <app/home>
     Videos <app/videos>
+    Time series <app/timeseries>
     Device Information <app/device>
     Log file <app/log>
     Aim your camera <app/aim>
