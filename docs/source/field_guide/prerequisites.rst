@@ -68,49 +68,48 @@ creating a Github issue on the `ORC-OS-docs GitHub repository <https://github.co
    any support without a project. It may be that certain parts change in time. We are never responsible for
    any issue related to your own built nor for any incompatibilities with the ORC-OS software.
 
+.. list-table::
+    :header-rows: 1
+    :widths: 35 65
 
-  .. list-table::
-      :header-rows: 1
-      :widths: 35 65
-
-      * - Part
-        - Example specific item
-      * - Raspberry Pi 5 CM (8/32GB)
-        - `Raspberry Pi 5 <https://www.raspberrypi.com/products/raspberry-pi-5/>`_
-      * - Compute Module board (8/32GB)
-        - `Waveshare CM5-IO-Base-B <https://www.waveshare.com/cm5-io-base-b.htm?sku=30703>`_
-      * - CM2032 rechargeable battery (for Real-Time clock and power cycling)
-        - Please check availability locally. 3.7V LIR rechargeable batteries typically work.
-      * - IP camera (ideally >= 20Mbps, 1080p, event-capable)
-        - `AXIS P1385 <https://www.axis.com/products/axis-p1385>`_
-      * - 4G modem (can also be a Raspberry Pi modem HAT like a Waveshare7600E-H)
-        - `Waveshare7600E-H 4G HAT <https://www.waveshare.com/wiki/SIM7600E-H_4G_HAT?srsltid=AfmBOorAbFR9oT1jp57zfExviR1y5g-p3vRk5pf_f-1jtHWzr35EAALa>`_
-      * - Relay module (ideally a Pi HAT)
-        - `RPi Relay Board <https://www.waveshare.com/wiki/RPi_Relay_Board>`_
-      * - PoE adapter (12V; verify power specs)
-        - `LINOVISION PoE switch for DC powered systems <https://eu.linovision.com/en-eu/collections/all-poe-switches/products/4-ports-mini-solar-poe-switch-optimized-for-big-ptz-camera-and-wireless-bridges?_pos=2&_fid=d8b5ba801&_ss=c>`_
-      * - 12V to 5V (USB) buck converter, 5A for Raspberry Pi 5
-        - Sold on amazon.com e.g. `DEVMO 12V to 5V 5A Step-Down <https://www.amazon.com/DEVMO-Converter-Step-Down-Regulator-Transformer/dp/B09C4HPNJ8/ref=sr_1_11?dib=eyJ2IjoiMSJ9.RZsxLbFRLcU8Wb5O2N-5KjMcJ6uj1CoIoVbBQr4STi2nn6d88k_vvBEjd3TDfF1TUFG0_04Tchp9esoT8_nmfegVbZhdkErK-zT_2o9ZQX2eBJNbN-X9-kjJVchUWCA9eBo5tQZFStZovLdhs98BJyhv93V8ZhQyyslG4ILrTzFhK3OBGKHWr7ZUgFr1rJ9RxPkQkle4oxa4mNnuEAJevyGPTYtAqVepEHDPPPv1w8EHE_aqNBE0M0UVf_kjmDnycLmHf4u1SRdzXKlINuMrt2qboR1R5bS0C6TAlCN3q9o.zKXYl-61B5JUPgaXJbKZUSRhCvGflPU_vFfEAFQ1HIA&dib_tag=se&qid=1768307208&refinements=p_89%3ADEVMO&s=electronics&sr=1-11>`_
-      * - Solar panel (>= 50W)
-        - Any electronics/solar shop.
-      * - MQTT Solar charge controller
-        - Any electronics/solar shop.
-      * - 12V battery (>= 96Wh)
-        - Any electronics/solar shop. Consider a compact LiFePO battery for better environmental performance.
-      * - CAT6 outdoor network cable of sufficient length to go from the PoE adapter to the camera
-        - Any computer hardware shop.
-      * - A very short (e.g. 0.5 meter) CAT6 network cable. This is for connecting the Raspberry Pi to the switch.
-        - Any computer hardware shop.
-      * - +/- terminal connectors compatible with the 12V battery.
-        - Any electronics shop.
-      * - a IP66 enclosure. Look for one that has optional cable outlets so that you can bring +/- of solar panel into
-          the device and a network cable out. At least two cables will need to pass through.
-          Ideally get a DIN rail in the box for proper and neat device and cable management.
-        - Sold on amazon.com, but look carefully for one, large enough, and with the proper cable options.
-      * - watertight cable enclosures
-        - Sold on amazon.com e.g. `3.5-10mm waterproof IP68 electrical cable connectors <https://www.amazon.com/Junction-Waterproof-Electrical-Connector-3-5-10mm/dp/B083HRLQG3/ref=sr_1_8?crid=HEXI3WRNBK05&dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&dib_tag=se&keywords=cable%2Bconnectors%2Boutdoor&qid=1768311613&sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&sr=8-8&th=1>`_
-      * - passthrough cable connectors for watertight connection where cables enter/exit the enclosure.
-        - Sold on amazon.com e.g. `QILIPSU NPT Cable Gland Waterproof IP68 <https://www.amazon.com/QILIPSU-Waterproof-Adjustable-Locknut-Diameter/dp/B07ZRH3V59/ref=sr_1_9?crid=HEXI3WRNBK05&dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&dib_tag=se&keywords=cable%2Bconnectors%2Boutdoor&qid=1768311613&sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&sr=8-9&th=1>`_
+    * - Part
+      - Example specific item
+    * - Raspberry Pi 5 CM (8/32GB)
+      - `Raspberry Pi 5 <https://www.raspberrypi.com/products/raspberry-pi-5/>`_
+    * - Compute Module board (8/32GB)
+      - `Waveshare CM5-IO-Base-B <https://www.waveshare.com/cm5-io-base-b.htm?sku=30703>`_
+    * - CM2032 rechargeable battery (for Real-Time clock and power cycling)
+      - Please check availability locally. 3.7V LIR rechargeable batteries typically work.
+    * - IP camera (ideally >= 20Mbps, 1080p, event-capable)
+      - `AXIS P1385 <https://www.axis.com/products/axis-p1385>`_
+    * - 4G modem (can also be a Raspberry Pi modem HAT like a Waveshare7600E-H)
+      - `Waveshare7600E-H 4G HAT <https://www.waveshare.com/wiki/SIM7600E-H_4G_HAT?srsltid=AfmBOorAbFR9oT1jp57zfExviR1y5g-p3vRk5pf_f-1jtHWzr35EAALa>`_
+    * - Relay module (ideally a Pi HAT)
+      - `RPi Relay Board <https://www.waveshare.com/wiki/RPi_Relay_Board>`_
+    * - PoE adapter (12V; verify power specs)
+      - `LINOVISION PoE switch for DC powered systems <https://eu.linovision.com/en-eu/collections/all-poe-switches/products/4-ports-mini-solar-poe-switch-optimized-for-big-ptz-camera-and-wireless-bridges?_pos=2&_fid=d8b5ba801&_ss=c>`_
+    * - 12V to 5V (USB) buck converter, 5A for Raspberry Pi 5
+      - Sold on amazon.com e.g. `DEVMO 12V to 5V 5A Step-Down <https://www.amazon.com/DEVMO-Converter-Step-Down-Regulator-Transformer/dp/B09C4HPNJ8/ref=sr_1_11?dib=eyJ2IjoiMSJ9.RZsxLbFRLcU8Wb5O2N-5KjMcJ6uj1CoIoVbBQr4STi2nn6d88k_vvBEjd3TDfF1TUFG0_04Tchp9esoT8_nmfegVbZhdkErK-zT_2o9ZQX2eBJNbN-X9-kjJVchUWCA9eBo5tQZFStZovLdhs98BJyhv93V8ZhQyyslG4ILrTzFhK3OBGKHWr7ZUgFr1rJ9RxPkQkle4oxa4mNnuEAJevyGPTYtAqVepEHDPPPv1w8EHE_aqNBE0M0UVf_kjmDnycLmHf4u1SRdzXKlINuMrt2qboR1R5bS0C6TAlCN3q9o.zKXYl-61B5JUPgaXJbKZUSRhCvGflPU_vFfEAFQ1HIA&dib_tag=se&qid=1768307208&refinements=p_89%3ADEVMO&s=electronics&sr=1-11>`_
+    * - Solar panel (>= 50W)
+      - Any electronics/solar shop.
+    * - MQTT Solar charge controller
+      - Any electronics/solar shop.
+    * - 12V battery (>= 96Wh)
+      - Any electronics/solar shop. Consider a compact LiFePO battery for better environmental performance.
+    * - CAT6 outdoor network cable of sufficient length to go from the PoE adapter to the camera
+      - Any computer hardware shop.
+    * - A very short (e.g. 0.5 meter) CAT6 network cable. This is for connecting the Raspberry Pi to the switch.
+      - Any computer hardware shop.
+    * - +/- terminal connectors compatible with the 12V battery.
+      - Any electronics shop.
+    * - a IP66 enclosure. Look for one that has optional cable outlets so that you can bring +/- of solar panel into
+        the device and a network cable out. At least two cables will need to pass through.
+        Ideally get a DIN rail in the box for proper and neat device and cable management.
+      - Sold on amazon.com, but look carefully for one, large enough, and with the proper cable options.
+    * - watertight cable enclosures
+      - Sold on amazon.com e.g. `3.5-10mm waterproof IP68 electrical cable connectors <https://www.amazon.com/Junction-Waterproof-Electrical-Connector-3-5-10mm/dp/B083HRLQG3/ref=sr_1_8?crid=HEXI3WRNBK05&dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&dib_tag=se&keywords=cable%2Bconnectors%2Boutdoor&qid=1768311613&sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&sr=8-8&th=1>`_
+    * - passthrough cable connectors for watertight connection where cables enter/exit the enclosure.
+      - Sold on amazon.com e.g. `QILIPSU NPT Cable Gland Waterproof IP68 <https://www.amazon.com/QILIPSU-Waterproof-Adjustable-Locknut-Diameter/dp/B07ZRH3V59/ref=sr_1_9?crid=HEXI3WRNBK05&dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&dib_tag=se&keywords=cable%2Bconnectors%2Boutdoor&qid=1768311613&sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&sr=8-9&th=1>`_
 
 You will need basic tools such as a wire stripper, screw drivers, crimping pliers, 12V electric wire (wire used for
 speakers usually is great for 12V projects, but never use this for 220V applications!).

@@ -82,8 +82,8 @@ runs through:
     :hidden:
     :caption: Video configuration
 
-    What is a video configuration for? <video_conf/intro>
-    Selecting a sample video <video_conf/sample_video>
+    What is a video configuration? <video_conf/intro>
+    Field preparations <video_conf/preparations>
     Camera calibration <video_conf/camera_calib>
     Selecting an area of interest <video_conf/aoi>
     Selecting cross sections <video_conf/cross_sections>

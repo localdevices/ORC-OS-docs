@@ -1,16 +1,16 @@
-.. _hardware_sites:
+.. _field_guide:
 
-Hardware and sites
-==================
+Field guide
+===========
 
-This section provides guidances and requirements for site selection and surveying.
+This section provides guidances and requirements for site selection, setup and surveying in the field.
 We highly recommend reading this section before using and deploying ORC-OS.
 
 
 .. toctree::
     :maxdepth: 1
     :hidden:
-    :caption: Hardware and sites
+    :caption: Field guide
 
     Prerequisites for using ORC-OS <prerequisites>
     Suitable site conditions <site_conditions>
