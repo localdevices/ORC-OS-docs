@@ -14,8 +14,8 @@ Uploading new videos
 
 .. screenshot:: http://localhost:5173/video
   :browser: chromium
-  :viewport-width: 1280
-  :viewport-height: 960
+  :viewport-width: 1920
+  :viewport-height: 1080
   :color-scheme: dark
   :status-code: 200,302
   :interactions:
@@ -134,7 +134,6 @@ A few important remarks should be made about the records:
       }
     }
 
-
   Screenshot of the videos page with action buttons highlighted.
   Red: Edit water level
   Green: Synchronize video with LiveORC server
@@ -143,7 +142,7 @@ A few important remarks should be made about the records:
   Purple: Show processing log file
   Black: Select or edit video configuration
 
-Below we briefly describe the less obvious buttons, all indicated with a different color in the screenshot above.
+Below we briefly describe the buttons, all indicated with a different color in the screenshot above.
 For the "video configuration" button, we also refer to the section on
 :ref:`video configuration <video_conf_intro>` where the entire video configuration procedure is more elaborately
 described.
@@ -152,62 +151,12 @@ described.
 
 Editing your video's water level
 ++++++++++++++++++++++++++++++++
-.. screenshot:: http://localhost:5173/video
-  :browser: chromium
-  :viewport-width: 1280
-  :viewport-height: 960
-  :color-scheme: dark
-  :status-code: 200,302
-  :interactions:
-    // Find the elements by their IDs, change values
-    // Disable animations for deterministic screenshots
-    const style = document.createElement('style');
-    style.innerHTML = `
-      * {
-        transition: none !important;
-        animation: none !important;
-      }
-    `;
-    document.head.appendChild(style);
-    const table = document.querySelectorAll('[class="table table-bordered table-striped"]')[0];
-    const content = table.children[1];
-    const row = content.children[0];
-    const buttonEdit = row.children[9].children[0];
-    // const clickButton = async () => {
-      // buttonEdit.click();
-      // Force React + layout flush
-      // document.body.offsetHeight;
-      // Small sync delay (now safe)
-    // }
-    // await clickButton();
-    const end = Date.now() + 2000;
-    while (Date.now() < end) {}
 
-
-if (buttonEdit) {
-  const rect = buttonEdit.getBoundingClientRect();
-  const overlay = document.createElement('div');
-  Object.assign(overlay.style, {
-    position: 'absolute',
-    top: (rect.top + window.scrollY - 10) + 'px',
-    left: (rect.left + window.scrollX - 10) + 'px',
-    width: (rect.width + 20) + 'px',
-    height: (rect.height + 20) + 'px',
-    border: '5px solid red',
-    borderRadius: '6px',
-    zIndex: '999999',
-    pointerEvents: 'none',
-    boxSizing: 'border-box'
-  });
-  document.body.appendChild(overlay);
-  buttonEdit.click();
-  // Force React + layout flush
-  document.body.offsetHeight;
-
-  // buttonEdit.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
-  // Wait 2000ms for the menu animation to complete
-  // Synchronous delay using a busy-wait loop (2000ms)
-}
+.. figure:: ../../_images/_screenshots/video_edit_water_level.png
+   :width: 100%
+   :alt: Video editing page showing water level editor
+   
+   Screenshot of the video editing page with water level editor sidebar.
 
 Click the edit button to bring up a side view of the cross section and the associated water level (if any).
 In this view you can now start editing the water level with a slider. If there is no water level associated yet, create

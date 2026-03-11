@@ -20,28 +20,6 @@ runs through:
 
   The ORC-OS front page.
 
-
-:interactions:
-  // Find the element by its CSS selector
-  const el = document.querySelector('.custom-logo-link');
-  if (el) {
-    const rect = el.getBoundingClientRect();
-    const overlay = document.createElement('div');
-    Object.assign(overlay.style, {
-      position: 'absolute',
-      top: (rect.top + window.scrollY - 30) + 'px',
-      left: (rect.left + window.scrollX - 20) + 'px',
-      width: (rect.width + 40) + 'px',
-      height: (rect.height + 60) + 'px',
-      border: '10px solid red',
-      borderRadius: '5px',
-      zIndex: '999999',
-      pointerEvents: 'none',
-      boxSizing: 'border-box'
-    });
-    document.body.appendChild(overlay);
-  }
-
 .. toctree::
     :maxdepth: 1
     :hidden:
