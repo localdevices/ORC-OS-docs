@@ -1,6 +1,7 @@
 # IDE related
 .idea/
 .vscode/
+docs/source/_images/_screenshots/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

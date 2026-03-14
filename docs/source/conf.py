@@ -4,11 +4,13 @@ import os
 from pathlib import Path
 
 # Add the source directory to Python path for custom modules (e.g., screenshot_helpers)
-sys.path.insert(0, str(Path(__file__).parent.absolute() / "_scripts"))
+sys.path.insert(0, str(Path(__file__).parent.absolute()))
 
 # import custom screenshot helper functions
-from screenshots import make_screenshots
+from _scripts.screenshots import make_screenshots
 
+# get the screenshot directives
+from screenshots import screenshots
 import sphinx_autosummary_accessors
 import orc_api
 
@@ -76,23 +78,5 @@ html_context = {
 remove_from_toctrees = ["_generated/*", "_build/doctrees/*"]
 
 # create screenshots
-screenshots = [
-    {
-        "url": "http://localhost:5173/video?editVideoId=38",
-        "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_edit_water_level.png",
-        "viewport": {"width": 1920, "height": 1280},
-        "wait_time": 15000,  # milliseconds
-        "color_scheme": "dark",
-        "description": "Video editing page with water level editor",
-    },
-    # Add more screenshots as needed
-    # {
-    #     "url": "http://localhost:5173/video",
-    #     "filename": Path(__file__).parent / "_images" / "screenshots" / "video_list.png",
-    #     "viewport": {"width": 1920, "height": 1080},
-    #     "wait_time": 3000,
-    #     "color_scheme": "dark",
-    #     "description": "Main video list page",
-    # },
-]
-make_screenshots(screenshots)
+
+make_screenshots(screenshots, overwrite=False)
