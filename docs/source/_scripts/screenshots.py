@@ -27,6 +27,8 @@ def capture_screenshot(page, config):
         # Wait additional time for dynamic content
         page.wait_for_timeout(config.get("wait_time", 5000))
         
+        if "interactions" in config:
+            page.evaluate(config["interactions"])        
         # Optional: Scroll to trigger lazy loading
         page.evaluate("""
             () => {
@@ -34,6 +36,7 @@ def capture_screenshot(page, config):
                 setTimeout(() => window.scrollTo(0, 0), 100);
             }
         """)
+
         page.wait_for_timeout(1000)
         
         # Take screenshot
@@ -48,7 +51,7 @@ def capture_screenshot(page, config):
         return False
 
 
-def make_screenshots(screenshots):
+def make_screenshots(screenshots, overwrite=False):
     """Main function to capture all configured screenshots."""
     with sync_playwright() as p:
         # Launch browser
@@ -58,6 +61,11 @@ def make_screenshots(screenshots):
         fail_count = 0
         
         for config in screenshots:
+            # Check if file exists and overwrite is False
+            if not overwrite and Path(config["filename"]).exists():
+                print(f"   ⚠️  Skipping existing screenshot: {config['filename']}")
+                continue
+
             # Create context with specified settings
             context = browser.new_context(
                 viewport=config.get("viewport", {"width": 1920, "height": 1080}),
