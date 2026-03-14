@@ -16,7 +16,7 @@ you have:
   instruments only.
 
 Selecting a sample video
-++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^
 Once you are satisfied with the aim, record a sample video of a few seconds, and store this on your own laptop
 computer. Once stored, check if the quality is good and image is sharp, and once satisfied, go to the
 :ref:`video page <videos>`. Upload the video, following the instructions. Choose a time stamp close to the moment
@@ -54,7 +54,7 @@ Once uploaded, click on the red blinking video configuration icon next to the vi
 video configuration belonging to the uploaded video. A new window will open.
 
 The video configuration screen
-++++++++++++++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 In the video configuration screen, you will see 3 major fields:
 
 * The left-side shows the ``Camera view``  and ``Top view``. Using the two tabs, you can change between one or the
@@ -65,15 +65,14 @@ In the video configuration screen, you will see 3 major fields:
 * The bottom-right shows side views of selected cross-sections and set water levels. This starts empty as well as
   you must first upload and select cross-sections.
 
-.. note::
+.. tip::
 
   Under the ``Processing`` tab, you can change the first frame to process. This will also change the displayed frame
   in the ``Camera view`` to the one selected here.
 
-.. screenshot:: http://localhost:5173/video_config/1
-  :browser: chromium
-  :viewport-width: 1920
-  :viewport-height: 1080
-  :color-scheme: dark
-  :status-code: 200, 302
+.. figure:: ../../_images/_screenshots/video_config_start.png
+   :align: center
+   :alt: video configuration overview
+
+   Start page of the video configuration screen. 
 
