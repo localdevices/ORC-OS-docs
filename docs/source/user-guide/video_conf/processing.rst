@@ -99,6 +99,7 @@ here. We however recommend starting with the defaults.
         the nearest shore being entirely visible over a length similar to the "Size of element" setting, you may
         however decide to use the nearer shore for better results.
     * - Stream characteristics
+      - Man-made is selected as default because the optical level detection methods work best on man-made channels.
       - Different preprocessing combinations are used here to extract a good land/water segmentation from your videos.
         For instance, the "Man-made" option first attempts to resolve water levels from the range of intensities 
         measured over the entire video where the assumption is that moving water will show much more variation than
@@ -107,9 +108,5 @@ here. We however recommend starting with the defaults.
         well, and natural do not work well. In natural channels consider installing a level gauge sensor, or install 
         a clear stable object close to the camera. See additional note below for more information.
     * - Signal-to-noise ration for measuring levels
-
-
-
-
-
-
+      - lorem ipsum
+      - lorem ipsum

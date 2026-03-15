@@ -24,12 +24,29 @@ The water level is needed for two reasons:
     1. as measured during your survey in ``Water level in GCP coordinate system [m]``. This water level is indicated 
        with the black arrow on the left-hand side of the image shown below. 
     2. as measured at the same moment, but through the water level measurement device in
-       ``Water level in local gauge reference [m]``. This is illustrated with the green arrow on the right-hand side of 
-       the image shown below. The image suggests a staff gauge is the local reference, but this can also be a 
-       pressure sensor or any other device that can be used to measure water level. The only requirement is that you
-       can translate the water level as measured by this device to the water level in the GCP coordinate system. 
-       This is done by providing both water levels as described above.
-   
+       ``Water level in local gauge reference [m]``. 
+  
+  This is illustrated with the green arrow on the right-hand side of 
+  the image shown below. The image suggests a staff gauge is the local reference, but this can also be a 
+  pressure sensor or any other device that can be used to measure water level. The only requirement is that you
+  can translate the water level as measured by this device to the water level in the GCP coordinate system. 
+  This is done by providing both water levels as described above. In the schematic example for instance, the datum
+  of the GCPs is at -2.0 m. and the staff gauge datum is at its bottom, which is at -0.1 m. Here we have set the
+  lowest point of the bathymetry of the cross-section at zero. This is certainly not a requirement, it can in fact
+  be at any level, as long as the water levels are translated to the same vertical reference. A logical choice for
+  a water level time series for instance, is a local datum commonly used in your region. In the Netherlands for 
+  instance, this is the NAP datum, which is reasonably close to mean sea level and often used for time series so that 
+  data from several locations along a channel can also be compared with each other. Your GCPs however, may have been 
+  measured with a GPS device, which has its own datum, e.g. the WGS84 ellipsoid.
+
+
+  .. plot:: ./_scripts/plot_camera_datums.py
+    :alt: Schematic of water level measurements
+
+    Schematic representation of the two water levels that are needed to be entered in the cross-section tab. 
+    Black arrow - Water level measured in GCP coordinate system. 
+    Green arrow - Water level measured in local gauge reference.
+
   .. figure:: ../../_images/_video_conf/water_level.png
      :align: center
      :alt: water level schematic
@@ -37,11 +54,16 @@ The water level is needed for two reasons:
      Schematic overview of water level measurements. Black arrow - Water level measured in GCP coordinate system. 
      Green arrow - Water level measured in local gauge reference. Source: adapted from ChatGPT.
 
-  If you will only optically measure water level then choose a logical reference, for instance the bottom of the
-  cross section. This will allow you to easily update the cross-section if you wish to do so, without creating
-  offsets in the discharge - water level relationship.
-- second: to visually check if your measurements seem right. After selecting the water level and a cross-section
-  you will be able to visually see the wetted cross-sectional surface as well as the planar wetted surface.
+  If you will only optically measure water level then choose a logical reference, and keep it the same for both values. 
+  For instance, choose the bottom of the cross section or a level on a fixed point, such as a concrete pier. This will 
+  allow you to easily update the cross-section if you wish to do so, without creating offsets in the discharge - water 
+  level relationship. Simply ensure that when you resurvey the cross-section, you make sure that the vertical level
+  at the chosen reference point is the same as before. This will ensure that the water level in the GCP coordinate 
+  system is the same as before, and that you can also update the water level in the GCP coordinate system to the same 
+  reference as before.
+- the second reason is a little more obvious: to visually check if your measurements seem right. After selecting the 
+  water level and a cross-section you will be able to visually see the wetted cross-sectional surface as well as 
+  the planar wetted surface in the image view on the left-side of the Video configuration view.
 
 Fill in the two water levels in the cross-section tab as shown below. The color coding is the same as in the figure 
 above.
@@ -51,7 +73,7 @@ above.
    :alt: water level settings
 
    Water level settings in the cross-section tab. 
-   Black rectangle - Water level measured in GCP coordinate system.
+   Grey rectangle - Water level measured in GCP coordinate system.
    Green rectangle - Water level measured in local gauge reference.
 
 
