@@ -47,13 +47,6 @@ The water level is needed for two reasons:
     Black arrow - Water level measured in GCP coordinate system. 
     Green arrow - Water level measured in local gauge reference.
 
-  .. figure:: ../../_images/_video_conf/water_level.png
-     :align: center
-     :alt: water level schematic
-
-     Schematic overview of water level measurements. Black arrow - Water level measured in GCP coordinate system. 
-     Green arrow - Water level measured in local gauge reference. Source: adapted from ChatGPT.
-
   If you will only optically measure water level then choose a logical reference, and keep it the same for both values. 
   For instance, choose the bottom of the cross section or a level on a fixed point, such as a concrete pier. This will 
   allow you to easily update the cross-section if you wish to do so, without creating offsets in the discharge - water 
@@ -75,6 +68,7 @@ above.
    Water level settings in the cross-section tab. 
    Grey rectangle - Water level measured in GCP coordinate system.
    Green rectangle - Water level measured in local gauge reference.
+
 
 
 .. _vc_cross_sections:
@@ -159,3 +153,43 @@ You may also decide to "Straighten cross section". If you enable this option bef
     Schematic representation of a "cross section" that can be used to detect water levels, which is not a real 
     cross section, but more a connection of known vertical orientation points.
     
+.. _aoi:
+
+Selecting an area of interest
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Once water levels and cross sections are selected, you may draw an area of interest in the camera view. This area of
+interest will be rectangular in reality, but will appear in the camera's perspective. You can select the area of 
+interest in 4 simple clicks after which you may do some refinements:
+
+* First click on either one of the "Draw bounding box" buttons (see red rectangles in the figure below).
+* Then click on the left bank of the river in the camera view, at the location where you want the area of interest to
+  start. Click on a point along the cross-section where you think the water may get to when the water level is high.
+  This is likely firther left than the water edge during survey conditions.
+* Then click on the opposite side of yoiur first point, on the right bank of the river, also further right than the 
+  water edge so that the area of interest also covers the river during high flows.
+* Finally move your mouse cursor up- or downstream to grow the area of interest. You will automatically get a 
+  bounding box that has a bit of space up as well as downstream. Try to aim for about 2 meters up- and downstream space.
+  Click once you are satisfied.
+* This gives you a first version of the bounding box. You can click on "Top view" to check the rectangle from above
+  and compare it against the cross section. You may then rotate and move it with the buttons shown within the green
+  rectangle in the image below.
+
+.. figure:: ../../_images/_screenshots/video_config_bbox.png
+
+  Bounding box selection buttons
+
+.. tip::
+
+  The left bank is the bank that you see on your left side, while looking in downstream direction. The right bank is 
+  the bank that you see on your right side, while looking in downstream direction.
+
+The top view shows the bounding box in a top view perspective. This may help you understand if the box is large enough,
+encompasses the entire cross-section and if it is centrered around the cross-section. If this is not the case, do not 
+hesitate to move or rotate the area of interest, or make a completely new selection.
+
+.. figure:: ../../_images/_screenshots/video_config_top_view.png
+
+  Top view of the bounding box, here you can see we could have rotated the bounding box slightly to better encompass 
+  the cross section. This is not strictly necessary but may improve the coverage of your velocity estimates over the
+  cross-section.

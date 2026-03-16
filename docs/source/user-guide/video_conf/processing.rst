@@ -9,6 +9,7 @@ Processing options
    our experience with processing videos from a wide range of rivers and camera setups. We therefore recommend to
    first try processing your videos with the default settings, and only change settings if you have a good reason to do 
    so. The default settings are based on the following assumptions:
+
    * About a 20-30 meter wide river is recorded at 15 FPS with a resolution of 1920x1080 pixels.
    * The bathymetry does not vary suddenly over short distances. This means sampling along the cross section can be done
      with a modest spacing.
@@ -107,6 +108,80 @@ here. We however recommend starting with the defaults.
         then it will fall back to greyscale. Other bank types may be chosen, but in general man-made conditions work
         well, and natural do not work well. In natural channels consider installing a level gauge sensor, or install 
         a clear stable object close to the camera. See additional note below for more information.
-    * - Signal-to-noise ration for measuring levels
-      - lorem ipsum
-      - lorem ipsum
+    * - Signal-to-noise ratio for measuring levels (default: 3.0)
+      - the ratio of the optimal score identifying the water level in the cross section and the mean of the scores
+        over the entire cross section. If this ratio is too low, then the water level detection is not reliable and the 
+        water level is not set.
+      - For well-defined banks, e.g. a concrete wall or wide enough staff gauge plate, the default value of 3.0 works
+        well. For more natural banks, you may want to lower this value to e.g. 2.0, but be aware that this may
+        introduce more noise in the detected water levels. In general, if you have a natural bank, we recommend
+        installing a clear stable object close to the camera to improve water level detection, or install a level gauge 
+        sensor and set up automated readings following :ref:`water level settings <water_level>`.
+
+Discharge estimation
+^^^^^^^^^^^^^^^^^^^^
+Two settings can be managed to extract discharge from the video. These are found under "Discharge estimation".
+
+.. list-table::
+    :header-rows: 1
+    :widths: 25 35 40
+
+    * - Setting
+      - Description (default)
+      - Guidance
+    * - Velocity sampling distance (default: 0.5 m)
+      - The distance between points in the cross section where velocity is sampled to estimate discharge. E.g. if set 
+        to 0.5, then velocity is sampled every 0.5 meter along the cross section.
+      - For small streams, you probably want to reduce this value. Also if you have streams with a lot of small scale
+        variation in velocity, you may want to reduce this value. This may for instance be the case with reasonably 
+        wide artificial storm drains, with small conveyance channels in the middle, which convey water during dry
+        periods. If you still wish to capture velocities in the smaller conveyance channel, a reduction to e.g. 0.1 or
+        0.2 may be required. For large streams, you may want to increase this value to save some processing time.
+
+Plotting
+^^^^^^^^
+For each video, an augmented reality plot will be made. This plot can also be sent along with the time series record
+to :ref:`LiveORC <liveorc>` if this is selected in the :ref:`Daemon settings <daemon_settings>`. A number of settings
+are available to make your plot look the way you want it to look. These can be found under "Plotting".
+
+.. list-table::
+    :header-rows: 1
+    :widths: 25 35 40
+
+    * - Setting
+      - Description (default)
+      - Guidance
+    * - Grid arrow scale (default: 1.0)
+      - The scale of the arrows in the velocity grid. E.g. if set to 2.0, the arrows will be twice as long as the
+        default.
+      - The default creates a quiver arrow, that is scaled according to the real distance viewed in the objective.
+        If your stream is really small, but the velocities are still quite large, you may find the arrows too large
+        and you may want to reduce this value. If your stream is really large, but the velocities are still quite small, 
+        you may want to increase this value. Bear in mind that slow flowing rivers, can become fast during high flows!
+        Experimenting with this value may make sense.
+    * - Cross section arrow scale (default: 1.0)
+      - The scale of the arrows of the sampled velocities along the cross section. E.g. if set to 2.0, the arrows will
+        be twice as long as the default.
+      - Similar to the previous, but then for the cross section plot. The same guidance applies here as for the grid
+        arrow scale. A value of 1.0 is twice as long as the grid arrow scale.
+    * - Grid arrow width (default: 1.0)
+      - A width measure of the arrows in the velocity grid. E.g. if set to 0.5, the arrow line will be half as thick
+        as the default.
+      - The default usually looks nice, but if you think the plot is somewhat cluttered, you may want to reduce this 
+        value. If you think the arrows are too thin, you may want to increase this value. Go ahead and experiment!
+    * - Cross section arrow width (default: 1.0)
+      - A width measure of the arrows of the sampled velocities along the cross section. E.g. if set to 0.5, the arrow
+        line will be half as thick as the default.
+      - Similar to the previous, but then for the sampled cross section velocities. The same guidance applies here as
+        for the grid arrow width.
+
+.. tip::
+
+   In general, we recommend to iteratively change the processing settings with one or a few sample videos, ideally 
+   spanning low and high flow conditions. This will help you get an impression what the different settings do, and what
+   the optimal settings are. The most critical ones for velocity estimation are the "Resample frame distance" and 
+   "Pixel resampling size" settings as these influence largely the lower velocity values that you can still
+   reliably estimate. Perhaps counterintuitively, lowering the resample frame distance typically leads to a higher
+   sensitivity to also measure low flows. If your camera records at 60 (30) FPS, and your stream velocities are within a 
+   normal natural stream limits (e.g. 0.1 to 3 to 4 meter per second), then consider putting this value at 4 (2) as this
+   can lead to more accurate detection of low flows.

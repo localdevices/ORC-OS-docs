@@ -62,8 +62,8 @@ In the video configuration screen, you will see 3 major fields:
   location.
 * The top-right shows several tabs to manage the video configuration, with tabs for ``Name + details``, ``Camera pose``,
   ``Cross sections``, and ``Processing``. You must go through all tabs to get to a completed video configuration.
-* The bottom-right shows side views of selected cross-sections and set water levels. This starts empty as well as
-  you must first upload and select cross-sections.
+* The bottom-right shows side views of selected cross-sections and set water levels. This starts empty. 
+  You must first upload and select cross-sections.
 
 .. tip::
 

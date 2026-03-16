@@ -63,7 +63,6 @@ runs through:
     What is a video configuration? <video_conf/intro>
     Field preparations <video_conf/preparations>
     Camera calibration <video_conf/camera_calib>
-    Selecting an area of interest <video_conf/aoi>
-    Selecting cross sections <video_conf/cross_sections>
+    Water level and cross sections <video_conf/cross_sections>
     Processing options <video_conf/processing>
 

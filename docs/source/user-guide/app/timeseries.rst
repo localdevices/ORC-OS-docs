@@ -28,7 +28,7 @@ By default, the time series view shows data from the last timestamp found in the
 This usually gives a reasonable first view on the data in the database.
 
 Displayed variables
-+++++++++++++++++++
+^^^^^^^^^^^^^^^^^^^
 The following variables are available in the time series display. These can be switched on and off by clicking on the
 variable in the legend. By default, all variables are displayed. The water level scale is on the primary y-axis,
 velocities and discharge are displayed on the secondary y-axis. The meaning of the different variables is as follows:
@@ -63,7 +63,7 @@ velocities and discharge are displayed on the secondary y-axis. The meaning of t
 
 
 Notes
-+++++
+^^^^^
 
 :bluetext:`A few remarks are important:`
 
