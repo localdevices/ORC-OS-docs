@@ -14,4 +14,4 @@ We highly recommend reading this section before using and deploying ORC-OS.
 
     Prerequisites for using ORC-OS <prerequisites>
     Suitable site conditions <site_conditions>
-    Required field survey measurements <field_survey>
+    Field survey measurements <field_survey>

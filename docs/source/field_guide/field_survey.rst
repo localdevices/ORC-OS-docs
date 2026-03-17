@@ -1,21 +1,17 @@
 .. _field_survey:
 
-Required field survey measurements
-----------------------------------
+Field survey measurements
+-------------------------
 
-.. note::
+Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
+velocities and river flow. All of the observations needed are points in a 3D space, for which several methods
+may be used. A schematic planar and sideview of the information obtained through the survey is provided in the image below.
+We highly recommend to carefully read this section before doing any installation, and test out the entire survey
+procedure before going into the field.
 
-    Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
-    velocities and river flow. All of the observations needed are points in a 3D space, for which several methods
-    may be used. A schematic 3D overview of the information obtained through the survey is provided in the image below.
-    We highly recommend to carefully read this section before doing any installation, and test out the entire survey
-    procedure before going into the field.
-
-.. figure:: ../_images/_general/survey_points.png
-
-    Information collected through surveying. The "pose" lines and "bbox" (bounding box) rectangles are derived in the
-    software based on the measurements. The pose is the orientation of the camera. Bounding box is the area of interest
-    within the camera objective.
+.. plot:: _scripts/plot_camera_datums_combined.py
+   
+    Information collected through surveying.
 
 .. important::
 
@@ -73,6 +69,31 @@ The required data are given and described in the table below:
 .. figure:: ../_images/_general/gcps.jpg
 
    A good spread of control points, painted on the sides of a channel
+
+The above shown picture gives a typical situation of a good spread of control points along a channel. A few things can be 
+noticed which are important to consider:
+
+1. Points are spread over both left and right bank. This constrains the camera pose for close and far away pixels
+2. Points are also spread from left to right in the objective. This means that points are in real-world close to
+   each other close to the camera, but are more spread out further away. This is totally fine and actually ideal as it 
+   constrains the camera pose for the entire field of view.
+3. Although points are spread nicely, they are not precisely or very close to the edge of the Field of View. This is
+   important because the edge of a typical lens of a camera may behave very erratically. So best is: spread the points,
+   but not so far as that they are almost at the edge of the objective.
+
+The figures below show examples of wrongly spread points. Take a good look at these, and the captions to know what you
+should **NOT** do.
+
+The points are well spread from left to right, but all on one bank therefore making them collinear. There are no
+constraints for close to far, and this will lead to a likely very poorly constrained pose.
+
+The points are well spread from close to far, but all on one bank therefore also making them collinear. There are 
+no constraints for left to right, and this will lead to a likely very poorly constrained pose possibly with extruded or
+contracted views of reality from left to right.
+
+A nice spread of points, but some points on the left side, are almost on the edge of the field of view. In the camera
+objective these would show up very close to the edge of the image. This will lead to overconstraints on the distortion
+parameters, psosibly leading to bad results in the orthoprojection process.
 
 Below, we have provided some notes on two typical survey approaches, using a Leica P2P set or a RTK GNSS device.
 
