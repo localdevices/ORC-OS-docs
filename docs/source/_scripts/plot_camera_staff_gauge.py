@@ -11,6 +11,8 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 
+from matplotlib import transforms
+
 # --- Geometry -----------------------------------------------------------
 # Cross-section x-coordinates (m, left bank to right bank)
 x = np.array([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24])
@@ -46,6 +48,13 @@ fov_near_z = z_bed[1]
 fov_far_x = x[-2]         # far bank
 fov_far_z = z_bed[-2]
 
+# compute angle of the camera according to field of view lines
+def compute_angle(x0, z0, x1, z1):
+    return np.arctan2(z1 - z0, x1 - x0)
+angle_near = compute_angle(mast_x, camera_z, fov_near_x, fov_near_z)
+angle_far = compute_angle(mast_x, camera_z, fov_far_x, fov_far_z)
+angle_av = 0.5 * (angle_near + angle_far)
+
 # cross section coordinates
 cross_x = np.array([2, gauge_x_2-0.25, gauge_x_2-0.25, gauge_x_1-0.25, gauge_x_1-0.25, 22, 22])
 cross_z = np.array([z_bed.max(), z_bed.max(), gauge2_bottom + 0.2, gauge2_bottom + 0.2, gauge1_bottom + 0.2, gauge1_bottom + 0.2, z_bed.max()])
@@ -53,6 +62,8 @@ cross_z = np.array([z_bed.max(), z_bed.max(), gauge2_bottom + 0.2, gauge2_bottom
 
 # --- Figure -------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(12, 7))
+# Build a local transform so that camera can be rotated
+t = transforms.Affine2D().rotate_deg_around(mast_x, camera_z, np.rad2deg(angle_av)) + ax.transData
 
 # 1. Fill water body
 ax.fill_between(
@@ -165,12 +176,13 @@ camera_body = mpatches.FancyBboxPatch(
     boxstyle="round,pad=0.05",
     facecolor="#222222",
     edgecolor="black",
+    transform=t,
     linewidth=1,
     zorder=6,
 )
 ax.add_patch(camera_body)
 # Lens circle
-lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1,
+lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1, transform=t,
                    color="#888888", zorder=7)
 ax.add_patch(lens)
 ax.plot([], [], color="#222222", linewidth=6)  # legend proxy
@@ -220,4 +232,4 @@ ax.grid(True, linestyle=":", alpha=0.4)
 
 plt.tight_layout()
 # plt.savefig("cross_section_camera_gauges.png", dpi=150, bbox_inches="tight")
-# plt.show()
+plt.show()

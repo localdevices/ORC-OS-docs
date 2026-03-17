@@ -27,7 +27,10 @@ procedure before going into the field.
    so that you can correct that x, y, z offset between the different survey parts afterwards. Always check your
    observations with some simple plots. This can be done for instance in Excel using scatter plots.
 
-The required data are given and described in the table below:
+Requirement measurements
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The required measurements are given and described in the table below:
 
 .. list-table::
       :header-rows: 1
@@ -81,22 +84,93 @@ noticed which are important to consider:
    important because the edge of a typical lens of a camera may behave very erratically. So best is: spread the points,
    but not so far as that they are almost at the edge of the objective.
 
+Camera placement and aim
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+At some point you will have to decide where exactly to place your camera, how high and at what angle to aim it at
+the stream. Often this is where things might go wrong. You might install infrastructure, like a mast, or other 
+construction only after which you find out it is at the wrong or at a less ideal situation for the given camera type
+or for the stream. Here we try to give you a general sense what to be on the lookout for whilst making these decisions.
+
+The figure below, with captions show some examples of wrong camera placements and aims from the top view. 
+Take a good look at these, and the captions to know what you should do or avoid.
+
+.. plot:: ./_scripts/plot_fieldwork_wrong_placement.py
+
+   Examples of correct (top-left) and typical problematic placements and aims (other subplots) of the camera.
+
+a. The camera is well positioned. It can nicely see the entire cross section from the left natural levee to the right
+
+b. The camera is tilted upwards too much. You are likely used to turn a camera such that it gives
+   a pretty landscape view. This is not necessary and in fact not a good idea fro two reasons. 
+
+   - you here miss a part of the cross section, i.e. the last bit up to the natural levee close to the camera.
+   - if your camera uses an auto-exposure, likely it will reduce the exposure to ensure the sky is
+     does not get saturated, this will cause a too low illumination of the dark water which you are interested in.
+
+   A simple rule of thumb: rotate downwards such that you still can just see the levee on the other side, but hardly 
+   anything above it.
+
+c. Here the opposite of **b** occurs: the camera is tilted down too much. Therefore, you will miss part
+   of the natural levee on the far shore.
+
+d. Your camera setup is very close or even in the floodplain. This may cause that you miss parts of the cross section.
+   In some if not many cases, you will have to use existing infrastructure to mount your camera and you
+   do not have a choice but to accept the position is not ideal. In these cases, consider the follow options:
+
+   - perhaps you can get a higher mast, that allows you to oversee a larger if not the entire section
+   - accept that you miss a small part of the cross section. Consider which part will not convey much water.
+   - it is usually also fine to rotate your camera a bit in the upstream or downstream direction. 
+     Have a look for instance, at the picture below, showing footage from one of our most successful and
+     sustainable installations so far in Limburg, The Netherlands. Because our infrastructure was already
+     prepared and very close to the water, we were forced to install the camera and allow it to look
+     a little bit downstream. We just made sure that the cross section fits in our objective and
+     this gave us a very successful installation nonetheless.
+
+ 
+Measurement locations are almost never perfect, so accept this, and use our tips to still get a good 
+performing station.
+
+.. figure:: ../_images/_general/rotated_view_cam.jpg
+
+   A successful installation in Limburg, The Netherlands, where the camera is looking a bit downstream but still
+   captures the entire cross section.
+
+GCP placement
+^^^^^^^^^^^^^
+
 The figures below show examples of wrongly spread points. Take a good look at these, and the captions to know what you
 should **NOT** do.
 
-The points are well spread from left to right, but all on one bank therefore making them collinear. There are no
-constraints for close to far, and this will lead to a likely very poorly constrained pose.
 
-The points are well spread from close to far, but all on one bank therefore also making them collinear. There are 
-no constraints for left to right, and this will lead to a likely very poorly constrained pose possibly with extruded or
-contracted views of reality from left to right.
+a. Well-spread points, nicely within the objective, and spread over both banks. This is ideal and will lead to a 
+   well-constrained camera pose and good results in the orthoprojection process.
 
-A nice spread of points, but some points on the left side, are almost on the edge of the field of view. In the camera
-objective these would show up very close to the edge of the image. This will lead to overconstraints on the distortion
-parameters, psosibly leading to bad results in the orthoprojection process.
+b. The points are well spread from close to far, but do not spread from left-to-right. They are almost in a straight 
+   line. There are therefore no constraints for left to right, and this will lead to a likely very poorly constrained 
+   pose possibly with extruded or contracted views of reality from left to right.
 
-Below, we have provided some notes on two typical survey approaches, using a Leica P2P set or a RTK GNSS device.
+c. The points are well spread from left to right, but all on one bank therefore making them collinear. There are no
+   constraints for close to far, and this will lead to a likely very poorly constrained pose.
 
+d. A nice spread of points, but some points on the left side, are almost on the edge of the field of view. In the camera
+   objective these would show up very close to the edge of the image. This will lead to overconstraints on the distortion
+   parameters, possibly leading to bad results in the orthoprojection process.
+
+.. plot:: ./_scripts/plot_fieldwork_wrong_gcps.py
+
+   Examples of correct (top-left) and typical problematic placements (other subplots) of GCPs.
+
+Survey guide
+^^^^^^^^^^^^
+
+Now that you have read about the required measurements, why these measurements are required, and what typically can go 
+wrong, you are ready to start doing the measurements. Below, we have provided some notes on two typical survey 
+approaches from top to bottom, using a Leica P2P set or a RTK GNSS device. Select the one that is most suitable for
+your situation. If you use a spirit level and/or total station, the procedure is similar to the Leica disto P2P set
+but you will have to do some extra calculations (especially with a staff gauge + spirit level). It is beyond scope
+here to detail this. We assume that you already have some experience with these devices and can figure out how to use
+them for the required measurements. 
 
 .. tab-set::
 

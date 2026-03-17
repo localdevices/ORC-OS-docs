@@ -174,7 +174,7 @@ def draw_top_view(ax):
     ax.set_ylabel("Across-river distance (m)", fontsize=15)
     ax.set_title("Top view: camera setup, FoV and Ground Control Points", fontsize=15)
     ax.grid(True, linestyle=":", alpha=0.4)
-    ax.legend(loc="lower left", fontsize=12, framealpha=0.85)
+    ax.legend(loc="lower left", fontsize=11, framealpha=0.85)
 
 
 def draw_cross_section(ax):
@@ -202,6 +202,17 @@ def draw_cross_section(ax):
     fov_near_z = z_bed[2]
     fov_far_x = x[-2]
     fov_far_z = z_bed[-2]
+
+    # compute angle of the camera according to field of view lines
+    def compute_angle(x0, z0, x1, z1):
+        return np.arctan2(z1 - z0, x1 - x0)
+    angle_near = compute_angle(mast_x, camera_z, fov_near_x, fov_near_z)
+    angle_far = compute_angle(mast_x, camera_z, fov_far_x, fov_far_z)
+
+    angle_av = 0.5 * (angle_near + angle_far)
+
+    # Build a local transform so that camera can be rotated
+    t = transforms.Affine2D().rotate_deg_around(mast_x, camera_z, np.rad2deg(angle_av)) + ax.transData
 
     ax.fill_between(
         x,
@@ -250,11 +261,12 @@ def draw_cross_section(ax):
         boxstyle="round,pad=0.05",
         facecolor="#222222",
         edgecolor="black",
+        transform=t,
         linewidth=1,
         zorder=6,
     )
     ax.add_patch(camera_body)
-    lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1, color="#888888", zorder=7)
+    lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1, transform=t, color="#888888", zorder=7)
     ax.add_patch(lens)
 
     ax.plot(
@@ -340,7 +352,7 @@ def draw_cross_section(ax):
     ax.set_ylabel("Elevation (m)", fontsize=14)
     ax.set_title("Cross-section: water levels, datums and camera setup", fontsize=15)
     ax.grid(True, linestyle=":", alpha=0.4)
-    ax.legend(loc="upper right", fontsize=13, framealpha=0.85)
+    ax.legend(loc="upper right", fontsize=11, framealpha=0.85)
 
 
 # --- Combined figure ----------------------------------------------------

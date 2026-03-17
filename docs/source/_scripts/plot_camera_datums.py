@@ -11,6 +11,8 @@ import matplotlib.patches as mpatches
 import matplotlib.pyplot as plt
 import numpy as np
 
+from matplotlib import transforms
+
 # --- Geometry -----------------------------------------------------------
 # Cross-section x-coordinates (m, left bank to right bank)
 x = np.array([0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24])
@@ -23,8 +25,8 @@ z_surface_at_x = np.minimum(z_bed, water_level)
 
 # Camera side: left bank (x = 0)
 mast_x = 0.0              # m  (just outside the left bank)
-mast_base = 4.0            # ground elevation at mast base
-mast_height = 4.0          # height of mast above base
+mast_base = 3.8            # ground elevation at mast base
+mast_height = 5.0          # height of mast above base
 camera_z = mast_base + mast_height  # camera elevation
 
 # Staff gauge positions (left bank side)
@@ -44,9 +46,18 @@ fov_near_z = z_bed[1]
 fov_far_x = x[-2]         # far bank
 fov_far_z = z_bed[-2]
 
+# compute angle of the camera according to field of view lines
+def compute_angle(x0, z0, x1, z1):
+    return np.arctan2(z1 - z0, x1 - x0)
+angle_near = compute_angle(mast_x, camera_z, fov_near_x, fov_near_z)
+angle_far = compute_angle(mast_x, camera_z, fov_far_x, fov_far_z)
+
+angle_av = 0.5 * (angle_near + angle_far)
 
 # --- Figure -------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(12, 7))
+# Build a local transform so that camera can be rotated
+t = transforms.Affine2D().rotate_deg_around(mast_x, camera_z, np.rad2deg(angle_av)) + ax.transData
 
 # 1. Fill water body
 ax.fill_between(
@@ -146,16 +157,18 @@ ax.plot([mast_x - 0.3, mast_x + 0.3], [mast_base, mast_base],
 cam_w, cam_h = 0.5, 0.35
 camera_body = mpatches.FancyBboxPatch(
     (mast_x - cam_w / 2, camera_z - cam_h / 2),
+    # (- cam_w / 2, - cam_h / 2),
     cam_w, cam_h,
     boxstyle="round,pad=0.05",
     facecolor="#222222",
     edgecolor="black",
+    transform=t,
     linewidth=1,
     zorder=6,
 )
 ax.add_patch(camera_body)
 # Lens circle
-lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1,
+lens = plt.Circle((mast_x + cam_w / 2 - 0.05, camera_z), 0.1, transform=t,
                    color="#888888", zorder=7)
 ax.add_patch(lens)
 ax.plot([], [], color="#222222", linewidth=6)  # legend proxy
