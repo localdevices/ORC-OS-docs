@@ -1,6 +1,7 @@
 # Configuration file for the Sphinx documentation builder.
 import sys
 import os
+from datetime import datetime
 from pathlib import Path
 
 # Add the source directory to Python path for custom modules (e.g., screenshot_helpers)
@@ -14,8 +15,10 @@ from screenshots import screenshots
 import sphinx_autosummary_accessors
 import orc_api
 
+current_time = datetime.now()
+current_year = current_time.year
 project = 'OpenRiverCam Operating System'
-copyright = '2025, Rainbow Sensing'
+copyright = f'{current_year}, Rainbow Sensing'
 author = 'Hessel C. Winsemius'
 release = orc_api.__version__
 
