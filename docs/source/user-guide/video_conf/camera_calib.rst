@@ -18,7 +18,7 @@ Camera pose
    constrained along with the position and orientation, provided that there is enough
    control information in the calibration targets. 8 GCPs is a good number for this.
    
-The control points should be clearly identifiable in the camera objective.
+The control points must be clearly identifiable in the camera objective.
 Make sure you can find them in your sample video and that they are well
 spread over the objective. The figure below gives an example, and more guidance
 how to spread and collect control points is given in 
@@ -69,7 +69,7 @@ from the pixel coordinates and finally, estimating how far apart these are from 
 larger than 0.1 meter, the message will be an orange colored warning and you may want to change or resurvey.
 Good measurements should result in an error of around 0.05 meters.
 
-.. tips::
+.. tip::
 
    * If your area of interest and distances between GCPs are very large, an error of 0.1 meters is not necessarily
      a large problem. In fact, larger errors are expected with larger areas of interest.

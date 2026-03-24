@@ -184,4 +184,4 @@ are available to make your plot look the way you want it to look. These can be f
    reliably estimate. Perhaps counterintuitively, lowering the resample frame distance typically leads to a higher
    sensitivity to also measure low flows. If your camera records at 60 (30) FPS, and your stream velocities are within a 
    normal natural stream limits (e.g. 0.1 to 3 to 4 meter per second), then consider putting this value at 4 (2) as this
-   can lead to more accurate detection of low flows.
+   can lead to more accurate detection of low flows. To save storage, you may also simply put your camera FPS to 15.
