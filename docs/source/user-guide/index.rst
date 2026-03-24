@@ -91,9 +91,9 @@ documentation. In summary, this software user guide runs through:
     :caption: Developers
 
     What can a developer do? <developers/intro>
+    Console and virtual environment <developers/backend>
     Creating background services <developers/services>
     Command-line interface <developers/cli>
-    Database and file storage reference <developers/database>
 
 
 
