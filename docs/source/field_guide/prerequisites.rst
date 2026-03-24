@@ -30,7 +30,8 @@ We list here what is needed to get ORC-OS installed on a typical field device in
   IP Camera that can deliver video files via FTP or SFTP.
   See: https://www.raspberrypi.com/products/camera-module-3/
 
-- With an IP camera, a shared network switch, or modem, allowing IP camera and compute device to share the same network.
+- When using an IP camera, you will also need a shared network switch, or modem, allowing IP camera and compute device
+  to share the same network.
 
 A few extra settings may have to be made on the Raspberry Pi 5 when using this setup.
 
@@ -41,6 +42,24 @@ A few extra settings may have to be made on the Raspberry Pi 5 when using this s
   This is only possible on a Raspberry Pi 5, NOT on 4. On Raspberry Pi 4 you will need a separate
   power management solution.
 
+.. note:: 
+  
+  The cool thing of ORC-OS is that you can setup power management and control of power of the camera through extra 
+  additional services, that can be created, deployed and managed entirely on the front end interface. Are you using
+  a bespoke power management solution? No problem, build your own script to control that and create a service in our
+  web interface for it, which controls the parameters of your script. For more information, please check out 
+  :ref:`our guide on creating services <develop_services>`.
+
+.. tip::
+
+  An even cooler thing: if you get Rainbow Sensing's very cheap ready-to-flash ORC-OS image with support package, you 
+  will receive 
+  a ready to use relay service menu, a power management service menu and a remote connectivity menu in the web front 
+  end, making programming of relays and power management (regular interval on/off) and remote connectivity very easy 
+  to setup. Each service has its own README section with instructions how to use it, and even how to connect a relay 
+  extension. The support includes a username and password for remote connectivity, getting you up and running 
+  instantly.
+
 A typical hardware setup in the field
 -------------------------------------
 
@@ -50,7 +69,6 @@ some guidance here how to establish a complete field setup here.
 .. figure:: ../_images/_general/hardware_setup_example.png
 
    Impression of a typical hardware setup and the required connections
-
    :scale: 50 %
    :alt: hardware setup
 
@@ -62,7 +80,7 @@ We use industrial grade parts and assume a setup with solar power and running ev
 We are not frequently and actively maintaining the parts list. Please let us know if anything seems out of order by
 creating a Github issue on the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>`_.
 
-.. note::
+.. warning::
 
    We do NOT give any guarantee that with these parts, your build will work. We also do not give
    any support without a project. It may be that certain parts change in time. We are never responsible for
@@ -121,38 +139,46 @@ Below a rough guide to assemblage is provided:
 
 1. First install ORC-OS as indicated on the `README <https://github.com/localdevices/ORC-OS/blob/main/README.md>`_ of ORC-OS.
 2. Prepare the IP66 enclosure, open up at least two of the passthrough holes.
-3. Fix the modem HAT on the Pi and insert a SIM-card. MAke sure the SIM card does not have a PIN-code. This will save
+3. Fix the modem HAT on the Pi and insert a SIM-card. Make sure the SIM card does not have a PIN-code. This will save
    you a lot of trouble. Test the connection whilst in your office.
 4. Charge your 12V battery to a satisfactory amount for testing.
 5. Fix the Relay HAT on top of the modem HAT (or vice versa, whatever is easiest for you).
-6. Program one of the relays on the HAT to switch on for 30 seconds during boot. This can be done using a systemd service.
-   *We will provide instructions how to do this later*. This will save a lot of power as the camera is only used
-   and needed very briefly.
+6. Program one of the relays on the HAT to switch on for 30 seconds during boot. This can be done by creating an additional 
+   :ref:`service <develop_services>`. With Rainbow Sensing's ready-to-flash image, you will receive a ready to use relay 
+   service menu in the web front end. This will save a lot of power as the camera is only used and needed very briefly.
 7. Connect the PoE adapter to the 12V power supply via the programmed relays and test if the relay switches on briefly
-   every time you boot up the Pi. Once tested, directly connect the PoE switch to the battery for permanent power.
-8. Program the on-board RTC to switch on every 30 minutes and switch off after 5 minutes. This ensure that the entire
-   setup only runs 5 minutes every half hour. This can be done using a systemd service.
+   every time you boot up the Pi. Once tested, connect the PoE switch with relay to the battery for permanent power.
+8. Use the power management service (included in Rainbow Sensing's ready-to-flash image) to program the Raspberry Pi
+   to switch on every 30 minutes and switch off after 5 minutes. This ensure that the entire setup only runs 5 minutes 
+   every half hour. You can also :ref:`program your own power management service <develop_services>`.
 9. Test this a few cycles and see if the Raspberry Pi indeed switches on/off every 30 minutes/5minutes.
    Disable the service file after testing to enable testing of other components.
-   *We will provide instructions how to prepare the service file later.*
 
-Now you have the basics running.
+.. note::
+  
+  Now you have the basics running. At this stage, there are no devices yet connected to the PoE switch. 
+  Note that only the camera will receive power from the PoE switch, the Raspberry Pi is powered separately through the 
+  buck converter. This is to ensure the Raspberry Pi can control its own power as well as power to the PoE switch and
+  camera through the relay.
 
-10. Connect the Raspberry Pi to the PoE Switch
+10. Now connect the Raspberry Pi with a LAN cable to the PoE Switch, so that it shares the same network as the IP camera.
 11. Also connect the IP-camera to the PoE switch (remember to for now directly wire it, and not use the relay)
-12. Connect your computer to the switch.
-13. Login to the ORC-OS interface. That usually is possible on http://orcos or http://orcos.local or replace `orcos`
-    for the hostname you entered whilst installing ORC-OS.
+12. Also connect your computer to the switch. Power on the Raspberry Pi.
+13. Login to the ORC-OS interface. That usually is possible on ``http://orcos`` or ``http://orcos.local`` or replace 
+    ``orcos`` for the hostname you entered whilst installing ORC-OS.
 14. Go to the Settings - Daemon settings. Fill out the expected file name convention for receiving videos from your
-    IP-camera (check the manual of the IP camera, you expect something like `video_20260103_141500.mp4` for a video
-    taken on 3 January 2026, 2:15 PM. This would yield a naming convention `video_{%Y%m%d_%H%M%S}.mp4`. Click on `Submit`.
+    IP-camera (check the manual of the IP camera, you expect something like ``video_20260103_141500.mp4`` for a video
+    taken on 3 January 2026, 2:15 PM. This would yield a naming convention ``video_{%Y%m%d_%H%M%S}.mp4``. Click on 
+    "Submit".
 15. Now click on <EXAMPLES> to see how to get such video files transferred from the IP camera to the raspberry pi.
     You want to note the SFTP details and the specific folder the files should go to.
-16. Now login to the IP camera web interface (check the IP camera's manual).
+16. Now login to the IP camera web interface (check the IP camera's manual, this is different for all camera models).
 17. Program an "event" that records a 5-sec video when the camera switches on. Use SFTP to transfer the video file
-    directly to the Raspberry Pi using the details taken from ORC-OS.
-    Ensure the bit rate is high! Ideally 20Mbps (Megabit per second). This is to ensure
-    that the details visible on the water surface are not lost through compression.
+    directly to the Raspberry Pi using the details taken from ORC-OS. If a single event at boot is not possible, you
+    can also program the camera to record 5-seconds at set intervals, such as every 30 minutes. In practice it will
+    then only record at boot, as your cycle is shorter than 30 minutes. Ensure the bit rate is high! Ideally 20Mbps
+    (Megabit per second). This is to ensure that the details visible on the water surface are not lost through 
+    compression.
 18. Test the event and check if the files indeed end up in the right folder. Currently these are not yet processed.
 19. Install all components in the IP66 enclosure. Wire up the solar panels (first connect the battery to the charge
     controller, then the panel). Pass the cables and fix these watertight with passthrough cable connectors.
@@ -160,7 +186,7 @@ Now you have the basics running.
 21. Go into the field and start configuring ORC-OS! See our extensive :ref:`User guide <user-guide>`
 22. Once configured, enable all the systemd service files (relay and power cycling).
 23. Wait for a few cycles to see if everything works as expected.
-24. Go home and let the device collect your data.
+24. Go home and let the device collect your data!
 
 .. note::
 

@@ -4,5 +4,6 @@ pydata_sphinx_theme
 sphinx
 sphinx_autosummary_accessors
 sphinx_rtd_theme
+sphinxcontrib-programoutput
 sphinxcontrib-screenshot
 sphinx-design

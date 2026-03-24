@@ -32,6 +32,7 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinxcontrib.screenshot",
     "matplotlib.sphinxext.plot_directive",
+    "sphinxcontrib.programoutput",
     "sphinx_autosummary_accessors",
     "sphinx_design"
 ]
