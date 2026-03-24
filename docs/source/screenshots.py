@@ -219,4 +219,22 @@ async () => {
 }
 """
     },
+    {
+        "url": "http://localhost:5173/services",
+        "filename": Path(__file__).parent / "_images" / "_screenshots" / "services_create.png",
+        "viewport": {"width": 1920, "height": 1080},
+        "wait_time": 3000,
+        "color_scheme": "dark",
+        "description": "Services creation",
+        "interactions": """
+async () => {
+    const btn = document.querySelectorAll('.btn.btn-primary')[0];
+    if (btn) {
+        btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    }
+    await new Promise(resolve => setTimeout(resolve, 1500));
+}
+"""
+        
+    }
 ]

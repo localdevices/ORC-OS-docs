@@ -36,13 +36,17 @@ Location of files and database
 By default, the ORC-OS software is installed in the home directory of the main
 user (e.g. ``pi``) in a hidden called ``.ORC-OS``. This makes the full path
 accessible as follows:
-```bash
-cd $HOME/.ORC-OS
-```
+
+.. code-block:: bash
+
+    cd $HOME/.ORC-OS
+
 or:
-```bash
-cd ~/.ORC-OS
-```
+
+.. code-block:: bash
+
+    cd ~/.ORC-OS
+
 Within this folder, you will find several default locations for database, 
 incoming videos (when you import and run videos automatically) and stored
 files per video after importing and running. This is organized as follows:
@@ -129,9 +133,10 @@ to change the location of certain folders. These are described below.
 In bash, you can set these environment variables by running the following command,
 adapting the values to your needs:
 
-```bash
-export ORC_SECRET_KEY="my_random_secret_key"
-```
+.. code-block:: bash
+    
+    export ORC_SECRET_KEY="my_random_secret_key"
+
 If you start the web server after this, the ``ORC_SECRET_KEY`` will be set to 
 the value you have defined.
 
@@ -159,16 +164,16 @@ We here assume that you have made a virtual environment for ORC-OS under
 the path `$HOME/venv/orcos`. To activate this virtual environment, you can run 
 the following command (adapt your exact path if necessary):
 
-```bash
-source $HOME/venv/orcos/bin/activate
-```
+.. code-block:: bash
+
+    source $HOME/venv/orcos/bin/activate
 
 You should see the name of your virtual environment in parentheses at the 
 beginning of your terminal prompt, indicating that it is active. For example:
 
-```bash
-(orcos) pi@openrivercam:~ $
-```
+.. code-block:: bash
+
+    (orcos) pi@openrivercam:~ $
 
 Now we are able to access python commands and scripts, that use pre-installed
 packages in the virtual environment. In the next sections we will treat:
