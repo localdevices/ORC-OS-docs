@@ -3,9 +3,9 @@
 Background services
 -------------------
 
-Background services are processes that run in the background as entirely
-independent processes from the web server. They can be used to run any kind of
-additional process encapsulated in a script that you like. Examples include:
+Background services are entirely independent processes that run in the background.
+They can be used to run any kind of additional process encapsulated in a script that you like. Examples include:
+
 * Running a script, that monitors the state of your battery and reports
   this in the ``misc`` field of the time series table.
 * Running a script that continuously monitors the database and if a new record

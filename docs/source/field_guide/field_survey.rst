@@ -95,6 +95,7 @@ b. The camera is tilted upwards too much. You are likely used to turn a camera s
      does not get saturated. Reducing exposure will cause a too low illumination of the dark water below it.
      And this is what you are interested in. Too dark will cause that you cannot see the particles in the water, 
      and therefore the velocity estimation will reduce in accuracy.
+
    A simple rule of thumb: rotate downwards such that you still can just see the levee on the other side, but hardly 
    anything above it.
 

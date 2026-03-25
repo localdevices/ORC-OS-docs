@@ -48,7 +48,7 @@ A few extra settings may have to be made on the Raspberry Pi 5 when using this s
   additional services, that can be created, deployed and managed entirely on the front end interface. Are you using
   a bespoke power management solution? No problem, build your own script to control that and create a service in our
   web interface for it, which controls the parameters of your script. For more information, please check out 
-  :ref:`our guide on creating services <develop_services>`.
+  :ref:`our guide on creating services <devel_services>`.
 
 .. tip::
 
@@ -144,13 +144,13 @@ Below a rough guide to assemblage is provided:
 4. Charge your 12V battery to a satisfactory amount for testing.
 5. Fix the Relay HAT on top of the modem HAT (or vice versa, whatever is easiest for you).
 6. Program one of the relays on the HAT to switch on for 30 seconds during boot. This can be done by creating an additional 
-   :ref:`service <develop_services>`. With Rainbow Sensing's ready-to-flash image, you will receive a ready to use relay 
+   :ref:`service <devel_services>`. With Rainbow Sensing's ready-to-flash image, you will receive a ready to use relay 
    service menu in the web front end. This will save a lot of power as the camera is only used and needed very briefly.
 7. Connect the PoE adapter to the 12V power supply via the programmed relays and test if the relay switches on briefly
    every time you boot up the Pi. Once tested, connect the PoE switch with relay to the battery for permanent power.
 8. Use the power management service (included in Rainbow Sensing's ready-to-flash image) to program the Raspberry Pi
    to switch on every 30 minutes and switch off after 5 minutes. This ensure that the entire setup only runs 5 minutes 
-   every half hour. You can also :ref:`program your own power management service <develop_services>`.
+   every half hour. You can also :ref:`program your own power management service <devel_services>`.
 9. Test this a few cycles and see if the Raspberry Pi indeed switches on/off every 30 minutes/5minutes.
    Disable the service file after testing to enable testing of other components.
 

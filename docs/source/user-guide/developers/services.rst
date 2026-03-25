@@ -3,6 +3,7 @@
 Creating background services
 ============================
 
+
 Background services are processes that run in the background as entirely
 independent processes from the web server. They can be used to run any kind of
 additional process that you like. Examples include:
@@ -15,6 +16,14 @@ additional process that you like. Examples include:
 * Handling power management, so that the device turns on and off at certain 
   times of the day**
 
+.. tip::
+
+    Creating a new service requires the web server to be in development mode. 
+    The ready-to-flash images from Rainbow Sensing can be started in development
+    mode by simply pressing the on-board power button briefly. This will start
+    the web server in development mode, and even start a WiFi Hotspot so that
+    you can easily connect to your device. No need to log into the back-end!
+
 A service consists of a set of parameters, stored as environment variables, 
 and a Bash or Python script, which is run once the service is started. 
 Other things that help define the service are a short name, a description, and a 
@@ -25,7 +34,11 @@ and a default value. The parameters allow for user-side configuration of the
 service.
 
 A new service can be created from the web interface but only when the web server
-is running in development mode. To run the web server in development mode, set 
+is running in development mode. The ready-to-flash images require a simple button
+press to switch to development mode. If you have built your own device
+follow these instructions:
+
+To run the web server in development mode, set 
 the ``ORC_DEV_MODE`` environment variable to ``1`` (true). Then run the 
 web service interactively. Usually you do this with uvicorn, as follows:
 
@@ -38,13 +51,6 @@ web service interactively. Usually you do this with uvicorn, as follows:
 The port number is important because the web front-end is usually configured to 
 look for the web server on port 5000. If you have chosen a different port
 in your nginx configuration, then change the port to this port instead.
-
-.. tip::
-
-    The ready-to-flash images from Rainbow Sensing can be started in development
-    mode by simply pressing the on-board power button briefly. This will start
-    the web server in development mode, and even start a WiFi Hotspot so that
-    you can easily connect to your device. No need to log into the back-end!
 
 Create a new service
 --------------------
@@ -80,11 +86,26 @@ and start and stop it. This is explained in more detail below.
 
 Adding parameters
 -----------------
-To manage a server, click on "Manage" in the list of services.
+To manage a service, click on the "Manage" button of the service you wish
+to manage. This will reveal the following page:
 
-Parameters are added by clicking the "Add parameter" button. Only when
-you are in development mode, you can add parameters here. A form will be 
-brought up where can fill in the details. The short name must be capitalized
+.. screenshot:: http://localhost:5173/services/3
+  :browser: chromium
+  :viewport-width: 1920
+  :viewport-height: 1080
+  :color-scheme: dark
+  :status-code: 200,302
+
+Parameters are added by clicking the "Add parameter" button. A form will be 
+brought up where can fill in the details.
+
+.. figure:: ../../_images/_screenshots/parameter_create.png
+    :align: center
+    :width: 100%
+    
+    The form to add a parameter to a background service.
+
+The short name must be capitalized
 and can only contain "_" as a special character. This is because the
 short name will be used as the name of the environment variable that is linked
 to this parameter. The long name can be anything you want. 
@@ -119,9 +140,10 @@ service that is running. This is for instance very important if you want to
 have a longer look at the device and a service is running that power cycles
 the device. If you interrupt this, you will have more time to check the device.
 Once you are done you can restart the service again. The meaning of the buttons
-is described in the general (i.e. not developers mode) description of the
-:ref:`services pages <services>`.
+is described in the general description of the :ref:`services pages <services>`
+for normal users.
 
-
-
+We have prepared a full example of a service for managing power to external devices
+via relays. To get a better understanding, please implement this service yourself
+by following the instructions in the next section.
 

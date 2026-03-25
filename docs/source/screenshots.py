@@ -1,8 +1,11 @@
 from pathlib import Path
 
+VIDEO_ID = 38
+SERVICE_ID = 4
+
 screenshots = [
     {
-        "url": "http://localhost:5173/video?editVideoId=38",
+        "url": f"http://localhost:5173/video?editVideoId={VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_edit_water_level.png",
         "viewport": {"width": 1920, "height": 1280},
         "wait_time": 15000,  # milliseconds
@@ -236,5 +239,42 @@ async () => {
 }
 """
         
+    },
+    {
+        "url": f"http://localhost:5173/services/{SERVICE_ID}",
+        "filename": Path(__file__).parent / "_images" / "_screenshots" / "parameter_create.png",
+        "viewport": {"width": 1920, "height": 1080},
+        "wait_time": 3000,
+        "color_scheme": "dark",
+        "description": "Parameter creation",
+        "interactions": """
+async () => {
+    const btn = document.querySelectorAll('.btn.btn-primary')[2];
+    if (btn) {
+        btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
     }
+    await new Promise(resolve => setTimeout(resolve, 1500));
+}
+"""
+        
+    },
+    {
+        "url": f"http://localhost:5173/services/{SERVICE_ID}",
+        "filename": Path(__file__).parent / "_images" / "_screenshots" / "service_manage.png",
+        "viewport": {"width": 1920, "height": 1280},
+        "wait_time": 3000,
+        "color_scheme": "dark",
+        "description": "Service management",
+        "interactions": """
+async () => {
+    const btn = document.querySelectorAll('.toggle-service-description')[0];
+    if (btn) {
+        btn.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
+    }
+    await new Promise(resolve => setTimeout(resolve, 1500));
+}
+"""
+        
+    }
+
 ]

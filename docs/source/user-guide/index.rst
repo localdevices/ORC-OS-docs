@@ -73,6 +73,7 @@ documentation. In summary, this software user guide runs through:
     Setting up LiveORC link <settings/liveorc>
     Over-The-Air Updates <settings/updates>
     Daemon for automated processing <settings/daemon>
+    Background services <settings/services>
 
 .. toctree::
     :maxdepth: 1
@@ -93,6 +94,7 @@ documentation. In summary, this software user guide runs through:
     What can a developer do? <developers/intro>
     Console and virtual environment <developers/backend>
     Creating background services <developers/services>
+    Example service: relay management <developers/relay>
     Command-line interface <developers/cli>
 
 
