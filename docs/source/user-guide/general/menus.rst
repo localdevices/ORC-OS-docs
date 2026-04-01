@@ -119,4 +119,9 @@ User menu
   User menu
 
 The user menu allows you to logout and change your password. Make sure to save or remember the password. You can only
-reset it by logging into the backend of the device running ORC-OS, if you are not logged in.
+reset it by logging into the backend of the device running ORC-OS, if you are not logged in. If you have the impression
+that the device is not behaving properly, you can also restart it here. This normally takes about 30 to 45 seconds
+on a Raspberry Pi 5. When you are in developers mode, you can also shutdown the device from this menu. The reason why
+we only allow this in developers mode is because shutting down is risky when done remotely. You can easily get 
+locked out of your device when you shut it down remotely, and you will need physical access to the device to turn it on 
+again.
