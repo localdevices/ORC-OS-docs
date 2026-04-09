@@ -2,16 +2,39 @@
 
 Setting up LiveORC API
 ----------------------
-
 .. screenshot:: http://localhost:5173/callback_url
   :browser: chromium
   :viewport-width: 1280
   :viewport-height: 960
   :color-scheme: dark
   :status-code: 200,302
+  :interactions:
+    // Find the elements by their IDs, change values
+    const url = document.getElementById('url');
+    if (url) {
+        url.value = 'https://liveorc.my-organisation.me/';
+    }
+    const user = document.getElementById('user');
+    if (user) {
+        user.value = 'john.doe@my-organisation.me';
+    }
+    const password = document.getElementById('password');
+    if (password) {
+        password.value = 'myp@ssw0rd';
+    }
+    const refresh = document.getElementById('tokenRefresh');
+    if (refresh) {
+        refresh.value = '';
+    }
+    const access = document.getElementById('tokenAccess');
+    if (access) {
+        access.value = '';
+    }
 
   The LiveORC API settings page. Here you can set up server url and credentials for synchronizing data with a LiveORC
   server.
+
+
 
 If you are running or have (write) access to a LiveOpenRiverCam server, you can set up a connection here.
 Just fill out url, username and password and submit these. The username and password will be replaced by an

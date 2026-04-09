@@ -1,9 +1,24 @@
 # Configuration file for the Sphinx documentation builder.
+import sys
+import os
+from datetime import datetime
+from pathlib import Path
+
+# Add the source directory to Python path for custom modules (e.g., screenshot_helpers)
+sys.path.insert(0, str(Path(__file__).parent.absolute()))
+
+# import custom screenshot helper functions
+from _scripts.screenshots import make_screenshots
+
+# get the screenshot directives
+from screenshots import screenshots
 import sphinx_autosummary_accessors
 import orc_api
 
+current_time = datetime.now()
+current_year = current_time.year
 project = 'OpenRiverCam Operating System'
-copyright = '2025, Rainbow Sensing'
+copyright = f'{current_year}, Rainbow Sensing'
 author = 'Hessel C. Winsemius'
 release = orc_api.__version__
 
@@ -16,7 +31,8 @@ extensions = [
     "sphinx.ext.todo",
     "sphinx.ext.napoleon",
     "sphinxcontrib.screenshot",
-    # "sphinxcontrib.programoutput",
+    "matplotlib.sphinxext.plot_directive",
+    "sphinxcontrib.programoutput",
     "sphinx_autosummary_accessors",
     "sphinx_design"
 ]
@@ -26,7 +42,6 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 source_suffix = ".rst"
 master_doc = "index"
-
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
@@ -65,3 +80,7 @@ html_context = {
 
 
 remove_from_toctrees = ["_generated/*", "_build/doctrees/*"]
+
+# create screenshots
+
+make_screenshots(screenshots, overwrite=False)

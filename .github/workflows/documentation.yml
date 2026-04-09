@@ -1,0 +1,97 @@
+name: Build Docs
+
+# We don't want pushes (or PRs) to gh-pages to kick anything off
+on:
+  workflow_dispatch
+
+jobs:
+  # Build docs on Linux
+  Docs:
+    name: linux docs
+    runs-on: ubuntu-latest
+    # env:
+    #   DOC_VERSION: dev
+    defaults:
+      run:
+        shell: bash -l {0}
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: OpenCV dependencies
+        run: |
+          sudo apt update
+          sudo apt install gdal-bin libgdal-dev libegl1 libopengl0 ffmpeg libjpeg-dev libfftw3-dev pandoc -y
+
+      - name: Install docs requirements
+        run: pip install -U -r requirements.txt
+
+      - name: Checkout ORC-OS (main)
+        run: |
+          rm -rf external/ORC-OS
+          git clone --depth 1 --branch main https://github.com/localdevices/ORC-OS.git external/ORC-OS
+
+      - name: Install dashboard dependencies
+        run: |
+          # copy packages.json to package.json if existing
+          if test -f external/ORC-OS/dashboard/packages.json && ! test -f external/ORC-OS/dashboard/package.json; then
+            cp external/ORC-OS/dashboard/packages.json external/ORC-OS/dashboard/package.json
+          fi
+          test -f external/ORC-OS/dashboard/package.json
+          # use package-lock.json if existing.
+          if test -f external/ORC-OS/dashboard/package-lock.json; then
+            npm ci --prefix external/ORC-OS/dashboard
+          else
+            npm install --prefix external/ORC-OS/dashboard
+          fi
+      - name: Run init.sh
+        run: |
+          chmod +x init.sh
+          ./init.sh
+      - name: Set ORC HOME
+        run: echo "ORC_HOME=$HOME/.ORC-OS-docs" >> $GITHUB_ENV
+      - name: Set DEV MODE
+        run: echo "ORC_DEV_MODE=1" >> $GITHUB_ENV
+      - name: Start backend and dashboard with set env variables
+        run: |
+          nohup uvicorn orc_api.main:app --host 0.0.0.0 --port 5000 --workers 1 > uvicorn.log 2>&1 &
+          nohup npm --prefix external/ORC-OS/dashboard run dev > dashboard-dev.log 2>&1 &
+      - name: Wait for services
+        run: |
+          # check FastAPI backend after max 2 minutes, check dashboard after max 3 minutes
+          timeout 120 bash -c 'until curl -fsS http://127.0.0.1:5000/ >/dev/null; do sleep 2; done'
+          timeout 180 bash -c 'until curl -fsS http://127.0.0.1:5173 >/dev/null; do sleep 2; done'
+          # now run both videos that contain a full config
+          curl http://localhost:5000/video/1/run/
+          curl http://localhost:5000/video/3/run/
+      - name: Prepare database and build docs with .sh script
+        run: |
+          # check if the runs are finished by looking for "time_series_id" not being null in the GET request
+          timeout 300 bash -c 'until curl -fsS http://localhost:5000/video/1/ | grep -v "time_series_id\":null"; do sleep 2; done'
+          timeout 300 bash -c 'until curl -fsS http://localhost:5000/video/3/ | grep -v "time_series_id\":null"; do sleep 2; done'
+          pushd docs
+          make html
+          popd
+      - name: Set doc version
+        run: echo "DOC_VERSION=$(python -c 'from orc_api import __version__ as v; print("dev" if "dev" in v else "v"+v.replace(".dev",""))')" >> $GITHUB_ENV
+      - name: Upload to GitHub Pages
+        if: ${{ github.event_name != 'pull_request'}}
+        uses: peaceiris/actions-gh-pages@v4.0.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
+          exclude_assets: '.buildinfo,_sources/*, _downloads/*'
+          destination_dir: ./${{ env.DOC_VERSION }}
+          keep_files: false
+          full_commit_message: Deploy ${{ env.DOC_VERSION }} to GitHub Pages

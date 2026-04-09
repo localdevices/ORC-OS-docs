@@ -40,3 +40,23 @@
 .figure-text-pair.wide-text .column:last-child {
     flex: 1 1 auto;
 }
+
+.red-text {
+   color: red;
+   font-weight: 600;
+}
+
+.green-text {
+   color: green;
+   font-weight: 600;
+}
+.light-green-text {
+   color: lightgreen;
+   font-weight: 600;
+}
+.blue-text {
+   color: blue;
+   font-weight: 600;
+}
+
+
