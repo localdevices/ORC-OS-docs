@@ -13,10 +13,6 @@ set -e
 
 # check if ORC_HOME is set, if not set it to a default value
 echo "Running from $PWD"
-# export SAMPLE_DATA_SHARE_ID="mYjdgDHfWLYeaMg"
-# export SAMPLE_DATA_PASSWORD="CX5epZfZEB"
-# export NEXTCLOUD_URL="https://nextcloud.rainbowsensing.synology.me"
-
 
 export SAMPLE_DATA_URL="${NEXTCLOUD_URL}/public.php/dav/files/${SAMPLE_DATA_SHARE_ID}" # sample_data_orcos_docs.zip
 
@@ -32,18 +28,6 @@ then
 fi
 
 echo "Retrieving sample data from $SAMPLE_DATA_URL"
-#   -X PROPFIND \
-#   --data \
-#       '<?xml version="1.0" encoding="UTF-8"?>
-#       <d:propfind xmlns:d="DAV:">
-#           <d:prop xmlns:oc="http://owncloud.org/ns">
-#               <d:getlastmodified/>
-#               <d:getcontentlength/>
-#               <d:getcontenttype/>
-#           </d:prop>
-#       </d:propfind>' \  
-#   -o sample_data.zip \
-#   --basic \
 curl \
   -s \
   -u "${SAMPLE_DATA_SHARE_ID}:${SAMPLE_DATA_PASSWORD}" \
