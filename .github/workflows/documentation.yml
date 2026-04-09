@@ -9,18 +9,18 @@ jobs:
   Docs:
     name: linux docs
     runs-on: ubuntu-latest
-    env:
-      DOC_VERSION: dev
+    # env:
+    #   DOC_VERSION: dev
     defaults:
       run:
         shell: bash -l {0}
     steps:
       - name: Checkout source
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
           cache: "pip"
