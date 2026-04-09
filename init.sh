@@ -14,6 +14,10 @@ set -e
 # check if ORC_HOME is set, if not set it to a default value
 echo "Running from $PWD"
 
+: "${NEXTCLOUD_URL:?NEXTCLOUD_URL missing}"
+: "${SAMPLE_DATA_SHARE_ID:?SAMPLE_DATA_SHARE_ID missing}"
+: "${SAMPLE_DATA_PASSWORD:?SAMPLE_DATA_PASSWORD missing}"
+
 export SAMPLE_DATA_URL="${NEXTCLOUD_URL}/public.php/dav/files/${SAMPLE_DATA_SHARE_ID}" # sample_data_orcos_docs.zip
 
 if [[ ! -v ORC_HOME ]]
