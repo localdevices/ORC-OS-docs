@@ -3,6 +3,13 @@
 .vscode/
 docs/source/_images/_screenshots/
 
+# test scripts
+test_init.sh
+
+# sample data
+sample_data/*
+!sample_data/.gitkeep
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
