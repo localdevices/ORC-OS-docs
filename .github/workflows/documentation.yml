@@ -56,6 +56,10 @@ jobs:
             npm install --prefix external/ORC-OS/dashboard
           fi
       - name: Run init.sh
+        env:
+          NEXTCLOUD_URL: ${{ secrets.NEXTCLOUD_URL }}
+          SAMPLE_DATA_SHARE_ID: ${{ secrets.SAMPLE_DATA_SHARE_ID }}
+          SAMPLE_DATA_PASSWORD: ${{ secrets.SAMPLE_DATA_PASSWORD }}
         run: |
           chmod +x init.sh
           ./init.sh
