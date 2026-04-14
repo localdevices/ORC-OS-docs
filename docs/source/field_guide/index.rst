@@ -3,8 +3,10 @@
 Field guide
 ===========
 
-This section provides guidances and requirements for site selection, setup and surveying in the field.
-We highly recommend reading this section before using and deploying ORC-OS.
+This section provides guidances and requirements for site selection, as well
+as how to setup and survey your site in the field. We highly recommend reading
+this section before using and deploying ORC-OS in the field, so that you are
+well-prepared.
 
 
 .. toctree::
@@ -12,6 +14,5 @@ We highly recommend reading this section before using and deploying ORC-OS.
     :hidden:
     :caption: Field guide
 
-    Prerequisites for using ORC-OS <prerequisites>
     Suitable site conditions <site_conditions>
     Field survey measurements <field_survey>

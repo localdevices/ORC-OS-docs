@@ -33,6 +33,7 @@ extensions = [
     "sphinxcontrib.screenshot",
     "matplotlib.sphinxext.plot_directive",
     "sphinxcontrib.programoutput",
+    "sphinxcontrib.youtube",
     "sphinx_autosummary_accessors",
     "sphinx_design"
 ]
