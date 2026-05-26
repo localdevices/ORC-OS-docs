@@ -15,8 +15,8 @@ OpenRiverCam Operating System documentation
    :caption: Table of contents:
 
    intro/index.rst
-   field_guide/index.rst
    getting_orcos.rst
-   quickstart
+   hardware/index.rst
+   field_guide/index.rst
    user-guide/index.rst
 

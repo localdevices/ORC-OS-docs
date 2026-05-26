@@ -14,6 +14,8 @@ you have:
 * measured the 3-D coordinates of the control points, cross-section and water level in one common coordinate system
   using one of the suggested methods. Again, precision within a few cm is very important, so use precise measurement
   instruments only.
+* have basic understanding of what a video configuration is. If you want to get more background first, then go
+  to the :ref:`video configuration introduction <video_conf_intro>`.
 
 Selecting a sample video
 ^^^^^^^^^^^^^^^^^^^^^^^^

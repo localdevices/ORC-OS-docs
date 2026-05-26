@@ -1,6 +1,6 @@
 from pathlib import Path
 
-VIDEO_ID = 38
+VIDEO_ID = 1
 SERVICE_ID = 4
 
 screenshots = [
@@ -13,7 +13,7 @@ screenshots = [
         "description": "Video editing page with water level editor",
     },
     {
-        "url": "http://localhost:5173/video_config/42",
+        "url": f"http://localhost:5173/video_config/{VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_config_start.png",
         "viewport": {"width": 1280, "height": 960},
         "wait_time": 3000,
@@ -32,7 +32,7 @@ async () => {
 
     # Add more screenshots as needed
     {
-        "url": "http://localhost:5173/video_config/42",
+        "url": f"http://localhost:5173/video_config/{VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_config_water_level.png",
         "viewport": {"width": 1920, "height": 1080},
         # "wait_time": 3000,
@@ -91,7 +91,7 @@ async () => {
 """
     },
     {
-        "url": "http://localhost:5173/video_config/42",
+        "url": f"http://localhost:5173/video_config/{VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_config_bbox.png",
         "viewport": {"width": 1920, "height": 1080},
         # "wait_time": 3000,
@@ -172,7 +172,7 @@ async () => {
 """
     },
     {
-        "url": "http://localhost:5173/video_config/42",
+        "url": f"http://localhost:5173/video_config/{VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_config_top_view.png",
         "viewport": {"width": 1920, "height": 1080},
         # "wait_time": 3000,
@@ -197,7 +197,7 @@ async () => {
     },
 
     {
-        "url": "http://localhost:5173/video_config/42",
+        "url": f"http://localhost:5173/video_config/{VIDEO_ID}",
         "filename": Path(__file__).parent / "_images" / "_screenshots" / "video_config_upload_cs.png",
         "viewport": {"width": 1280, "height": 960},
         # "wait_time": 3000,
