@@ -19,6 +19,11 @@
       .. figure:: _images/_general/ngwerere_20260103.jpg
           :width: 300px
 
+.. tip::
+
+    We provide read-to-use images for Raspberry Pi 5 with support, as well as other products
+    and services to get you started. Check our https://openrivercam.org for more information.
+
 Navigation
 ==========
 

@@ -9,17 +9,25 @@ How does it work in 6 bullets?
   - a few "control points" measurements, also in 3D coordinates in the same reference system. The software uses these
     to estimate the 3D angles and position of the camera with respect to the measured cross section.
 
-- These measurements are fed into the software using a user-friendly interface
+- These measurements are fed into the software using a user-friendly interface.
 - The software is set to record and analyze videos at set intervals.
 - Each video is automatically analyzed for movements of patterns around the cross-section. Thanks to the measurements,
-  pixels per second can be converted in meters per second.
-- Data is sent automatically to a central `LiveOpenRiverCam`_ server for further use in
+  pixels per second can be converted in velocities in meters per second. Thanks to the cross-section,
+  we can obtain:
+
+  * water level (m)
+  * surface and depth-averaged velocity (m/s)
+  * discharge (m3/s)
+
+- Data is sent (if you wish) automatically to a central `LiveOpenRiverCam`_ server for further use in
   decision support or other operational processes.
 
 .. _feats:
 
 Features
 --------
+
+With ORC-OS, you have the following and more at your fingertips:
 
 - Set up fully automated processing of videos into water levels and discharges, leveraging the power of
   `PyOpenRiverCam`_
