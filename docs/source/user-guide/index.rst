@@ -5,7 +5,7 @@ User guide
 
 This user guide describes the ORC-OS software and is intended for field hydrologists that wish 
 to configure ORC-OS for use in the field. It does not treat hardware and surveying aspects.
-These are described in the :ref:`hardware <prerequisites>` and the :ref:`field survey <field_survey>`
+These are described in the :ref:`hardware <hardware>` and the :ref:`field survey <field_survey>`
 documentation. In summary, this software user guide runs through:
 
 * Who or for what the software can be used.

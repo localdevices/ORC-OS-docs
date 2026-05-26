@@ -12,13 +12,16 @@ Conditions that you should look for although "ideal" sites almost never exist.
    how surface velocity translates to depth-average velocity are valid.
 2. Significant moving structures should be visible at the surface during the conditions that you want to be able to
    measure. If water movements cannot be detected ORC-OS also will not be able to estimate it.
-3. Consider that velocities under 0.1 meter per second are likely to be difficult to detect.
+3. Consider that velocities under 0.1 meter per second are likely to be difficult to detect. There are always
+   small parts of the cross section with such low velocities. These will be estimated by inferring velocity from
+   the observed velocities in other parts of the cross section.
 4. A suitable location to place a camera, such that it can oversee the entire width at an angle of at least 10
    degrees. Roughly, for every 10 meters distance, you will need a 1.5 to 2 meter elevation to achieve this.
    The middle of a bridge may seem attractive but is in many conditions NOT suitable as you then have to look quite
    far away in the objective to see the entire width and then the angle is too small. Better locations are either left
    or right bank, looking towards the other shore from a high enough elevation, e.g. the natural levee, or on top of a
-   mast. The left or right side of a bridge head, looking towards the other side can sometimes work.
+   mast. The left or right side of a bridge head, looking towards the other side can sometimes also be an option
+   if then most of the cross section still fullfils the 10 degrees rule.
 5. A safe location from any surrounding environmental threads, including but not limited to floods, vandalism, wildlife
    and so on. In urban environments look for a wall perimeter to place the installation on or behind. Consider fencing
    to protect against large mammal wildlife and monkeys. Also be aware that seasonal rivers with very large differences

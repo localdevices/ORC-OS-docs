@@ -32,12 +32,12 @@
     align-items: flex-start;
 }
 
-.figure-text-pair.wide-text .column:first-child {
+.figure-text-pair.wide-text-right .column:first-child {
     flex: 0 0 200px;
     max-width: 200px;
 }
 
-.figure-text-pair.wide-text .column:last-child {
+.figure-text-pair.wide-text-right .column:last-child {
     flex: 1 1 auto;
 }
 

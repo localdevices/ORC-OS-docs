@@ -6,4 +6,5 @@ sphinx_autosummary_accessors
 sphinx_rtd_theme
 sphinxcontrib-programoutput
 sphinxcontrib-screenshot
+sphinxcontrib-youtube
 sphinx-design

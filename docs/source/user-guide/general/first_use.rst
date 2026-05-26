@@ -13,7 +13,7 @@ bar of a browser. You can also type in ``http://`` followed by the hostname of t
    Usually you can find the IP-address and hostnames of network connected devices on your router's administration pages.
    Dependent on your network router, if you use the hostname to login, you may have to type
    a suffix in the address bar. This is mostly ``.local`` or ``.home``. Assuming your device is called
-   ``myorcdevice`` the address (with ``.local`` as suffix) would then be ``http://myorcdevice.local``.
+   ``orcos`` the address (with ``.local`` as suffix) would then be ``http://orcos.local``.
 
 The first time that you use ORC-OS, you will need to setup a password. It is important
 to remember this or store it in a password vault, as you can only change it by resetting it in
