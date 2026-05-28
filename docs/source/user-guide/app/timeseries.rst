@@ -14,8 +14,10 @@
 
 Time series
 -----------
+
 The time series page shows detailed plots of time series with filter options to reduce noise, show specific date ranges
-or filter out videos with certain quality criteria or other thresholds.
+or filter out videos with certain quality criteria or other thresholds. The selected records can also be downloaded 
+as a CSV file or deleted from the database.
 
 .. screenshot:: http://localhost:5173/time_series
   :browser: chromium
@@ -42,8 +44,8 @@ velocities and discharge are displayed on the secondary y-axis. The meaning of t
      - Description
    * - :bluetext:`Water level`
      - meter (m)
-     - Water level as measured by your own local device, derived from API, or (if not available) optically estimated
-       from your videos, using a provided cross section for water level detection.
+     - Water level as measured by your own local device, or derived from an online API, or (if not available) optically
+       estimated from your videos, using a provided cross section for water level detection.
    * - :lightgreentext:`Surface velocity`
      - Meter per second (m/s)
      - Estimated by averaging all estimated velocities over the wetted part of the cross section, used to
@@ -59,21 +61,15 @@ velocities and discharge are displayed on the secondary y-axis. The meaning of t
        section, the water level is being used.
 
 
+.. note::
 
-
-
-Notes
-^^^^^
-
-:bluetext:`A few remarks are important:`
-
-- if you have videos in your database, but have not yet processed these, you may not see anything in the time series
-  graph. This is perfectly normal.
-- once you have setup the :ref:`water level settings <water_level>` successfully, water levels will start to be collected at
-  time intervals set by yourself. You may expect then that water levels will also be shown in the time series graph.
-  If you retrieve water levels with a script, you may have more water level records than videos, and many may not be
-  attached to a video. This is not a problem. It is better to have too many water levels than too few to ensure a
-  recent water level is available to your videos.
-- once also videos are, or have been processed, flow records will appear, as well as surface and bulk velocities.
+  - if you have videos in your database, but have not yet processed these, you may not see anything in the time series
+    graph. This is perfectly normal.
+  - once you have setup the :ref:`water level settings <water_level>` successfully, water levels will start to be collected at
+    time intervals set by yourself. You may expect then that water levels will also be shown in the time series graph.
+    If you retrieve water levels with a script, you may have more water level records than videos, and many may not be
+    attached to a video. This is not a problem. It is better to have too many water levels than too few to ensure a
+    recent water level is available to your videos.
+  - once also videos are, or have been processed, flow records will appear, as well as surface and bulk velocities.
 
 

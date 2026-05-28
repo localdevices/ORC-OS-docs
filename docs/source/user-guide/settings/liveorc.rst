@@ -2,6 +2,7 @@
 
 Setting up LiveORC API
 ----------------------
+
 .. screenshot:: http://localhost:5173/callback_url
   :browser: chromium
   :viewport-width: 1280
@@ -34,9 +35,10 @@ Setting up LiveORC API
   The LiveORC API settings page. Here you can set up server url and credentials for synchronizing data with a LiveORC
   server.
 
+|LiveORC| (LiveORC) is a server-side API, with database and admin front-end that allows you to organize and utilize data
+from different measurement sites in one place. 
 
-
-If you are running or have (write) access to a LiveOpenRiverCam server, you can set up a connection here.
+If you are running or have (write) access to a LiveORC server, you can set up a connection here.
 Just fill out url, username and password and submit these. The username and password will be replaced by an
 access and refresh token. The refresh token will be automatically used to regenerate access codes once the access
 token is expired (after 6 hours).
@@ -52,5 +54,10 @@ In addition you may set:
   modem takes time to come online after power cycling your device. This is the case e.g. with Starlink modems that
   typically require 1 to 2 minutes of time before they provide connectivity.
 
-Once you have a valid url, user name and password, you will also see the online status of the set LiveORC
-server at the bottom of the page. This will also be shown at the front page of ORC-OS.
+Once you have set a valid url, user name and password, you will also see the online status of the set LiveORC
+server at the bottom of the page and the current access and refresh tokens. These are automatically refreshed after
+their expiry time. The LiveORC status will also be shown at the front page of ORC-OS once set up.
+
+.. |LiveORC| raw:: html    
+
+    <a href="https://github.com/localdevices/LiveORC" target="_blank" rel="noopener noreferrer">LiveOpenRiverCam</a>

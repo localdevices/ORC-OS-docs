@@ -3,13 +3,21 @@
 Console and virtual environment
 ===============================
 
+.. note::
+
+  The operations mentioned in this section require knowledge of the linux command
+  line interface and python virtual environments. If you are not familiar with 
+  these, we recommend to read up on these topics first, for example through the 
+  `Raspberry Pi documentation`_ and `Python virtual environments documentation`_.
+
 Accessing the back-end
 ----------------------
 
 For direct access to the files and database and command-line interface,
 you will require a terminal console and a virtual python environment to 
-interact with the software. In most cases, you have three options to access
-the back-end: 
+interact with the software. You must be connected to the device, either through
+a local network connection, a direct connection or via a remote connectivity
+option. In most cases, you have three options to access the back-end: 
 
 1. Terminal access via Secure Shell (SSH).
 2. Access to a desktop environment via a remote desktop protocol (RDP) client.
@@ -34,7 +42,7 @@ that looks like a terminal :octicon:`terminal;1em`.
 Location of files and database
 ------------------------------
 By default, the ORC-OS software is installed in the home directory of the main
-user (e.g. ``pi``) in a hidden called ``.ORC-OS``. This makes the full path
+user (e.g. ``pi``) in a hidden folder called ``.ORC-OS``. This makes the full path
 accessible as follows:
 
 .. code-block:: bash
@@ -186,5 +194,6 @@ described above.
 
 .. _installation instructions: https://github.com/localdevices/ORC-OS/blob/main/README.md
 .. _Raspberry Pi documentation: https://www.raspberrypi.com/documentation/computers/remote-access.html
+.. _Python virtual environments documentation: https://docs.python.org/3/library/venv.html
 .. _RealVNC client: https://www.realvnc.com/en/l/download/
 

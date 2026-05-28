@@ -56,5 +56,8 @@ This form allows you to set up the Daemon settings. Important explanations of th
 - Activate the daemon runner: when settings are complete you can activate or interrupt the daemon service with this
   switch.
 
-The most important setting is the :ref:`Video configurations <video_conf_intro>`. This part requires most attention and
-needs to be performed on one video with all :ref:`field survey <field_survey>` measurements in place.
+The most important setting is the Video configuration. This part requires most attention and
+needs to be performed on one video with all :ref:`field survey <field_survey>` measurements in place before you can
+automatically process videos. Check out the
+relevant section on :ref:`Video configurations <video_conf_intro>` for more information on how to set up a video
+configuration.

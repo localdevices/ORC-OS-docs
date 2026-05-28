@@ -63,6 +63,9 @@ is resampled to real-distance "orthorectified" grids. These can be found under "
         good reason for it. If you want more resolution in your processed velocity grid, then usually it is better
         to change the Pixel resampling size option.
 
+
+.. _optical_water_level:
+
 Optical water level
 ^^^^^^^^^^^^^^^^^^^
 If you decide to use the video to estimate the water level then several additional settings are available that 

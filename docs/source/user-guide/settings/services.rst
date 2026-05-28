@@ -40,7 +40,7 @@ We here briefly explain what this means.
 * Enable: If the service is not enabled, you can enable it. This means that the
   service will automatically start once the device is restarted. You can see
   this with the indicator under "Service enabled". Clicking on "Enable" will not
-  also automatically start the service in the current session. 
+  automatically start the service in the current session. 
   You will have to click on "Start" for this.
 * Disable: If the service is enabled, you can disable it. This means that the
   service will no longer start once the device is restarted.
@@ -59,9 +59,9 @@ Example
 ^^^^^^^
 
 As an example, you may want to connect 3rd party devices to your ORC-OS device,
-for instance an additional sensor, a IP camera that provides videos, or a 
+for instance an additional sensor, an IP camera that provides videos, or a 
 separate logger. All of these will consume power, so you may only want to turn
-these on a certain intervals and in each interval for a brief period. For this,
+these on at certain intervals and in each interval for a brief period. For this,
 we have designed a "Relay management service". You can get this service running
 on your device by referring to the section on 
 :ref:`creating background services <devel_services>` where the entire service

@@ -16,14 +16,6 @@ additional process that you like. Examples include:
 * Handling power management, so that the device turns on and off at certain 
   times of the day**
 
-.. tip::
-
-    Creating a new service requires the web server to be in development mode. 
-    The ready-to-flash images from Rainbow Sensing can be started in development
-    mode by simply pressing the on-board power button briefly. This will start
-    the web server in development mode, and even start a WiFi Hotspot so that
-    you can easily connect to your device. No need to log into the back-end!
-
 A service consists of a set of parameters, stored as environment variables, 
 and a Bash or Python script, which is run once the service is started. 
 Other things that help define the service are a short name, a description, and a 
@@ -33,24 +25,40 @@ the type (boolean, integer, float or string), whether it is mandatory or not,
 and a default value. The parameters allow for user-side configuration of the
 service.
 
-A new service can be created from the web interface but only when the web server
-is running in development mode. The ready-to-flash images require a simple button
-press to switch to development mode. If you have built your own device
-follow these instructions:
+.. _devel_mode:
 
-To run the web server in development mode, set 
-the ``ORC_DEV_MODE`` environment variable to ``1`` (true). Then run the 
+Running ORC-OS in developers mode
+---------------------------------
+
+.. tip::
+
+    Creating a new service requires the web server to be in development mode. 
+    The ready-to-flash images from Rainbow Sensing can be started in development
+    mode by simply pressing the on-board power button briefly. This will start
+    the web server in development mode, and even start a WiFi Hotspot so that
+    you can easily connect to your device. No need to log into the back-end and
+    no hard cables required!
+
+A new service can be created from the web interface but only when the web server
+is running in development mode. If you have built your own device and installed
+ORC-OS yourself, follow these instructions:
+
+To run the web server in development mode, stop the running web server backend,
+and set the ``ORC_DEV_MODE`` environment variable to ``1`` (true). Then run the 
 web service interactively. Usually you do this with uvicorn, as follows:
 
 .. code-block:: bash
 
+    # stop the running web server backend
+    sudo systemctl stop orc-api
     # set the DEV MODE environment variable to 1 (true)
     export ORC_DEV_MODE=1
     uvicorn orc_api.main:app --host 0.0.0.0 --port 5000 --workers 1
 
 The port number is important because the web front-end is usually configured to 
-look for the web server on port 5000. If you have chosen a different port
+look for the web server on port ``5000``. If you have chosen a different port
 in your nginx configuration, then change the port to this port instead.
+
 
 Create a new service
 --------------------
