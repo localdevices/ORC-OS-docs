@@ -21,13 +21,13 @@ The water level is needed for two reasons:
   and any local device reporting this may be used. The vertical level must however be translated to the level used in 
   your survey. You therefore must provide the water level in two different ways:
 
-    1. as measured during your survey in ``Water level in GCP coordinate system [m]``. This water level is indicated 
-       with the black arrow on the left-hand side of the image shown below. 
-    2. as measured at the same moment, but through the water level measurement device in
-       ``Water level in local gauge reference [m]``. 
+  1. as measured during your survey in ``Water level in GCP coordinate system [m]``. This water level is indicated 
+     with the black arrow on the left-hand side of the staff gauge in the image shown below. 
+  2. as measured at the same moment, but through the water level measurement device in
+     ``Water level in local gauge reference [m]``. 
   
   This is illustrated with the green arrow on the right-hand side of 
-  the image shown below. The image suggests a staff gauge is the local reference, but this can also be a 
+  the staff gauge in the image shown below. The image suggests a staff gauge is the local reference, but this can also be a 
   pressure sensor or any other device that can be used to measure water level. The only requirement is that you
   can translate the water level as measured by this device to the water level in the GCP coordinate system. 
   This is done by providing both water levels as described above. In the schematic example for instance, the datum
@@ -80,9 +80,9 @@ Uploading and selecting cross sections
 
    It is important to understand what is meant by a "cross section". A cross section in OpenRiverCam terms, is a set
    of coordinates measured in the same coordinate system as used for all other measurements, that describes the
-   bottom of the channel. There is often confusion about the vertical (Z) coordinate. This may with certain
-   instrumentation (e.g. echo sounders)be measured as the **depth** of the channel, meaning that the lowest bottom 
-   coordinate appears
+   bottom of the channel from one bank to the other. There is often confusion about the vertical (Z) coordinate. This 
+   may with certain instrumentation (e.g. echo sounders)be measured as the **depth** of the channel, meaning that the 
+   lowest bottom coordinate appears
    as the highest value. This is **not** correct because your cross-section dataset should instead describe the
    bottom *coordinate*. If for instance the ``X, Y, Z`` coordinate of your camera is measured as ``0, 0, 0``, then the
    bottom coordinates of your cross-section will all have a lower ``Z`` value than zero with the lowest point in the
@@ -103,32 +103,15 @@ points along known vertical objects like placed staff gauges.
 
 To upload a cross-section, go to the ``Cross sections`` tab and click on the "Upload cross-section" button. This will 
 open a file dialog. Select the file containing the cross-section coordinates. The file must be a CSV file obeying
-to the following **strict** rules. Make sure the file is properly formatted before uploading:
-
-* It must have three columns strictly named "X", "Y" and "Z" for the horizontal (x, y) coordinates and vertical (z)
-  coordinates respectively.
-* X, Y and Z coordinates **MUST** be in a meter unit projection. If your measurements are in another unit, you must
-  convert them to meters before uploading. If your measurements are in a geographic coordinate system (e.g. WGS84 lat-lon), 
-  you must first project them to a meter unit projection before uploading. In this process, make sure that also your
-  GCPs and water level measurements are in the same meter unit projection.
-* X and Y should follow the horizontal directions left-right (positive-X), and backward-forward (positive-Y), e.g. 
-  west-east and south-north respectively. Positive-Z is in upward direction always! GPS and the Disto P2P systems
-  always follow this convention. Note that x-y can be any perpendicular directions you wish as long as they follow the 
-  horizontal plane.
-* The points must be ordered from left to right or right to left bank. If the points are not ordered, you will not 
-  receive an error, but results will become very very unpredictable! Order your points (e.g. in excel) before uploading
-  or (easier) just make sure you go in one direction only while surveying.
-* You can supply a file with more columns, containing for instance ID, notes, names of each point etc. taken during the
-  survey, or any other information you may wish to save. It should be noted however, that these details will not be 
-  stored in the database. Save your files as a backup!
+to the **strict** rules shown in :ref:`this note <cross_section_csv_format>`.
 
 You may also decide to "Straighten cross section". If you enable this option before selecting "Upload", the points.
 
-.. note::
+.. .. note::
 
-   Cross sections in GeoJSON format are also supported. In this case, also the geographical coordinate reference system
-   will be stored alongside the coordinates. You **MUST** however then also upload your GCPs in GeoJSON format to
-   ensure that the same coordinate reference system is used for all measurements.   
+..    Cross sections in GeoJSON format are also supported. In this case, also the geographical coordinate reference system
+..    will be stored alongside the coordinates. You **MUST** however then also upload your GCPs in GeoJSON format to
+..    ensure that the same coordinate reference system is used for all measurements.   
 
 .. tip::
 
@@ -144,8 +127,9 @@ You may also decide to "Straighten cross section". If you enable this option bef
   and that you finish the cross section by adding some arbitrary far-shore points so that you can select the nearest
   bank to detect the water level on.
 
-  You should with this approach consider that the rectangular area should have a relatively small width, in the order
-  of the width of your staff gauge, change the 3 meter default value to e.g. 0.3.
+  With this approach, you should consider that the "size of the element" over which the water level is measured (see 
+  :ref:`this subsection <optical_water_level>`), should be relatively small, in the order of the width of your staff 
+  gauge, change the 3 meter default value to e.g. 0.3.
   
   .. plot:: ./_scripts/plot_camera_staff_gauge.py
     :alt: Schematic of cross section for optical water level estimation
@@ -165,8 +149,8 @@ interest in 4 simple clicks after which you may do some refinements:
 * First click on either one of the "Draw bounding box" buttons (see red rectangles in the figure below).
 * Then click on the left bank of the river in the camera view, at the location where you want the area of interest to
   start. Click on a point along the cross-section where you think the water may get to when the water level is high.
-  This is likely firther left than the water edge during survey conditions.
-* Then click on the opposite side of yoiur first point, on the right bank of the river, also further right than the 
+  This is likely further left than the water edge during survey conditions.
+* Then click on the opposite side of your first point, on the right bank of the river, also further right than the 
   water edge so that the area of interest also covers the river during high flows.
 * Finally move your mouse cursor up- or downstream to grow the area of interest. You will automatically get a 
   bounding box that has a bit of space up as well as downstream. Try to aim for about 2 meters up- and downstream space.

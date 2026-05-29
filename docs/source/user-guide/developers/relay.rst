@@ -41,8 +41,9 @@ in developers mode
     # start the web server in development mode
     uvicorn orc_api.main:app --host 0.0.0.0 --port 5000 --workers 1
 
-Perfect! It should now run. Open up the web interface and navigate to Settings --> Manage Services. You should see a
-button "Create new service". Click on this and fill in the form as follows:
+Perfect! It should now run. Open up the web interface and navigate to 
+:menuselection:`Settings --> Manage Services`.
+You should see a button "Create new service". Click on this and fill in the form as follows:
 
 * Short name: gpio-relays
 * Long name: Switch on/off relays at a certain designated interval
@@ -95,7 +96,7 @@ will be shown to a regular user when the user wants to modify parameter values o
 Click on "Create service" and you should now see the service management page appear. Check out what you have created.
 Also open the README section. You will see a nicely Markdown formatted section here with a embedded youtube video.
 
-Now we will need parameters! If you read the descrition, you will already know that we need 3 parameters per relay, and
+Now we will need parameters! If you read the description, you will already know that we need 3 parameters per relay, and
 we have 2 relays. So we will need to add 6 parameters in total.
 
 Click on the "Add parameter" button and for relay one, add the following parameters one by one:

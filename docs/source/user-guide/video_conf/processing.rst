@@ -19,6 +19,25 @@ Processing options
 The processing parameters influence how the video is processed from raw footage to discharge. We describe the parameters
 briefly in small sections in the table below, with a practical guidance how to use them and when to change them.
 
+When you have set or changed the settings, we recommend clicking on the "Save" button and then the "Run" button next to
+it to try the settings. Investigate the results in the "Video" menu. If you are not satisfied, then go back to the 
+settings, change them and run again.
+
+The most prominent settings you usually have to modify slightly are:
+
+- start and end frame (put them on a high enough value to ensure you process the entire video)
+- resample frame distance (put it on a higher value to be able to detect higher velocities, or on a lower value to be 
+  able to detect lower velocities)
+- pixel resampling size (put it on a higher value to be able to process larger rivers, or on a lower value to be able to
+  process smaller rivers)
+- velocity sampling distance (put it on a lower value to be able to capture more small scale variation in velocity, on 
+  small streams, or on a higher value to save processing time if you have a very large river with little small scale 
+  variation in velocity).
+- plotting sizes. This really depends on your personal preferences. Experiment with these values to find the best 
+  settings for your videos and your personal preferences.
+
+Details on all settings are given below.
+
 Video settings
 ^^^^^^^^^^^^^^
 Several parameters are available that influence how many frames are extracted from the video, and how the video
@@ -62,13 +81,26 @@ is resampled to real-distance "orthorectified" grids. These can be found under "
       - The default value of 64 is based on our experience and we recommend not changing this unless there is a very 
         good reason for it. If you want more resolution in your processed velocity grid, then usually it is better
         to change the Pixel resampling size option.
+    * - Produce one velocity estimate over entire frame-range? (default: yes)
+      - Setting to yes (default) means all frames are jointly analyzed to produce one velocity estimate per 
+        interrogation window. This reduces noise and allows for detecting lower velocities more accurately. 
+        Setting this to no however means a velocity is estimated for each individual frame and can give an impression
+        of the uncertainty (not shown but can be found in the downloaded timeseries CSV files). 
+      - We recommend to set this to yes, as this gives the best results for most videos. Setting it to no can be useful
+        if you insist having an individual uncertainty estimate for each video, or if you suspect the framerate of the
+        used camera is not stable.
 
+.. note::
+   
+   Unstable frame rates may occur if you have a cheap camera, or a camera read directly from a web stream like RTSP 
+   or WebRTC, causing framedrops. In such cases, it may be useful to set the "Produce one velocity estimate over entire 
+   frame-range?" setting to no. This will give you more reliable velocimetry results.
 
 .. _optical_water_level:
 
 Optical water level
 ^^^^^^^^^^^^^^^^^^^
-If you decide to use the video to estimate the water level then several additional settings are available that 
+If you decide to estimate the water level from the video then several additional settings are available that 
 determine how the video with the cross section supplied under the "Cross sections" tab are used to estimate the 
 water level. It may require some iterations under different water level conditions to get the most optimal settings 
 here. We however recommend starting with the defaults.
@@ -91,11 +123,13 @@ here. We however recommend starting with the defaults.
         locations in the cross section where the water line is located. This measure determines the distance from 
         crossing land inwards or outwards.
       - Usually it is not needed or recommended to change this, unless your camera's angle is very oblique, you may
-        then consider to make this value larger.  
-    * - Size of element to measure water level on (3 meters)
+        then consider to make this value larger.
+    * - Size of element to measure water level on (default 3 meters)
       - Similar to the previous, but then the length of the rectangle along the shoreline. 
       - Usually not needed or recommended to change. If you have a very clear uniform cross section, like a long 
         concrete wall to measure water level against, you can choose a larger value here to make detection more robust.
+        If the channel is more natural, choose a lower value. If you measure over an object, then use the width of that
+        object.
     * - Best visible bank for detection (radio button, default: Far bank)
       - Water level is only detected from the bottom to either the left or right shoreline. You choose which one by
         indicating if you want to detect it on the bank furthest away, or closest to the camera.
@@ -117,9 +151,10 @@ here. We however recommend starting with the defaults.
         water level is not set.
       - For well-defined banks, e.g. a concrete wall or wide enough staff gauge plate, the default value of 3.0 works
         well. For more natural banks, you may want to lower this value to e.g. 2.0, but be aware that this may
-        introduce more noise in the detected water levels. In general, if you have a natural bank, we recommend
+        introduce more chance of wrong detection. In general, if you have a natural bank, we recommend
         installing a clear stable object close to the camera to improve water level detection, or install a level gauge 
-        sensor and set up automated readings following :ref:`water level settings <water_level>`.
+        sensor and set up automated readings following :ref:`water level settings <water_level>`. You may also paint 
+        a clear stable object, like a white broad patch over the vertical.
 
 Discharge estimation
 ^^^^^^^^^^^^^^^^^^^^
@@ -188,3 +223,4 @@ are available to make your plot look the way you want it to look. These can be f
    sensitivity to also measure low flows. If your camera records at 60 (30) FPS, and your stream velocities are within a 
    normal natural stream limits (e.g. 0.1 to 3 to 4 meter per second), then consider putting this value at 4 (2) as this
    can lead to more accurate detection of low flows. To save storage, you may also simply put your camera FPS to 15.
+

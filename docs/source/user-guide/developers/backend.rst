@@ -126,7 +126,7 @@ to change the location of certain folders. These are described below.
       - ``$ORC_HOME/uploads``
     * - ``ORC_INCOMING_DIRECTORY``
       - The location where incoming videos are expected.
-      - ``$ORC_HOME/uploads/incoming``
+      - ``$ORC_UPLOAD_DIRECTORY/incoming``
     * - ``ORC_SERVICE_DIRECTORY``
       - The location where background service files and scripts are stored.
       - ``$ORC_HOME/services``  

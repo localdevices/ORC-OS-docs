@@ -63,8 +63,9 @@ in your nginx configuration, then change the port to this port instead.
 Create a new service
 --------------------
 
-Once the webserver is in development mode, navigate to Settings --> 
-Manage Services.
+Once the webserver is in development mode, navigate to 
+:menuselection:`Settings --> Manage Services`.
+
 
 .. screenshot:: http://localhost:5173/services
   :browser: chromium
