@@ -67,6 +67,7 @@ RECIPE2="$SAMPLE_DATA_DIR/mazyopa/recipe.json"
 CROSS1="$SAMPLE_DATA_DIR/hommerich/cross_section.geojson"
 CROSS2="$SAMPLE_DATA_DIR/mazyopa/cross_section.geojson"
 CROSS2_WL="$SAMPLE_DATA_DIR/mazyopa/cross_section_wl.geojson"
+RELAY_CONFIG="$SAMPLE_DATA_DIR/gpio-relays.json"
 
 TIMES=(
     "20240718T155502Z"
@@ -92,5 +93,9 @@ done
 orc video add-config --sample-video-id 1 --camera-config-file $CAM_CONFIG1 --recipe-file $RECIPE1 --cross-section-file $CROSS1 "Hommerich"
 # mazyopa config
 orc video add-config --sample-video-id 3 --camera-config-file $CAM_CONFIG2 --recipe-file $RECIPE2 --cross-section-file $CROSS2 --cross-section-wl-file $CROSS2_WL "Mazyopa bridge"
+
+# add relay config
+mkdir -p $ORC_HOME/services
+orc service import --deploy ${RELAY_CONFIG}
 
 
