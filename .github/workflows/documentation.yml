@@ -29,10 +29,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: OpenCV dependencies
+      - name: ORC-OS dependencies
         run: |
           sudo apt update
-          sudo apt install gdal-bin libgdal-dev libegl1 libopengl0 ffmpeg libjpeg-dev libfftw3-dev pandoc -y
+          sudo apt install redis-server gdal-bin libgdal-dev libegl1 libopengl0 ffmpeg libjpeg-dev libfftw3-dev pandoc -y
 
       - name: Install docs requirements
         run: pip install -U -r requirements.txt
@@ -67,10 +67,13 @@ jobs:
         run: echo "ORC_HOME=$HOME/.ORC-OS-docs" >> $GITHUB_ENV
       - name: Set DEV MODE
         run: echo "ORC_DEV_MODE=1" >> $GITHUB_ENV
-      - name: Start backend and dashboard with set env variables
+      - name: Start backend, celery workers and dashboard with set env variables
         run: |
           nohup uvicorn orc_api.main:app --host 0.0.0.0 --port 5000 --workers 1 > uvicorn.log 2>&1 &
           nohup npm --prefix external/ORC-OS/dashboard run dev > dashboard-dev.log 2>&1 &
+          nohup celery -A orc_api.celery_app worker -Q periodic,sync --loglevel=info > celery-general.log 2>&1 &
+          nohup celery -A orc_api.celery_app worker -Q video --pool=solo --concurrency=1 --loglevel=info > celery-video.log 2>&1 &
+
       - name: Wait for services
         run: |
           # check FastAPI backend after max 2 minutes, check dashboard after max 3 minutes
