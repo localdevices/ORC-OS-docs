@@ -66,7 +66,7 @@ html_favicon = "_static/orc_favicon.svg"
 html_theme_options = {
     "show_nav_level": 2,
     "navbar_align": "content",
-    # "use_edit_page_button": True,
+    "use_edit_page_button": False,
     "icon_links": [
         {
             "name": "Local Devices",
@@ -77,7 +77,15 @@ html_theme_options = {
     ],
     "logo": {
         "text": f"ORC-OS {release}"
-    }
+    },
+    "switcher": {
+        "json_url": "https://raw.githubusercontent.com/localdevices/ORC-OS-docs/gh-pages/switcher.json",
+        "version_match": release,
+    },
+    "secondary_sidebar_items": [
+        "version-switcher",
+        "page-toc"
+    ],
 }
 
 html_context = {
