@@ -1,7 +1,7 @@
 from pathlib import Path
 
 VIDEO_ID = 1
-SERVICE_ID = 4
+SERVICE_ID = 1
 
 screenshots = [
     {
@@ -190,7 +190,7 @@ async () => {
     if (configTabs.children.length > 0) {
       configTabs.children[3].dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
       // Wait for React to re-render the tab
-      await new Promise(resolve => setTimeout(resolve, 500));
+      await new Promise(resolve => setTimeout(resolve, 1500));
     }
   }
 """

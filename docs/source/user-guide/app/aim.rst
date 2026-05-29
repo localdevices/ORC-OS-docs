@@ -4,7 +4,7 @@ Aim your camera
 ---------------
 This page should only be used in the field. It is meant to capture a live view from your connected camera system
 so that you can aim the camera. In case you have at least one Raspberry Pi camera connected to the device, the
-page shows specific options for Raspberry Pi camera's.
+page shows specific options for Raspberry Pi cameras.
 
 Camera with IP-camera
 +++++++++++++++++++++
@@ -42,10 +42,10 @@ to bring up the camera's live view. You can then go ahead and aim.
     }
 
 
-Raspberry Pi camera's
+Raspberry Pi cameras
 +++++++++++++++++++++
-If you have one or more Raspberry Pi camera's connected that you wish to use, you will get specific options for these
-camera's. First, if you have more than one camera installed, you can select which camera you wish to use. You can
+If you have one or more Raspberry Pi cameras connected that you wish to use, you will get specific options for these
+cameras. First, if you have more than one camera installed, you can select which camera you wish to use. You can
 then choose a resolution and framerate and preview the camera with a switch. There is also a little red record
 button. After aiming, set a time in seconds and click on this button to record a sample video immediately. You can then
 immediately use this sample video for setting up your :ref:`video configuration <video_conf_intro>`.

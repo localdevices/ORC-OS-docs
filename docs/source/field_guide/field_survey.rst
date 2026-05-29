@@ -4,10 +4,9 @@ Field survey measurements
 -------------------------
 
 Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
-velocities and river flow. All of the observations needed are points in a 3D space, for which several methods
-may be used. A schematic planar and sideview of the information obtained through the survey is provided in the image below.
-We highly recommend to carefully read this section before doing any installation, and test out the entire survey
-procedure before going into the field.
+velocities and river flow. All of the observations needed are in the form of 3D points. A schematic planar and sideview of the information obtained through the survey is provided in the image below.
+We highly recommend to carefully read this section before doing any installation, and do a dry-run of the entire survey
+procedure before going into the field if you have never done it before.
 
 .. plot:: _scripts/plot_camera_datums_combined.py
    
@@ -39,23 +38,22 @@ The required measurements are given and described in the table below:
       * - Data
         - Reason for required data
         - Tips
-      * - Ground Control Points
+      * - Ground Control Points (GCPs)
         - Needed to make the camera understand how pixels translate into meter distances in different parts of the
           field of view. It is also crucial that the camera understands what a horizontal plane is so that it can
           project a water surface (roughly following a horizontal plane over short distances) to a real meter x meter
           image.
-        - Ground control points MUST be spread in a "non-collinear" way over the objective of the camera. This means points
-          should not be on a straight line. In other words, points should be spread over left and right bank and from
-          upstream to downstream! If you have not performed a calibration of the camera's lens characteristics, then
-          ORC-OS also uses Ground control points to constrain lens characteristics. But for this to work, the points
+        - GCPs MUST be spread in a "non-collinear" way over the objective of the camera. This means points
+          should not be on a straight line. They should be spread over left and right bank and from
+          upstream to downstream. If you have not performed a calibration of the camera's lens characteristics, then
+          ORC-OS also uses GCPs to constrain lens characteristics. But for this to work, the points
           should cover a significant part of the entire field of view. Check for instance the example below, where
           points were spread such that both the close and far bank have a good spread. Obviously the points close to
           the camera are much closer together in real world, but this is totally fine and a very good spread over the
-          objective. Points should also not be almost at the edge of the image. Keep them a little bit away from the
-          edges.
+          objective. Points should also not be almost at the edge of the image. 
       * - Cross section profile (bottom coordinates)
         - Needed to estimate water depths with different occurring water levels, estimate the wetted cross sectional
-          are and integrate velocity estimates (m/s) into river flow (m3/s).
+          area and integrate velocity estimates (m/s) into river flow (m3/s).
         - Record these perpendicular to the overall flow direction in an as straight line as possible. You may have to
           wade with an instrument on a stick (e.g. RTK GPS antenna, total station or a board with marker or checkerboard
           if you use a disto). Record as much as you can, even beyond what the camera can see (see note below). Record
@@ -66,7 +64,8 @@ The required measurements are given and described in the table below:
           with an in-situ measurement device. Both will have a different vertical datum.
         - Measure this by holding your survey device on the line where water touches the land.
       * - Camera position
-        - Can be used as a strong extra constraint on the camera calibration process.
+        - Currently only used as a check after calibration. In a upcoming update, it can be used as a strong extra 
+          constraint on the camera calibration process.
         - Measure as close to the lens as possible.
 
 Camera placement and aim
@@ -93,7 +92,7 @@ b. The camera is tilted upwards too much. You are likely used to turn a camera s
    - you here miss a part of the cross section, i.e. the last bit up to the natural levee close to the camera.
    - if your camera uses an auto-exposure, likely it will reduce the exposure to ensure the very bright sky
      does not get saturated. Reducing exposure will cause a too low illumination of the dark water below it.
-     And this is what you are interested in. Too dark will cause that you cannot see the particles in the water, 
+     And this is what you are interested in. Too dark will cause that you cannot see the movements on the water, 
      and therefore the velocity estimation will reduce in accuracy.
 
    A simple rule of thumb: rotate downwards such that you still can just see the levee on the other side, but hardly 
@@ -110,31 +109,32 @@ No location is perfect! So in some if not many cases, you will have to use exist
 camera and you do not have a choice but to accept the position is not ideal. In these cases, consider the follow
 options:
 
-   - perhaps you can get a higher mast, that allows you to oversee a larger if not the entire section
-   - accept that you miss a small part of the cross section. Consider which part will not convey much water and
-     then aim and focus on the part you deem to be most important. Infilling techniques will ensure that missing
-     parts in the cross section are still accounted for even though this is through extrapolation.
-   - try to ensure that the angle between the water and your camera is everywhere at least 10 degrees. 
-     If it is less in many parts of the water surface, then consider mounting on a higher mast.
-   - it is usually also fine to rotate your camera a bit in the upstream or downstream direction. 
-     Have a look for instance, at the picture below, showing footage from one of our most successful and
-     sustainable installations so far in Limburg, The Netherlands. Because our infrastructure was already
-     prepared and very close to the water, we were forced to install the camera and allow it to look
-     a little bit downstream. We just made sure that the cross section fits in our objective and
-     this gave us a very successful installation nonetheless.
+- perhaps you can get a higher mast, that allows you to oversee a larger if not the entire section
+- accept that you miss a small part of the cross section. Consider which part will not convey much water and
+  then aim and focus on the part you deem to be most important. Infilling techniques will ensure that missing
+  parts in the cross section are still accounted for even though this is through extrapolation.
+- try to ensure that the angle between the water and your camera is everywhere at least 10 degrees. 
+  If it is less in many parts of the water surface, then consider mounting on a higher mast.
+- it is usually also fine to rotate your camera a bit in the upstream or downstream direction. 
+  Have a look for instance, at the picture below, showing footage from one of our longest running
+  installations in Limburg, The Netherlands. Because our infrastructure was already
+  prepared and very close to the water, we were a little too close to the stream. We aimed it slightly downstream. 
+  We just made sure that the cross section fits in our objective and this gave us a successful
+  installation nonetheless.
  
 Measurement locations are almost never perfect, so accept this, and use our tips to still get a good 
 performing station.
 
 .. figure:: ../_images/_general/rotated_view_cam.jpg
 
-   A successful installation in Limburg, The Netherlands, where the camera is looking a bit downstream but still
+   A successful installation in Limburg, The Netherlands. The camera is aimed a bit downstream but still
    captures the entire cross section.
 
 GCP placement
 ^^^^^^^^^^^^^
 
-The table with required measurements already explained that a good spread of GCPs is important. An example is provided below.
+The table with required measurements already explained that a good spread of GCPs is important. A good and 
+simple example is provided below.
 
 .. figure:: ../_images/_general/gcps.jpg
 
@@ -143,7 +143,7 @@ The table with required measurements already explained that a good spread of GCP
 This example picture gives a typical situation of a good spread of control points along a channel. A few things can be 
 noticed which are important to consider:
 
-1. Points are spread over both left and right bank. This constrains the camera pose for close and far away pixels
+1. Points are spread over both left and right bank. This constrains the camera pose for close and far away pixels.
 2. Points are also spread from left to right in the objective. This means that points are in real-world close to
    each other close to the camera, but are more spread out further away. This is totally fine and actually ideal as it 
    constrains the camera pose for the entire field of view.
@@ -152,7 +152,7 @@ noticed which are important to consider:
    but not so far as that they are almost at the edge of the objective.
 
 The figures below show examples of wrongly spread points. Take a good look at these, and the captions to know what you
-should **NOT** do.
+should do and what you should avoid.
 
 .. plot:: ./_scripts/plot_fieldwork_wrong_gcps.py
 
@@ -205,14 +205,15 @@ them for the required measurements.
                 A "disto" measures distances between a device carrying a strong laser and an object at a certain distance
                 away from the device. It is used a lot in construction, for instance to measure distances between two walls.
 
-                A P2P set connects points collected during a survey into a 3-dimensional coordinate system. Such a device
+                A P2P set adds functionality by connecting points collected during a disto survey into a 3-dimensional coordinate system. 
+                Such a device
                 uses a connected spirit level to understand what the horizontal plane is, gives the first point measured
                 a coordinate X = 0, Y = 0, Z = 0 where Z is the vertical (up is positive) coordinate axis. For the second coordinate
                 the disto will keep X = 0, and define the Y-coordinate as the horizontal distance between the first and second
                 point and the Z-coordinate derived as the vertical distance based on the spirit level and angular difference
                 the device is making from point one to two. The Leica disto systems add to this that each recorded point can
                 be easily found using a small camera system and by taking a small photograph of the point for later reference.
-                This makes the disto X6 one of the most robust and error-free measurement methods.
+                This makes the disto X6 one of the most robust and error-free measurement methods in relatively small river systems.
 
         .. container:: figure-text-pair wide-text
 
@@ -245,10 +246,12 @@ them for the required measurements.
 
                 The disto approach also has a few disadvantages:
                 
-                * points should not be too far away, more than 100 meters is usually very difficult
+                * points should not be too far away, more than 100 meters is usually very difficult.
                 * the texture and color of the points matters. Very dark objects are usually extremely difficult to survey so
                   make sure the inside of the points you measure is light. Spray painted dark circles with white centres can work
                   well.
+                * during very hot weather, upward moving eddies can attenuate the laser beam and make it difficult to measure points far
+                  away.
 
         .. warning::
 
@@ -261,22 +264,23 @@ them for the required measurements.
            before taking it into the field. Try out to measure points closeby, far away and points of differing
            texture and colour to see under what conditions the points can be easily recorded.
            Also try to import a result into Excel or LibreOffice and see if you can work with the
-           points, e.g. plot a top-view (X-Y scatter plot) and a side-view of the cross-section
+           points, e.g. plot a top-view (X-Y scatter plot) and a side-view of the cross-section.
 
         .. rubric:: Procedure
 
         - Fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
           to use.
         - Spread or look for suitable objects as GCPs.
-        - **IMPORTANT:** make a sample video with all GCPs in view. Make sure nothing or no-one is within line of
-          sight. This video is essential, and used later in the calibration process.
+        - **IMPORTANT:** make a sample video with all GCPs in view. Make sure nothing or no-one is in between the camera
+          and any control points so that all points are well visible. This video is essential, and used later in the calibration process.
         - Prepare a marker on a stick of sufficient length for the bottom cross section survey.
         - Measure and note down the length of the stick from bottom to the centre of the marker.
-        - Look for a position from which you can see all points that you wish to survey. Usually you place the device
+        - Look for a position from which you can see all points that you wish to survey. Note that these include
+          the GCPs, the bottom cross-section points, water level and camera position.Usually you place the device
           somewhere near the camera in view of both banks. Set up the disto with
           spirit level and tripod such that it cannot move. This is extremely important. Consider putting some weight
           on the tripod legs to ensure the device is more stable.
-        - Remove any blocking things such as rocks in the line of sight and overhanging leaves, grass or other
+        - Remove any blocking things in the line of sight such as rocks, overhanging branches, leaves, grass or other
           vegetation.
         - When you start your survey, we recommend to take control over the axes. For instance first measure
           two random points that lie in upstream - downstream direction. This fixes the x-axis to upstream to
@@ -299,7 +303,7 @@ them for the required measurements.
 
         - Make sure you survey **everything in one single survey**. Bear in mind the devices tend to turn off themselves
           after a few minutes idling. You can extend the amount of minutes in the settings which is highly recommended.
-        - Make sure there are no leaves, overhanging branches, etcetera blocking the laser.
+        - Make sure there are no leaves, overhanging branches, and so on blocking the laser.
         - With every point collected, check if the device really recorded it. It may give an error code if the point is
           not good. This can be due to movements of the device or point during the recording.
         - In hot environments, upward moving eddies, especially above hot surfaces can attenuate the laser beam as it
@@ -333,7 +337,7 @@ them for the required measurements.
             Real-Time Kinematics Global Navigation Satellite Systems (RTK-GNSS) measure geographical coordinates at an
             extremely high accuracy and in real-time (i.e. only a very short survey period is needed per point). This is
             done by using a fixed nearby GNSS station that continuously records and sends out survey data of its own
-            position. The mobile station (a.k.a. "rover") uses the real-time collected data at the base station and at its
+            position. The mobile station (a.k.a. "rover") combines real-time collected data at the base station and at its
             own position to make an accurate estimation of its own position, essentially by comparing the resolved location
             of the base station with its known position. Through data assimilation in time, the solution becomes more
             accurate when more satellite data has been received.
@@ -382,8 +386,8 @@ them for the required measurements.
         field:
 
         - First consider if RTK-GNSS will work in the chosen environment. RTK-GNSS does not work well in areas with
-          very high buildings or just next to a wall. Make sure that you can position GCPs in some clear part of
-          the area.
+          very high buildings, just next to a wall or under or near thick vegetation. Make sure that you can position 
+          GCPs in some clear part of the area.
         - When placing GCPs, make sure you can easily reach the point with the survey pole, while still being able
           to read the spirit level and whether a "FIX" status is reached or not. A steep slope is usually not ideal.
         - Before taking a point (especially a GCP), the survey pole **must be kept perfectly vertical!** A small

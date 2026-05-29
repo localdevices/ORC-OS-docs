@@ -14,10 +14,11 @@ to real-world coordinates, and to estimate the wetted cross section.
 
 .. note::
 
-   ORC-OS can also estimate water levels optically. More on this can be found in Section XX.
+   ORC-OS can also estimate water levels optically. For more information, check the section on 
+   :ref:`processing with optical water level estimation <optical_water_level>`.
 
 If you have a water level sensor installed on the site, or you are able to retrieve water levels for your site from a
-web source such as an API end point, you can provide your own a ``bash`` or ``python`` script that retrieves these
+web source such as an API end point, you can provide your own Bash or Python script that retrieves these
 water levels at regular intervals. Go to the Options menu, and select ``Water level settings``. This should bring you
 to the displayed page.
 
@@ -31,21 +32,22 @@ In the form you must fill out:
 
 The script MUST comply to the following rules:
 
-1. The script must be pure ``bash`` or ``python`` and must be entirely valid. If you provide an invalid script, you will
+1. The script must be pure Bash or Python and must be entirely valid. If you provide an invalid script, you will
    receive an error message that hopefully helps you to debug your script. We highly recommend to build and test your
    script outside ORC-OS first before uploading it here.
 2. The script can output whatever you want, but **at the end a single-line output MUST be returned to the screen as very
    last line with a particular format**. This format is ``YYYY-MM-DDTHH:MM:SSZ, <value-in-meters>``. If you are used to
    python coding, the datetime string format is ``%Y-%m-%dT%H:%M:%SZ, <value-in-meters>``. Here ``<value-in-meters>``
-   is the water level in the locally defined datum. This could be anything such as a local geo datum, bottom of the
-   stream, anything that is logical from a local stand point.
+   is the water level in the locally defined datum in meters (not feet, or inches, or centimeters). The datum could be 
+   anything such as a local geo datum, bottom of the stream, anything that is logical and can be easily reproduced 
+   from a local stand point.
 
 
 .. note::
 
    Let's have a look at an example.
 
-   For instance for the date 21st of January 2025 and time 15 minutes and 23 seconds past one in the afternoon, we have
+   For instance for the date 21st of January 2025 and time 15 minutes and 23 seconds past one P.M. UTC, we have
    an API that reports a water level of 93.35 meters. This seems a very high value, but as said, here the datum is a
    local geodatum, or mean sea level, and the river bottom may be located about 90 meters above that datum. For this
    case, your script, that retrieves this value from the API must report the following as last line:
@@ -61,10 +63,11 @@ The script MUST comply to the following rules:
    ORC OS will test the script by running it and validating that the script provides the last-line outputs as
    indicated above.
 
-A full example script is provided below. This script calls the open API of the Waterboard Limburg and retrieves a water
+A full example script (and working with internet connection) is provided below. This script calls the open API of the
+Waterboard Limburg which is in the public domain, and retrieves a water
 level for the site "Hommerich" in their operating area. Note that this is a ``PYTHON`` script, hence you MUST select
 ``PYTHON`` as script type. There is ample commented documentation in the script to understand properly how the
-script works. Go ahead and try it out and see if it gets accepted.
+script works if you are used to Python. Go ahead and try it out and see if it gets accepted.
 
 .. code-block:: python
 

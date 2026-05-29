@@ -5,7 +5,7 @@ Command-line interface
 
 A simple yet effective command-line interface (CLI) is available for ORC-OS. 
 It can conveniently be used to list, create or delete available records,
-reset your password (in case you DID forget it :-)), update your database
+reset your password (in case you DID forget it 😉), update your database
 in case automated updates did not fully update your database, and import, export
 or delete background services using json files. To get an overview of the CLI
 sections, simply run:

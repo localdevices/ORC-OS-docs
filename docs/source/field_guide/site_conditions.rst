@@ -3,22 +3,24 @@
 Suitable site conditions
 ------------------------
 Some notes on site suitability are required before deciding if image-based discharge measurements will work for your
-case. We list these here and give examples of suitable as well as less suitable sites.
+case and where and in what direction to position your camera setup. We list these here and give examples of suitable 
+as well as less suitable sites or placements.
 
 Conditions that you should look for although "ideal" sites almost never exist.
 
 1. Look for a "uniform" site. This means that water can freely flow under a significant energy slope, without
-   significant influence of downstream or upstream structures. This is to ensure that relatively simple assumptions
+   significant influence of downstream or upstream structures or changes in the profile. This is to ensure that relatively simple assumptions
    how surface velocity translates to depth-average velocity are valid.
-2. Significant moving structures should be visible at the surface during the conditions that you want to be able to
-   measure. If water movements cannot be detected ORC-OS also will not be able to estimate it.
-3. Consider that velocities under 0.1 meter per second are likely to be difficult to detect. There are always
+2. Moving structures should be visible at the surface during the conditions that you want to be able to
+   measure. They fo not have to be very strong but if water movements cannot be seen at all, ORC-OS also will have trouble 
+   estimating velocity.
+3. Consider that velocities under 0.1 meter per second are likely to be difficult to accurately measure. There are always
    small parts of the cross section with such low velocities. These will be estimated by inferring velocity from
    the observed velocities in other parts of the cross section.
-4. A suitable location to place a camera, such that it can oversee the entire width at an angle of at least 10
-   degrees. Roughly, for every 10 meters distance, you will need a 1.5 to 2 meter elevation to achieve this.
+4. You need a suitable location on the bank to place a camera, such that it can oversee the entire width at an angle of at least 10
+   degrees. Roughly, for every 10 meters distance, you will need a 1.5 to 2 meter elevation above the water to achieve this.
    The middle of a bridge may seem attractive but is in many conditions NOT suitable as you then have to look quite
-   far away in the objective to see the entire width and then the angle is too small. Better locations are either left
+   far away in the objective to see the entire width, making the angle too small. Better locations are either left
    or right bank, looking towards the other shore from a high enough elevation, e.g. the natural levee, or on top of a
    mast. The left or right side of a bridge head, looking towards the other side can sometimes also be an option
    if then most of the cross section still fullfils the 10 degrees rule.

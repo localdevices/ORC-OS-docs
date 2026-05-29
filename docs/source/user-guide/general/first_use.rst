@@ -3,10 +3,10 @@
 First use
 ---------
 
-ORC-OS works with a web front end. If this is for instance installed on a raspberry pi device using our
-images, then this front end is accessible by connecting a computer or laptop to the same network
-as your raspberry pi, and then typing the IP-address of the pi in the address
-bar of a browser. You can also type in ``http://`` followed by the hostname of the device if this is known to you.
+ORC-OS can be controlled from a web front end. After installation, this front end is accessible by 
+connecting a computer or laptop to the same network as your raspberry pi, and then typing the IP-address 
+of the pi in the address bar of a browser. You can also type in ``http://`` followed by the hostname 
+of the device if this is known to you.
 
 .. tip::
 
@@ -24,8 +24,8 @@ shown below.
 
 .. tip::
 
-   With our annual support packages, you will also receive remote access options to devices that are installed in the field
-   with a remote internet connection, such as 4G or starlink. Please check https://openrivercam.or/ for the available
+   Through our support services and images, you will also receive remote access options to devices that are installed in the field
+   with a remote internet connection, such as 4G or starlink. Please check https://openrivercam.org/ for the available
    options.
 
 

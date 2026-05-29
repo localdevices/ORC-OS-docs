@@ -32,9 +32,10 @@ Main menu
   Main menu
 
 On the top-left side, you can find a large menu button, which
-expands a menu providing access to the datasets and functionalities around those datasets
-such as videos, time series, logs and functionalities to aim the camera manage the datasets,
-and set up calibrations for use in automated video processing.
+expands a main menu. This menu provides access to the datasets and functionalities 
+around those datasets. You can see and manage videos, time series and logs. You can also access 
+functionalities to aim the camera.
+
 
 Settings menu
 -------------
@@ -75,8 +76,9 @@ Settings menu
 
   Settings menu
 
+On the top-right side you find the settings menu. 
 The settings menu provides more general settings to keep the device running the way you want.
-Here you setup connectivity with your own LiveORC webserver, manage the devices disk space and setup
+Here you setup connectivity with your own LiveORC webserver, manage the devices disk space and manage
 automated processing. The individual settings are further described under :ref:`Settings <ug_general>`
 
 
@@ -118,10 +120,11 @@ User menu
 
   User menu
 
-The user menu allows you to logout and change your password. Make sure to save or remember the password. You can only
+The user menu is also situated on the top-right side. It allows you to logout and change your password. Make sure to 
+save or remember the password. You can only
 reset it by logging into the backend of the device running ORC-OS, if you are not logged in. If you have the impression
 that the device is not behaving properly, you can also restart it here. This normally takes about 30 to 45 seconds
-on a Raspberry Pi 5. When you are in developers mode, you can also shutdown the device from this menu. The reason why
+on a Raspberry Pi 5. When you are in :ref:`developers mode <devel_mode>`, you can also shutdown the device from this menu. The reason why
 we only allow this in developers mode is because shutting down is risky when done remotely. You can easily get 
 locked out of your device when you shut it down remotely, and you will need physical access to the device to turn it on 
 again.

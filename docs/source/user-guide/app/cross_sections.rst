@@ -37,5 +37,6 @@ Cross sections
 This page is only meant to administrate cross section records. You can here delete obsolete cross sections if you wish.
 They are not large to store, so it is usually not needed to delete them. You can also conveniently store the cross
 section data as GeoJSON files. Note that these do not have a coordinate reference system (CRS) if the original uploaded
-files do not contain a coordinate reference system. If you load the saved GeoJSON in QGIS you can manually assign a CRS.
+files do not contain a coordinate reference system. If you load the saved GeoJSON in `QGIS <https://qgis.org>`_ you can
+manually assign a CRS.
 

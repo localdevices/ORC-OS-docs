@@ -5,13 +5,20 @@ What is a video configuration?
 
 .. note:: 
 
-   For automated processing of videos, a video configuration is needed. A video configuration holds all the information
+   For any processing of videos, a video configuration is needed. A video configuration holds all the information
    to process a raw video into meter-per-second velocities and cubic-meter-per-second discharge with user-defined 
    options. Once defined for a fixed camera setup, the same configuration can be used for all other videos taken with 
    the same camera setup, as long as the camera has not moved. We advise you to set up a video configuration as soon 
    as you have taken your first video and have performed the survey of GCPs and cross-sections. This is to ensure you
    leave the field knowing your measurements are correct and that you have all the information needed to process your 
    videos. After downloading and preprocessing your survey points, expect to spend about 10 minutes on this process.
+   
+.. tip::
+
+   We highly recommend that you complete the entire video configuration while being in the field! In case there are 
+   problems with the surveyed points and cross-section(s), you can still resurvey! Usually the video configuration 
+   process take about 10 minutes, once all your data points are collected and organized. Split your cross section and
+   GCPs into separate .csv files before working on the video configuration.
    
 The required information includes:
 
@@ -20,6 +27,7 @@ The required information includes:
   system, and the three angles over which the camera can be rotated, also known as yaw, pitch and roll. This is
   a rather technical description of how the camera is rotated with respect to the direction of the real-world
   coordinate axes. For instance if you use a geographical coordinate system:
+  
   - positive x-direction is east-west
   - positive y-direction is south-north
   - positive z-direction is upwards perpendicular to a flat surface towards the sky.
@@ -56,8 +64,8 @@ The required information includes:
 
 * Cross-sections: these must be measured in the **exact same coordinate reference system** (also vertically!) as the 
   camera pose! Two cross sections can be supplied: one that should follow the river bed and is used to estimate the 
-  wetted perimeter and surface area and combined, the river discharge. Another cross-section can be supplied that may 
-  be used for optical detection of water levels. This cross-section does not have to exactly follow the entire river 
+  **wetted perimeter** and **surface area** and combined, the **river discharge**. Another cross-section can be supplied that may 
+  be used for optical detection of **water levels**. This cross-section does not have to exactly follow the entire river 
   bed. Instead it may follow vertical structures that can be used to identify a water line, such as a bridge pier, a 
   set of staff gauges (in which case the coordinates should jump from one x, y, location to the next where you must 
   move to the next staff gauge).

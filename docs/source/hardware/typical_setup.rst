@@ -1,3 +1,4 @@
+.. _typical_setup:
 
 A typical set of parts
 ----------------------
@@ -12,6 +13,7 @@ provide guidance here how to establish a complete field setup.
    :alt: hardware setup
 
 
+We here turn to more practical guidance.
 To help you build your own camera setup we here give an overview of possible 
 parts that we have ourselves tested with. You will see that these parts
 broadly cover what we have described in the previous section. 
@@ -21,7 +23,7 @@ your small electronic components and most of the wiring is inside an enclosure.
 The camera and the power supply are outside. If your battery is small enough 
 you can place it in the same enclosure.
 
-We mostly use industrial grade parts and assume a setup with solar power and running 
+We assume a setup with solar power and running 
 every 30 minutes. We are not frequently and actively maintaining the parts list.
 Please let us know if anything seems out of order by creating a Github issue on
 the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>`_.
@@ -29,7 +31,7 @@ the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>
 .. warning::
 
    We do NOT give any guarantee that with these parts, your build will work. We also do not give
-   any support without a project. It may be that certain parts change in time. We are never responsible for
+   any support without a agreed project. It may be that certain parts change in time. We are never responsible for
    any issue related to your own build nor for any incompatibilities with the ORC-OS software.
 
 .. list-table::
@@ -40,7 +42,9 @@ the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>
       - Example specific item
     * - Raspberry Pi 5 CM (8/32GB)
       - `Raspberry Pi 5 <https://www.raspberrypi.com/products/raspberry-pi-5/>`_
-    * - Compute Module board (8/32GB)
+    * - Compute Module board (8/32GB, note that there are also industrial grade options,
+        that can handle a larger temperature range, but these are more expensive and may be 
+        more difficult to get).
       - `Waveshare CM5-IO-Base-B <https://www.waveshare.com/cm5-io-base-b.htm?sku=30703>`_
     * - Active cooler for Raspberry Pi 5
       - `Waveshare active cooler for CM5 <https://www.waveshare.com/cm5-fan-3007-5v.htm?srsltid=AfmBOopLk_ws8IzYfTvdiKfIjJIpYJ7of6YJRmunQx7_f5n9zkALIaFL>`_
@@ -49,17 +53,22 @@ the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>
         Waveshare CM5 IO Base-B) typically a CR/ML1220 is needed.
         The normal Raspberry Pi 5 model with SD card has a special prepared battery.
       - Please check availability locally. 3.7V LIR rechargeable batteries typically work.
-    * - Weather proof IP camera (ideally >= 20Mbps, 1080p, event-capable)
+        The battery does not have to be rechargeable, but it is more convenient as you do 
+        not have to replace it when it runs out.
+    * - Weather proof IP camera (ideally >= 20Mbps, 1080p, capable to record on event-basis, e.g. during startup, or 
+        at time-intervals). 
       - `AXIS P1135-E Mk II <https://www.axis.com/products/axis-m1135-e-mk-ii>`_
     * - 4G modem (can also be a Raspberry Pi modem HAT like a Waveshare7600E-H)
-      - `Waveshare7600E-H 4G HAT <https://www.waveshare.com/wiki/SIM7600E-H_4G_HAT?srsltid=AfmBOorAbFR9oT1jp57zfExviR1y5g-p3vRk5pf_f-1jtHWzr35EAALa>`_
-    * - Relay module (ideally a Pi HAT, but if you need more peripherals, relay boards of 8 relays with Raspberry Pi 
-        header are available also)
+      - `Waveshare7600G-H industrial modem <https://www.amazon.com/Industrial-SIM7600G-H-4G-DTU-Communication/dp/B09R4KT3YR/ref=sr_1_3?crid=2OY18KJIUO6GI&dib=eyJ2IjoiMSJ9.g_UQWhh0M8xCpU_VY4zkv_T8UAGLn_itDNlcnXPPbgKn1wepvusOoJ9ymFRSRqI1EN1UiNLd8XPPZ1LXS2ZQGxWOTQ_HYdxXTmtkT4iEyld8gGRcE-gr7gbhryLNpZSoirfdWuU3fFsDuyY-ZM1HMh1c-SrPBLM-eIUowGt3L-Q_m6lKL0jbp6mAdmc6rldNlm_mKnULhkpMYDPto_jFPKHEvZiBLhXLPfWZgKIXSjo.DCbhAH0y5nIyISu5cJDb52RSWEg7AsSxLSabXOoOn6g&dib_tag=se&keywords=industrial+7600G-H+waveshare&qid=1779787837&sprefix=industrial+7600g-h+waveshar%2Caps%2C194&sr=8-3>`_
+        You may also get a 7600G-H chipset on a HAT or other device. HATs may be more sensitive to
+        cable damage as the cables are quite small. They all work in a similar way.
+    * - Relay module (can be a Pi HAT or a separate layout, if you need more peripherals, relay boards of 8 relays with Raspberry Pi 
+        header are available also).
       - `RPi Relay Board <https://www.waveshare.com/wiki/RPi_Relay_Board>`_
     * - PoE adapter (12V; verify power specs). The one indicated below is very nice, as it can directly be connected 
         to the solar charge load output (12V) with a simple +/- wire, and provides all the switch options
         you will need. Just be careful NOT to use the "passive PoE LAN port" (only one) on a device that is not designed 
-        for it, as this can damage your device.
+        for it, as this can damage your LAN port.
       - `LINOVISION PoE switch for DC powered systems <https://eu.linovision.com/en-eu/collections/all-poe-switches/products/4-ports-mini-solar-poe-switch-optimized-for-big-ptz-camera-and-wireless-bridges?_pos=2&_fid=d8b5ba801&_ss=c>`_
     * - 12V to 5V (USB) buck converter, 5A for Raspberry Pi 5. The device indicated here is very easy to use as you 
         do not need to tweak the voltage or current. Just connect the 12V input and you get a stable 5V 5A output. We 
@@ -77,15 +86,21 @@ the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>
     * - MQTT Solar charge controller
       - Any electronics/solar shop.
     * - 12V battery (>= 96Wh)
-      - Any electronics/solar shop. Consider a compact LiFePO4 battery for better environmental performance.
+      - Any electronics/solar shop. Consider a compact LiFePO4 battery for better environmental performance. Note that the battery size
+        required will be strongly dependent on the frequency of observations, the total power requirements of your setup,
+        and the amount of sunlight in your location. We recommend to calculate your power requirements carefully. If your battery empties,
+        the solar charge controller will stop providing power to the setup, until the battery is sufficiently charged again. After that the
+        setup will automatically start again. So even with a smaller battery, you can still get a working setup, but it may be less stable 
+        and you may have more "downtime" of your camera.
     * - +/- terminal connectors compatible with the 12V battery.
       - Any electronics shop.
-    * - A fuse (e.g. 5A or 7A) for safety, to be placed directly behind the "+" terminal of the battery. We used a fuse holder
+    * - A fuse (e.g. 5A or 7A) for safety, to be placed directly behind the "+" terminal of the battery. We like fuse holders
         with a blade fuse, as it makes things so simple to replace but there are many options for this. Also here,
         recommended to put a few spare fuses inside the housing in case of failure.
       - Any electronics shop.  
-    * - a IP66 enclosure. Look for one that has optional cable outlets so that you can bring +/- of solar panel into
-        the device and a network cable out. At least two cables will need to pass through.
+    * - a IP66 (minimum) enclosure. Look for one that has optional cable outlets so that you can bring +/- of solar panel into
+        the device and a network cable out. At least two cables will need to pass through. If you need more holes, carefully
+        prepare these with a step drill.
         Ideally get one or two DIN rail pieces in the box for proper and neat device and cable management.
       - Sold on amazon.com, but look carefully for one, large enough, and with the proper cable options.
     * - watertight cable enclosures
@@ -95,17 +110,17 @@ the `ORC-OS-docs GitHub repository <https://github.com/localdevices/ORC-OS-docs>
 
 You will need basic tools such as:
 
-* a wire stripper
+* a wire stripper.
 * a drill to make holes in the enclosure for cable glands and connectors.
   for drilling holes in the enclosure, we recommend using a step drill bit, as
   this allows you to make holes of different sizes with the same bit, and it is
   less likely to crack the enclosure compared to a regular drill bit. Let the
   drill do its work! Do not apply too much pressure.
-* a small cutter
-* small screw drivers (phillips and flat head, for terminals and relay connections)
-* a crimping tool for the terminal connectors
+* a small cutter.
+* small screw drivers (phillips and flat head, for terminals and relay connections).
+* a crimping tool for the terminal connectors.
 * a crimping tool for crimping electrical ferrules on your cable ends. 
-* a multimeter to check voltages and connections
+* a multimeter to check voltages and connections.
 
 You will also need basic electrical components:
 
@@ -122,19 +137,21 @@ You will also need basic electrical components:
   be sufficient, but always check the specifications of your wire and consider 
   the current requirements of your setup.
 * terminal and cable connectors for the 12V battery and charge controller 
-  connections
-* Ferrule for electrical wire. Ferrules are used to protect the ends of stranded
+  connections.
+* a splitter that can split the 12V output from the charge controller into several
+  outputs, e.g. one for the buck converter and Pi, and one for the PoE switch.  
+* Ferrules for electrical wire. Ferrules are used to protect the ends of stranded
   wires and provide a secure connection when inserted into terminal blocks 
-  or connectors. They prevent fraying of the wire strands and ensure a reliable
+  or connectors. They prevent deterioration of the wire strands and ensure a reliable
   electrical connection, also over longer periods of time. If you do not apply
   this, loose copper wires may in time oxidize, get loose from the terminal
   and cause problems in your power supply. It may even lead to short cuts and
   very bad cases to fire hazard.
-* isolation tape for safety to cover exposed wires and connections
+* isolation tape for safety to cover exposed wires and connections.
 
 Optional but highly recommended:
 
-* to get a nice clean build, we recommend getting a so-called DIN rail
+* to get a nice clean build, we recommend getting a (or two) so-called DIN rail
   in your enclosure. This allows you to neatly mount your Raspberry Pi, relay
   board, modem and buck converter on the DIN rail. For industrial components
   (such as the suggested PoE switch and buck converter) a DIN rail mount is 

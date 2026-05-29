@@ -25,14 +25,15 @@ The page is subdivided in two parts:
 
 .. tip::
 
-   Have a close look at this page to see if things seem to be ok. Things to check are typically
+   Have a close look at this page to see if things seem to be ok. Examples of 
+   things to check are:
 
    - What was the timestamp of the last video processed? This may hint towards malfunctioning camera hardware or
      lost connection between the camera device and your device with ORC-OS.
    - Did the processing go ok? If not, check the :ref:`logs <log>` to see details. If you estimate water level optically
      random failures are often due to poor visibility of the water level. Check if the bottom line cross section
      over which the water level is estimated is still clear from vegetation, debris or other things that might obscure
-     it.
+     it. Are there changes in the cross-section? Consider maintenance or resurveying at the site.
    - Did syncing to LiveORC work? If not, then also check if the connection with LiveORC is all on green on the device
      status subpage.
 

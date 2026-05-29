@@ -3,10 +3,10 @@
 User guide
 ==========
 
-This user guide describes the ORC-OS software and is intended for field hydrologists that wish 
-to configure ORC-OS for use in the field. It does not treat hardware and surveying aspects.
-These are described in the :ref:`hardware <hardware>` and the :ref:`field survey <field_survey>`
-documentation. In summary, this software user guide runs through:
+This user guide describes the ORC-OS software. It is intended for field hydrologists that wish 
+to configure ORC-OS for use in the field. If you are looking for hardware and surveying aspects,
+these are described in the :ref:`hardware <hardware>` and the :ref:`field survey <field_survey>`
+documentation. This software user guide runs through:
 
 * Who or for what the software can be used.
 * How to use the software through the web interface, focussing on general settings, entering field survey information,
@@ -21,14 +21,14 @@ documentation. In summary, this software user guide runs through:
 
     Rainbow Sensing offers training and support for the ORC-OS software and for setup and maintenance of the 
     central server component `LiveORC`_. If you are interested in this, please
-    go to https://openrivercam.org or contact us at info@rainbowsensing.com
+    go to https://openrivercam.org and contact us through the contact form.
 
-    We also provide ready-to-flash images for a very attractive price. Support packages include:
+    We provide ready-to-flash images for a very attractive price. Support packages include:
 
     * Ready-to-flash image for Raspberry Pi 5 devices.
     * 8 hours of support and guaranteed software updates within one year after acquisition.
     * Several back-end services pre-programmed, including power management, relay management and remote access management.
-    * Username and password for remote access to your device.
+    * User name and password for remote access to your device.
 
 .. screenshot:: http://localhost:5173
   :browser: chromium
