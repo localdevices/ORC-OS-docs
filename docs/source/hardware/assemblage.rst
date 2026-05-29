@@ -91,7 +91,11 @@ Step 3: Hooking up the power supply
    connected. Assuming the battery has some power, check the voltage on the charge controller with a multimeter.
    Below, a photo of the wiring of the battery to the charge controller with a fuse and connectors is shown.
 
-   <PHOTO of wiring with fuse and connectors inside box>
+   .. figure:: ../_images/_hardware/battery_wiring.jpg
+      :width: 100%
+
+      Wiring of the battery to the charge controller with a fuse and connectors. The fuse (purple) is in a fuse holder
+      directly behind the "+" terminal of the battery.
 
 2. If you want and there is enough sun, you can now also connect the solar panel to the charge controller. Before you
    do this, block all sunlight from the panel first. To connect, follow the same steps as for the battery. But now you
