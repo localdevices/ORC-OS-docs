@@ -99,7 +99,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_build/html
+          publish_dir: ./docs/build/html
           exclude_assets: '.buildinfo,_sources/*, _downloads/*'
           destination_dir: ./${{ env.DOC_VERSION }}
           keep_files: false
