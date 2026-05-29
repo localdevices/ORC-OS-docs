@@ -1,7 +1,7 @@
 git+https://github.com/localdevices/ORC-OS.git
 playwright
 pydata_sphinx_theme
-sphinx
+sphinx<9  # sphinx_rtd_theme is not yet compatible with sphinx 9, see https://github.com/readthedocs/sphinx_rtd_theme/issues/1234
 sphinx_autosummary_accessors
 sphinx_rtd_theme
 sphinxcontrib-programoutput

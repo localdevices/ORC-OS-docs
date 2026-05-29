@@ -4,8 +4,17 @@ import os
 from datetime import datetime
 from pathlib import Path
 
+from sphinx.environment import BuildEnvironment
+
 # Add the source directory to Python path for custom modules (e.g., screenshot_helpers)
 sys.path.insert(0, str(Path(__file__).parent.absolute()))
+
+# Compatibility shim for extensions that still use the removed private
+# BuildEnvironment._app attribute on newer Sphinx versions.
+# Test and try to remove with later >= 9.0 sphinx versions
+
+if not hasattr(BuildEnvironment, "_app"):
+    BuildEnvironment._app = property(lambda self: self.app)
 
 # import custom screenshot helper functions
 from _scripts.screenshots import make_screenshots

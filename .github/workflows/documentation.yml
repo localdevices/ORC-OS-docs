@@ -35,7 +35,9 @@ jobs:
           sudo apt install redis-server gdal-bin libgdal-dev libegl1 libopengl0 ffmpeg libjpeg-dev libfftw3-dev pandoc -y
 
       - name: Install docs requirements
-        run: pip install -U -r requirements.txt
+        run: |
+          pip install -U -r requirements.txt
+          playwright install --with-deps chromium
 
       - name: Checkout ORC-OS (main)
         run: |
