@@ -1,7 +1,6 @@
-.. _how:
-
 How does it work in 6 bullets?
 ------------------------------
+
 - A camera is setup, such that it can see an entire cross section from left to right bank.
 - A few measurement are collected:
 
@@ -21,8 +20,6 @@ How does it work in 6 bullets?
 
 - Data is sent (if you wish) automatically to a central `LiveOpenRiverCam`_ server for further use in
   decision support or other operational processes.
-
-.. _feats:
 
 Features
 --------

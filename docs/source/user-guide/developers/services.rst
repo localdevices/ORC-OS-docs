@@ -98,12 +98,11 @@ Adding parameters
 To manage a service, click on the "Manage" button of the service you wish
 to manage. This will reveal the following page:
 
-.. screenshot:: http://localhost:5173/services/3
-  :browser: chromium
-  :viewport-width: 1920
-  :viewport-height: 1080
-  :color-scheme: dark
-  :status-code: 200,302
+.. figure:: ../../_images/_screenshots/service_manage.png
+    :align: center
+    :width: 100%
+    
+    The page to manage a background service, where you can add parameters, change parameter values, and deploy the service.
 
 Parameters are added by clicking the "Add parameter" button. A form will be 
 brought up where can fill in the details.

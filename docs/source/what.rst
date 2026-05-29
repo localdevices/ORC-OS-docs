@@ -1,5 +1,3 @@
-.. _what:
-
 .. container:: figure-text-pair wide-text
 
 

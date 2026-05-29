@@ -255,7 +255,7 @@ Step 5: Setting up the camera and ORC-OS for receiving videos
 All your connections and software setup is now ready.
 
 Step 6: Install for field use
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 1. Install all components in the IP66 enclosure. Prepare the wiring of the solar panels with a long enough wire. 
    Pass the cables and fix these watertight with passthrough gland cable connectors.

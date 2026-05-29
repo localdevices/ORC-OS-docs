@@ -35,4 +35,5 @@ Please take a look at |openrivercam_services| for more information.
     <a href="https://openrivercam.org/services" target="_blank" rel="noopener noreferrer">OpenRiverCam services</a>
 
 .. |Rainbow Sensing| raw:: html
+
     <a href="https://rainbowsensing.com" target="_blank" rel="noopener noreferrer">Rainbow Sensing</a>
