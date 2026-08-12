@@ -175,6 +175,16 @@ Two settings can be managed to extract discharge from the video. These are found
         wide artificial storm drains, with small conveyance channels in the middle, which convey water during dry
         periods. If you still wish to capture velocities in the smaller conveyance channel, a reduction to e.g. 0.1 or
         0.2 may be required. For large streams, you may want to increase this value to save some processing time.
+    * - Velocity index (alpha, default 0.85)
+      - The velocity index is used to estimate how depth averaged velocity relates to the surface velocity. It is here
+        assumed that the velocity is highest at the surface and decreases with depth dependent on the shape and roughness
+        of the stream. For instance, if alpha is set to 0.85 and the surface velocity at some point in the stream
+        is 1 meter per second, then the depth averaged velocity at that point is estimated to be 0.85 meter per second.
+      - The slider gives an indication what type of channel form fits with the selected value. For instance if you move
+        the slider towards 0.75, you will see an indication of "Rocks and pebbles - shallow". If you move it to 0.95, 
+        you will see "very smooth concrete - deep" suggesting this value is more suited to a smooth concrete channel.
+        Our experience is that this value should be calibrated with e.g. an ADCP or salt dilution measurement in order 
+        to get an accurate value.
 
 Plotting
 ^^^^^^^^
