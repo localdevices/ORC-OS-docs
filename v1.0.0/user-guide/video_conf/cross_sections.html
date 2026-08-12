@@ -1,0 +1,784 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Water level and cross-sections &#8212; OpenRiverCam Operating System 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-screenshot/screenshot-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme-localdevices.css?v=064fede3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/docs.css?v=2b17d517" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/video_conf/cross_sections';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/localdevices/ORC-OS-docs/gh-pages/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/orc_favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Processing options" href="processing.html" />
+    <link rel="prev" title="Camera pose" href="camera_calib.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/orc_logo_color.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/orc_logo_color.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">ORC-OS 1.0.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/first_use.html">First use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/menus.html">Menus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">App pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../app/home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/timeseries.html">Time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/device.html">Device Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/log.html">Log file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/aim.html">Aim your camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/cross_sections.html">Cross sections</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Settings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../settings/general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/disk_management.html">Disk management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/water_level_settings.html">Automated water level retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/liveorc.html">Setting up LiveORC link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/updates.html">Over the air updates</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../settings/daemon.html">Daemon for automated processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/services.html">Background services</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Video configuration</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What is a video configuration?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preparations.html">Field preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="camera_calib.html">Camera calibration</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Water level and cross sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="processing.html">Processing options</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../developers/intro.html">What can a developer do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/backend.html">Console and virtual environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/services.html">Creating background services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/relay.html">Example service: relay management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developers/cli.html">Command-line interface</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Water level and cross-sections</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="water-level-and-cross-sections">
+<span id="vc-water-level"></span><h1>Water level and cross-sections<a class="headerlink" href="#water-level-and-cross-sections" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Water levels and cross-sections are needed to determine the wetted area of the channel, which in turn is needed to
+determine discharge. During your survey, you should measure the water level and cross-section in the same coordinate
+reference system as used for the camera pose and the ground control points so that the camera “understands” how
+it is aimed towards the water and cross section.</p>
+</div>
+<section id="entering-water-levels">
+<h2>Entering water levels<a class="headerlink" href="#entering-water-levels" title="Link to this heading">#</a></h2>
+<p>The water level is set in the cross-section tab. You here set the water level as it occurred during the survey.
+The water level is needed for two reasons:</p>
+<ul>
+<li><p>most importantly: to notify ORC of possible offsets between the vertical datum used in your survey measurements and
+water levels as measured by a device. Remember that to process any video, the water level during that video is needed
+and any local device reporting this may be used. The vertical level must however be translated to the level used in
+your survey. You therefore must provide the water level in two different ways:</p>
+<ol class="arabic simple">
+<li><p>as measured during your survey in <code class="docutils literal notranslate"><span class="pre">Water</span> <span class="pre">level</span> <span class="pre">in</span> <span class="pre">GCP</span> <span class="pre">coordinate</span> <span class="pre">system</span> <span class="pre">[m]</span></code>. This water level is indicated
+with the black arrow on the left-hand side of the staff gauge in the image shown below.</p></li>
+<li><p>as measured at the same moment, but through the water level measurement device in
+<code class="docutils literal notranslate"><span class="pre">Water</span> <span class="pre">level</span> <span class="pre">in</span> <span class="pre">local</span> <span class="pre">gauge</span> <span class="pre">reference</span> <span class="pre">[m]</span></code>.</p></li>
+</ol>
+<p>This is illustrated with the green arrow on the right-hand side of
+the staff gauge in the image shown below. The image suggests a staff gauge is the local reference, but this can also be a
+pressure sensor or any other device that can be used to measure water level. The only requirement is that you
+can translate the water level as measured by this device to the water level in the GCP coordinate system.
+This is done by providing both water levels as described above. In the schematic example for instance, the datum
+of the GCPs is at -2.0 m. and the staff gauge datum is at its bottom, which is at -0.1 m. Here we have set the
+lowest point of the bathymetry of the cross-section at zero. This is certainly not a requirement, it can in fact
+be at any level, as long as the water levels are translated to the same vertical reference. A logical choice for
+a water level time series for instance, is a local datum commonly used in your region. In the Netherlands for
+instance, this is the NAP datum, which is reasonably close to mean sea level and often used for time series so that
+data from several locations along a channel can also be compared with each other. Your GCPs however, may have been
+measured with a GPS device, which has its own datum, e.g. the WGS84 ellipsoid.</p>
+<p>(<a class="reference download internal" download="" href="../../_downloads/72ccf912c618984abde29e13954e9528/plot_camera_datums.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/540c38613eaa530fcd6a79f2ee2c19c1/plot_camera_datums.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/a34fa59dbd0a8b7d7450ac39ce6913d4/plot_camera_datums.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/27abfe4e42abdc2c22ec81cdc2ef1a51/plot_camera_datums.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default" id="id1">
+<img alt="Schematic of water level measurements" class="plot-directive" src="../../_images/plot_camera_datums.png" />
+<figcaption>
+<p><span class="caption-text">Schematic representation of the two water levels that are needed to be entered in the cross-section tab.
+Black arrow - Water level measured in GCP coordinate system.
+Green arrow - Water level measured in local gauge reference.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you will only optically measure water level then choose a logical reference, and keep it the same for both values.
+For instance, choose the bottom of the cross section or a level on a fixed point, such as a concrete pier. This will
+allow you to easily update the cross-section if you wish to do so, without creating offsets in the discharge - water
+level relationship. Simply ensure that when you resurvey the cross-section, you make sure that the vertical level
+at the chosen reference point is the same as before. This will ensure that the water level in the GCP coordinate
+system is the same as before, and that you can also update the water level in the GCP coordinate system to the same
+reference as before.</p>
+</li>
+<li><p>the second reason is a little more obvious: to visually check if your measurements seem right. After selecting the
+water level and a cross-section you will be able to visually see the wetted cross-sectional surface as well as
+the planar wetted surface in the image view on the left-side of the Video configuration view.</p></li>
+</ul>
+<p>Fill in the two water levels in the cross-section tab as shown below. The color coding is the same as in the figure
+above.</p>
+<figure class="align-center" id="id3">
+<img alt="water level settings" src="../../_images/video_config_water_level.png" />
+<figcaption>
+<p><span class="caption-text">Water level settings in the cross-section tab.
+Grey rectangle - Water level measured in GCP coordinate system.
+Green rectangle - Water level measured in local gauge reference.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="uploading-and-selecting-cross-sections">
+<span id="vc-cross-sections"></span><h2>Uploading and selecting cross sections<a class="headerlink" href="#uploading-and-selecting-cross-sections" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is important to understand what is meant by a “cross section”. A cross section in OpenRiverCam terms, is a set
+of coordinates measured in the same coordinate system as used for all other measurements, that describes the
+bottom of the channel from one bank to the other. There is often confusion about the vertical (Z) coordinate. This
+may with certain instrumentation (e.g. echo sounders)be measured as the <strong>depth</strong> of the channel, meaning that the
+lowest bottom coordinate appears
+as the highest value. This is <strong>not</strong> correct because your cross-section dataset should instead describe the
+bottom <em>coordinate</em>. If for instance the <code class="docutils literal notranslate"><span class="pre">X,</span> <span class="pre">Y,</span> <span class="pre">Z</span></code> coordinate of your camera is measured as <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0</span></code>, then the
+bottom coordinates of your cross-section will all have a lower <code class="docutils literal notranslate"><span class="pre">Z</span></code> value than zero with the lowest point in the
+channel having the lowest <code class="docutils literal notranslate"><span class="pre">Z</span></code> value. Before using a cross-section you <strong>must</strong> therefore make sure its
+coordinates share the same vertical reference as all other measurements i.e. control points and the water level.</p>
+</div>
+<p>The cross-section is needed to determine the wetted area of the channel, which is needed to determine discharge. You
+can upload one or more cross-sections and use these for multiple video configurations. For instance: you may decide to
+resurvey after the camera has moved or its direction has been changed. If GCPs remain in the same coordinate reference
+system and the cross-section has not changed, you may use an existing cross-section.</p>
+<p>You can also decide to upload multiple cross-sections for the same video configuration, for instance if you have
+surveyed multiple cross-sections during the survey, e.g. one that describes the cross-sectional wetted perimeter and
+one that describes the shape along a clear channel form, which works better for optical estimation of water levels.
+This may (ideally) for instance be a vertical structure such as a concrete embankment, a bridge pier or a staff gauge,
+close enough to the camera to be clearly visible. See our tip below for how to make a “cross section” that uses
+points along known vertical objects like placed staff gauges.</p>
+<p>To upload a cross-section, go to the <code class="docutils literal notranslate"><span class="pre">Cross</span> <span class="pre">sections</span></code> tab and click on the “Upload cross-section” button. This will
+open a file dialog. Select the file containing the cross-section coordinates. The file must be a CSV file obeying
+to the <strong>strict</strong> rules shown in <a class="reference internal" href="camera_calib.html#cross-section-csv-format"><span class="std std-ref">this note</span></a>.</p>
+<p>You may also decide to “Straighten cross section”. If you enable this option before selecting “Upload”, the points.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>How about measuring water levels optically from staff gauges? Optical water level estimation can be done by defining
+a “cross section” which is merely a smart horizontal and vertical interconnection of points on known vertical
+structures. For instance you may have installed a camera on a mast looking at two staff gauges or (better) white
+colored plates. You can measure the X-, Y-coordinates of the lowest staff
+gauge, measure the Z-coordinate of the lowest point and highest point of the staff gauge. Then measure the X-,
+Y-coordinates of the second staff gauge and also the lowest (Z) point and highest point. Then in Excel create a set of
+cross section points that connects the two with each other. For the other side (not used in practice) you may then
+create some arbitrary points towards the farthest bank. The 2-D schematic shown in the figure below demonstrates
+this idea. Just make sure that both (or all if you have more than 2) staff gauges have some overlap in the vertical,
+and that you finish the cross section by adding some arbitrary far-shore points so that you can select the nearest
+bank to detect the water level on.</p>
+<p>With this approach, you should consider that the “size of the element” over which the water level is measured (see
+<a class="reference internal" href="processing.html#optical-water-level"><span class="std std-ref">this subsection</span></a>), should be relatively small, in the order of the width of your staff
+gauge, change the 3 meter default value to e.g. 0.3.</p>
+<p>(<a class="reference download internal" download="" href="../../_downloads/06744c5043575375ab93af66189c9a59/plot_camera_staff_gauge.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/b6e23100e454b1d315a30f1fc2fe187e/plot_camera_staff_gauge.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/0902dd56bb60c6a7f88bce2e9552a45d/plot_camera_staff_gauge.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../../_downloads/4fdaf979abd981d959873600f9628676/plot_camera_staff_gauge.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default" id="id4">
+<img alt="Schematic of cross section for optical water level estimation" class="plot-directive" src="../../_images/plot_camera_staff_gauge.png" />
+<figcaption>
+<p><span class="caption-text">Schematic representation of a “cross section” that can be used to detect water levels, which is not a real
+cross section, but more a connection of known vertical orientation points.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="selecting-an-area-of-interest">
+<span id="aoi"></span><h2>Selecting an area of interest<a class="headerlink" href="#selecting-an-area-of-interest" title="Link to this heading">#</a></h2>
+<p>Once water levels and cross sections are selected, you may create an area of interest in the form of a rectangular
+bounding box, as seen from above. Note that you will see the bounding in the camera perspective also giving a good
+impression how the bounding box is projected on the image frame. Parts of the bounding box may be outside the field
+of view, which is no problem at all. No computations will be made for these areas and it will also not consume
+unnecessary storage.</p>
+<p>We recommend to first click on “Estimate bounding box first”. This will draw a solid
+bounding box, with enough space upstream to downstream around the cross section to warrant good coverage, without
+making more computations than required. If you want to enlarge or make the box smaller (e.g. if the stream is
+quite large, or fast flowing) or move or rotate it, you can do so using the controls on the top-right of the Camera
+view.</p>
+<p>If you want more flexibility you can also click “Draw bounding box”. You then use the mouse cursor to
+draw an area of interest in the camera view in 3 simple clicks:</p>
+<ul class="simple">
+<li><p>First click on either one of the “Draw bounding box” buttons (see red rectangles in the figure below).</p></li>
+<li><p>Then click on the left bank of the river in the camera view, at the location where you want the area of interest to
+start. Click on a point along the cross-section where you think the water may get to when the water level is high.
+This is likely further left than the water edge during survey conditions.</p></li>
+<li><p>Then click on the opposite side of your first point, on the right bank of the river, also further right than the
+water edge so that the area of interest also covers the river during high flows.</p></li>
+<li><p>Finally move your mouse cursor up- or downstream to grow the area of interest. You will automatically get a
+bounding box that has a bit of space up as well as downstream. Try to aim for about 2 meters up- and downstream space.
+Click once you are satisfied.</p></li>
+<li><p>This gives you a first version of the bounding box. You can click on “Top view” to check the rectangle from above
+and compare it against the cross section. You may then rotate, move or change the size in up- or downstreeam direction
+with the buttons shown within the green rectangle in the image below.</p></li>
+</ul>
+<figure class="align-default" id="id6">
+<img alt="../../_images/video_config_bbox.png" src="../../_images/video_config_bbox.png" />
+<figcaption>
+<p><span class="caption-text">Bounding box selection buttons</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The left bank is the bank that you see on your left side, while looking in downstream direction. The right bank is
+the bank that you see on your right side, while looking in downstream direction.</p>
+</div>
+<p>The top view shows the bounding box in a top view perspective. This may help you understand if the box is large enough,
+encompasses the entire cross-section and if it is centrered around the cross-section. If this is not the case, do not
+hesitate to move or rotate the area of interest, or make a completely new selection.</p>
+<figure class="align-default" id="id7">
+<img alt="../../_images/video_config_top_view.png" src="../../_images/video_config_top_view.png" />
+<figcaption>
+<p><span class="caption-text">Top view of the bounding box, here you can see we could have rotated the bounding box slightly to better encompass
+the cross section. This is not strictly necessary but may improve the coverage of your velocity estimates over the
+cross-section.</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="camera_calib.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Camera pose</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="processing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Processing options</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entering-water-levels">Entering water levels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-and-selecting-cross-sections">Uploading and selecting cross sections</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-an-area-of-interest">Selecting an area of interest</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Rainbow Sensing.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

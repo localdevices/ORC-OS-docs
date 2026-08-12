@@ -1,0 +1,995 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Field survey measurements &#8212; OpenRiverCam Operating System 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-screenshot/screenshot-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-localdevices.css?v=064fede3" />
+    <link rel="stylesheet" type="text/css" href="../_static/docs.css?v=2b17d517" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'field_guide/field_survey';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/localdevices/ORC-OS-docs/gh-pages/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/orc_favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User guide" href="../user-guide/index.html" />
+    <link rel="prev" title="Suitable site conditions" href="site_conditions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/orc_logo_color.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/orc_logo_color.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">ORC-OS 1.0.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Field guide</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="site_conditions.html">Suitable site conditions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Field survey measurements</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Field guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Field survey measurements</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="field-survey-measurements">
+<span id="field-survey"></span><h1>Field survey measurements<a class="headerlink" href="#field-survey-measurements" title="Link to this heading">#</a></h1>
+<p>Once a camera system is installed, several measurements are required in ORC-OS to enable processing of videos into
+velocities and river flow. All of the observations needed are in the form of 3D points. A schematic planar and sideview of the information obtained through the survey is provided in the image below.
+We highly recommend to carefully read this section before doing any installation, and do a dry-run of the entire survey
+procedure before going into the field if you have never done it before.</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/0a7684f03c6724a552997941b0bc5a19/plot_camera_datums_combined.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/31529aa9fb35c27c514fc8419dfb5cc4/plot_camera_datums_combined.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/86b3550e2ba9796bf297a9d860850875/plot_camera_datums_combined.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/45c807875f928ef43439535372da5e10/plot_camera_datums_combined.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/plot_camera_datums_combined.png" class="plot-directive" src="../_images/plot_camera_datums_combined.png" />
+<figcaption>
+<p><span class="caption-text">Information collected through surveying.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is crucial that all datasets described below are measured in exactly the same coordinate system. In some cases
+this means that you should survey everything in one survey project as your coordinate system may change if you
+start a new survey. This is particularly the case if you use a Leica disto P2P set and if you use an RTK GPS set
+with a base station with a very short survey in period. This gives good relative accuracy but not absolute. Do not
+switch off your base station during the entire survey.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you do split the survey in smaller parts, make sure you measure at least two points again in the second survey,
+so that you can correct that x, y, z offset between the different survey parts afterwards. Always check your
+observations with some simple plots. This can be done for instance in Excel using scatter plots.</p>
+</div>
+<section id="requirement-measurements">
+<h2>Requirement measurements<a class="headerlink" href="#requirement-measurements" title="Link to this heading">#</a></h2>
+<p>The required measurements are given and described in the table below:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 26.3%" />
+<col style="width: 36.8%" />
+<col style="width: 36.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Data</p></th>
+<th class="head"><p>Reason for required data</p></th>
+<th class="head"><p>Tips</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ground Control Points (GCPs)</p></td>
+<td><p>Needed to make the camera understand how pixels translate into meter distances in different parts of the
+field of view. It is also crucial that the camera understands what a horizontal plane is so that it can
+project a water surface (roughly following a horizontal plane over short distances) to a real meter x meter
+image.</p></td>
+<td><p>GCPs MUST be spread in a “non-collinear” way over the objective of the camera. This means points
+should not be on a straight line. They should be spread over left and right bank and from
+upstream to downstream. If you have not performed a calibration of the camera’s lens characteristics, then
+ORC-OS also uses GCPs to constrain lens characteristics. But for this to work, the points
+should cover a significant part of the entire field of view. Check for instance the example below, where
+points were spread such that both the close and far bank have a good spread. Obviously the points close to
+the camera are much closer together in real world, but this is totally fine and a very good spread over the
+objective. Points should also not be almost at the edge of the image.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cross section profile (bottom coordinates)</p></td>
+<td><p>Needed to estimate water depths with different occurring water levels, estimate the wetted cross sectional
+area and integrate velocity estimates (m/s) into river flow (m3/s).</p></td>
+<td><p>Record these perpendicular to the overall flow direction in an as straight line as possible. You may have to
+wade with an instrument on a stick (e.g. RTK GPS antenna, total station or a board with marker or checkerboard
+if you use a disto). Record as much as you can, even beyond what the camera can see (see note below). Record
+more points when the bottom is very variable. If the bottom is entirely straight, only measure the points of
+inflection and measure those carefully.</p></td>
+</tr>
+<tr class="row-even"><td><p>Water level</p></td>
+<td><p>Needed to assess how the water level recorded with your survey equipment may relate to water levels recorded
+with an in-situ measurement device. Both will have a different vertical datum.</p></td>
+<td><p>Measure this by holding your survey device on the line where water touches the land.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Camera position</p></td>
+<td><p>Currently only used as a check after calibration. In a upcoming update, it can be used as a strong extra
+constraint on the camera calibration process.</p></td>
+<td><p>Measure as close to the lens as possible.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="camera-placement-and-aim">
+<h2>Camera placement and aim<a class="headerlink" href="#camera-placement-and-aim" title="Link to this heading">#</a></h2>
+<p>Before any surveying you will have to decide where exactly to place your camera, how high and at what angle to aim it at
+the stream. Often this is where things might go wrong. You might install infrastructure, like a mast, or other
+constructions only after which you find out it is at the wrong or at a less ideal situation for the given camera type
+or for the stream. Here we try to give you a general sense what to be on the lookout for whilst making these decisions.</p>
+<p>The figure below, with captions show some examples of wrong camera placements and aims from the top view.
+Take a good look at these, and the captions to know what you should do or avoid. The subplots are numbered a, b, c and d,
+and we give some more details on each below the figure.</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/4ab2f4698387e3b88fe54a1765e762cb/plot_fieldwork_wrong_placement.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/43afa4a7102cca9f3876dcc0a8efefd5/plot_fieldwork_wrong_placement.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/9003f7711126ba312c0d4ee2424dfc14/plot_fieldwork_wrong_placement.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/32f25ad1da2743d1912c2387cf25b173/plot_fieldwork_wrong_placement.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default" id="id4">
+<img alt="../_images/plot_fieldwork_wrong_placement.png" class="plot-directive" src="../_images/plot_fieldwork_wrong_placement.png" />
+<figcaption>
+<p><span class="caption-text">Examples of correct (top-left) and typical problematic placements and aims (other subplots) of the camera.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="loweralpha">
+<li><p>The camera is well positioned. It can nicely see the entire cross section from the left natural levee to the right.</p></li>
+<li><p>The camera is tilted upwards too much. You are likely used to turn a camera such that it gives
+a pretty landscape view. This is not necessary and in fact not a good idea for two reasons.</p>
+<ul class="simple">
+<li><p>you here miss a part of the cross section, i.e. the last bit up to the natural levee close to the camera.</p></li>
+<li><p>if your camera uses an auto-exposure, likely it will reduce the exposure to ensure the very bright sky
+does not get saturated. Reducing exposure will cause a too low illumination of the dark water below it.
+And this is what you are interested in. Too dark will cause that you cannot see the movements on the water,
+and therefore the velocity estimation will reduce in accuracy.</p></li>
+</ul>
+<p>A simple rule of thumb: rotate downwards such that you still can just see the levee on the other side, but hardly
+anything above it.</p>
+</li>
+<li><p>Here the opposite of <strong>b</strong> occurs: the camera is tilted down too much. Therefore, you will miss part
+of the natural levee on the far shore.</p></li>
+<li><p>Your camera setup is very close or even in the floodplain. This may cause that you miss parts of the cross
+section. Also a too low mast will cause that you will see little detail at the far shore. Consider getting
+the mast onto a higher place, ideally a little bit behind the natural levee.</p></li>
+</ol>
+<p>No location is perfect! So in some if not many cases, you will have to use existing infrastructure to mount your
+camera and you do not have a choice but to accept the position is not ideal. In these cases, consider the follow
+options:</p>
+<ul class="simple">
+<li><p>perhaps you can get a higher mast, that allows you to oversee a larger if not the entire section</p></li>
+<li><p>accept that you miss a small part of the cross section. Consider which part will not convey much water and
+then aim and focus on the part you deem to be most important. Infilling techniques will ensure that missing
+parts in the cross section are still accounted for even though this is through extrapolation.</p></li>
+<li><p>try to ensure that the angle between the water and your camera is everywhere at least 10 degrees.
+If it is less in many parts of the water surface, then consider mounting on a higher mast.</p></li>
+<li><p>it is usually also fine to rotate your camera a bit in the upstream or downstream direction.
+Have a look for instance, at the picture below, showing footage from one of our longest running
+installations in Limburg, The Netherlands. Because our infrastructure was already
+prepared and very close to the water, we were a little too close to the stream. We aimed it slightly downstream.
+We just made sure that the cross section fits in our objective and this gave us a successful
+installation nonetheless.</p></li>
+</ul>
+<p>Measurement locations are almost never perfect, so accept this, and use our tips to still get a good
+performing station.</p>
+<figure class="align-default" id="id6">
+<img alt="../_images/rotated_view_cam.jpg" src="../_images/rotated_view_cam.jpg" />
+<figcaption>
+<p><span class="caption-text">A successful installation in Limburg, The Netherlands. The camera is aimed a bit downstream but still
+captures the entire cross section.</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="gcp-placement">
+<h2>GCP placement<a class="headerlink" href="#gcp-placement" title="Link to this heading">#</a></h2>
+<p>The table with required measurements already explained that a good spread of GCPs is important. A good and
+simple example is provided below.</p>
+<figure class="align-default" id="id7">
+<img alt="../_images/gcps.jpg" src="../_images/gcps.jpg" />
+<figcaption>
+<p><span class="caption-text">A good spread of control points, painted on the sides of a channel</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>This example picture gives a typical situation of a good spread of control points along a channel. A few things can be
+noticed which are important to consider:</p>
+<ol class="arabic simple">
+<li><p>Points are spread over both left and right bank. This constrains the camera pose for close and far away pixels.</p></li>
+<li><p>Points are also spread from left to right in the objective. This means that points are in real-world close to
+each other close to the camera, but are more spread out further away. This is totally fine and actually ideal as it
+constrains the camera pose for the entire field of view.</p></li>
+<li><p>Although points are spread nicely, they are not precisely or very close to the edge of the Field of View. This is
+important because the edge of a typical lens of a camera may behave very erratically. So best is: spread the points,
+but not so far as that they are almost at the edge of the objective.</p></li>
+</ol>
+<p>The figures below show examples of wrongly spread points. Take a good look at these, and the captions to know what you
+should do and what you should avoid.</p>
+<p>(<a class="reference download internal" download="" href="../_downloads/9dec445a24a872268e019023e32d7e31/plot_fieldwork_wrong_gcps.py"><code class="xref download docutils literal notranslate"><span class="pre">Source</span> <span class="pre">code</span></code></a>, <a class="reference download internal" download="" href="../_downloads/a3d3946db324241acf1d4c662c47c585/plot_fieldwork_wrong_gcps.png"><code class="xref download docutils literal notranslate"><span class="pre">png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/49f22edf08e627bea3f4c161b7d97fad/plot_fieldwork_wrong_gcps.hires.png"><code class="xref download docutils literal notranslate"><span class="pre">hires.png</span></code></a>, <a class="reference download internal" download="" href="../_downloads/db945e1ed638e00976f72f7528402600/plot_fieldwork_wrong_gcps.pdf"><code class="xref download docutils literal notranslate"><span class="pre">pdf</span></code></a>)</p>
+<figure class="align-default" id="id8">
+<img alt="../_images/plot_fieldwork_wrong_gcps.png" class="plot-directive" src="../_images/plot_fieldwork_wrong_gcps.png" />
+<figcaption>
+<p><span class="caption-text">Examples of correct (top-left) and typical problematic placements (other subplots) of GCPs.</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="loweralpha simple">
+<li><p>Well-spread points, nicely within the objective, and spread over both banks. This is ideal and will lead to a
+well-constrained camera pose and good results in the orthoprojection process.</p></li>
+<li><p>The points are well spread from close to far, but do not spread from left-to-right. They are almost in a straight
+line. There are therefore no constraints for left to right, and this will lead to a likely very poorly constrained
+pose possibly with extruded or contracted views of reality from left to right.</p></li>
+<li><p>The points are well spread from left to right, but all on one bank therefore making them collinear. There are no
+constraints for close to far, and this will lead to a likely very poorly constrained pose.</p></li>
+<li><p>A nice spread of points, but some points are almost on the edge of the field of view. In the camera
+objective these would show up very close to the edge of the image. This will lead to overconstraints on the distortion
+parameters, possibly leading to bad results in the orthoprojection process.</p></li>
+</ol>
+<p>In general: make sure you are happy with the combination of camera aim and placement before doing any surveying.
+This will save you a lot of time and effort.</p>
+</section>
+<section id="survey-guide">
+<h2>Survey guide<a class="headerlink" href="#survey-guide" title="Link to this heading">#</a></h2>
+<p>Now that you have read about the required measurements, why these measurements are required, and what typically can go
+wrong, you are ready to start doing the measurements. Below, we have provided some notes on two typical survey
+approaches from top to bottom, using a Leica P2P set or a RTK GNSS device. Select the one that is most suitable for
+your situation. If you use a spirit level and/or total station, the procedure is similar to the Leica disto P2P set
+but you will have to do some extra calculations (especially with a staff gauge + spirit level). It is beyond scope
+here to detail this. We assume that you already have some experience with these devices and can figure out how to use
+them for the required measurements.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Leica Disto P2P set</label><div class="sd-tab-content docutils">
+<p class="rubric">What is a disto</p>
+<div class="figure-text-pair docutils container">
+<div class="column docutils container">
+<figure class="align-default" id="id10">
+<img alt="../_images/leica_disto_x6.jpg" src="../_images/leica_disto_x6.jpg" />
+<figcaption>
+<p><span class="caption-text">Leica disto X6 P2P set</span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="column docutils container">
+<p>A “disto” measures distances between a device carrying a strong laser and an object at a certain distance
+away from the device. It is used a lot in construction, for instance to measure distances between two walls.</p>
+<p>A P2P set adds functionality by connecting points collected during a disto survey into a 3-dimensional coordinate system.
+Such a device
+uses a connected spirit level to understand what the horizontal plane is, gives the first point measured
+a coordinate X = 0, Y = 0, Z = 0 where Z is the vertical (up is positive) coordinate axis. For the second coordinate
+the disto will keep X = 0, and define the Y-coordinate as the horizontal distance between the first and second
+point and the Z-coordinate derived as the vertical distance based on the spirit level and angular difference
+the device is making from point one to two. The Leica disto systems add to this that each recorded point can
+be easily found using a small camera system and by taking a small photograph of the point for later reference.
+This makes the disto X6 one of the most robust and error-free measurement methods in relatively small river systems.</p>
+</div>
+</div>
+<div class="figure-text-pair wide-text docutils container">
+<div class="column docutils container">
+<p>Our experience is that with
+points surveyed with the Leica disto X6 P2P system (latest at the time of writing), an average reconstructed
+point accuracy of less than one centimeter can be reached. The cool thing is that you may use a lot of easy to
+find objects lying around during the survey, e.g. a rock, recognizable points on a wall perimeter, a bridge or
+other built objects, painted markers, and so on. It therefore may also be far less intrusive for the
+environment and may make it easier to do a survey in urban environments where you may not be allowed to place
+GCPs on certain places due to privacy reasons.</p>
+</div>
+<div class="column docutils container">
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/leica_3d_capture.jpg"><img alt="../_images/leica_3d_capture.jpg" src="../_images/leica_3d_capture.jpg" style="width: 200px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">3D capture functionality</span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="figure-text-pair docutils container">
+<div class="column docutils container">
+<figure class="align-default" id="id12">
+<img alt="../_images/disto_point_example.jpg" src="../_images/disto_point_example.jpg" />
+<figcaption>
+<p><span class="caption-text">Example of photo of control point by Leica disto X6 P2P set</span><a class="headerlink" href="#id12" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="column docutils container">
+<p>The disto approach also has a few disadvantages:</p>
+<ul class="simple">
+<li><p>points should not be too far away, more than 100 meters is usually very difficult.</p></li>
+<li><p>the texture and color of the points matters. Very dark objects are usually extremely difficult to survey so
+make sure the inside of the points you measure is light. Spray painted dark circles with white centres can work
+well.</p></li>
+<li><p>during very hot weather, upward moving eddies can attenuate the laser beam and make it difficult to measure points far
+away.</p></li>
+</ul>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure that the person carrying around survey points NEVER looks into the laser direectly. It can severely
+damage your eyes as it is very powerful.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Try out the device in a “dry” environment to test it and make sure you understand its features
+before taking it into the field. Try out to measure points closeby, far away and points of differing
+texture and colour to see under what conditions the points can be easily recorded.
+Also try to import a result into Excel or LibreOffice and see if you can work with the
+points, e.g. plot a top-view (X-Y scatter plot) and a side-view of the cross-section.</p>
+</div>
+<p class="rubric">Procedure</p>
+<ul class="simple">
+<li><p>Fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
+to use.</p></li>
+<li><p>Spread or look for suitable objects as GCPs.</p></li>
+<li><p><strong>IMPORTANT:</strong> make a sample video with all GCPs in view. Make sure nothing or no-one is in between the camera
+and any control points so that all points are well visible. This video is essential, and used later in the calibration process.</p></li>
+<li><p>Prepare a marker on a stick of sufficient length for the bottom cross section survey.</p></li>
+<li><p>Measure and note down the length of the stick from bottom to the centre of the marker.</p></li>
+<li><p>Look for a position from which you can see all points that you wish to survey. Note that these include
+the GCPs, the bottom cross-section points, water level and camera position.Usually you place the device
+somewhere near the camera in view of both banks. Set up the disto with
+spirit level and tripod such that it cannot move. This is extremely important. Consider putting some weight
+on the tripod legs to ensure the device is more stable.</p></li>
+<li><p>Remove any blocking things in the line of sight such as rocks, overhanging branches, leaves, grass or other
+vegetation.</p></li>
+<li><p>When you start your survey, we recommend to take control over the axes. For instance first measure
+two random points that lie in upstream - downstream direction. This fixes the x-axis to upstream to
+downstream direction. These two points will not be used in further processing in ORC-OS so you should discard
+them before feeding them into ORC-OS.</p></li>
+<li><p>Measure GCPs, cross-section (with the stick), water level (with the stick) camera position in one single
+survey.</p></li>
+<li><p>Store the results immediately in a CSV file.</p></li>
+<li><p>Make another control video in case you made any changes in the layout during the survey for whatever reason.</p></li>
+<li><p>Whilst in the field and before wrapping up, do some postprocessing on the CSV file where needed (see below)
+and feed in the control video, GCPs and cross section (split the CSV in parts for GCP and cross section)
+and check if the fit of the control points and the layout of the cross-section looks accurate.</p></li>
+<li><p>Considering doing the survey again if anything seems wrong. Otherwise, clear out all control points and make
+sure no rubbish is left behind.</p></li>
+</ul>
+<p class="rubric">Guidance in use</p>
+<p>By using a disto P2P device, you will get very high accuracy measurements if you follow the following
+guidelines:</p>
+<ul class="simple">
+<li><p>Make sure you survey <strong>everything in one single survey</strong>. Bear in mind the devices tend to turn off themselves
+after a few minutes idling. You can extend the amount of minutes in the settings which is highly recommended.</p></li>
+<li><p>Make sure there are no leaves, overhanging branches, and so on blocking the laser.</p></li>
+<li><p>With every point collected, check if the device really recorded it. It may give an error code if the point is
+not good. This can be due to movements of the device or point during the recording.</p></li>
+<li><p>In hot environments, upward moving eddies, especially above hot surfaces can attenuate the laser beam as it
+travels through air. Considering doing the survey at cooler moments, when there is sufficient light. This can
+be early morning or during a moment that the area to survey is in the shade.</p></li>
+<li><p>If a persistent error code appears, note it down and look it up in online documentation. It can give a clear
+idea what the problem is and lead to resolving it.</p></li>
+<li><p>After the survey, you may need to do some postprocessing to get all points in the same system. For instance,
+if you use a marker on a stick to survey the cross section, then you should remove the length between the
+bottom of the stick and the centre of the marker to get the bottom coordinates. The exported file is CSV
+format and can be read into Excel directly. Also, if you surveyed two points to fix the axes, then those two
+points should be removed from the result CSV file.</p></li>
+<li><p>Split your data into two files: one only containing the GCPs and one only containing the cross section.</p></li>
+</ul>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+RTK GNSS</label><div class="sd-tab-content docutils">
+<p class="rubric">What is RTK GNSS</p>
+<div class="figure-text-pair docutils container">
+<div class="column docutils container">
+<figure class="align-default" id="id13">
+<img alt="../_images/RTKGNSS.jpg" src="../_images/RTKGNSS.jpg" />
+<figcaption>
+<p><span class="caption-text">Ardusimple rover station, used to measure a cross section and red/white GCPs. The markers are
+slightly tilted towards the camera so that they can be easily identified in the video image later on.</span><a class="headerlink" href="#id13" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+<div class="column docutils container">
+<p>Real-Time Kinematics Global Navigation Satellite Systems (RTK-GNSS) measure geographical coordinates at an
+extremely high accuracy and in real-time (i.e. only a very short survey period is needed per point). This is
+done by using a fixed nearby GNSS station that continuously records and sends out survey data of its own
+position. The mobile station (a.k.a. “rover”) combines real-time collected data at the base station and at its
+own position to make an accurate estimation of its own position, essentially by comparing the resolved location
+of the base station with its known position. Through data assimilation in time, the solution becomes more
+accurate when more satellite data has been received.</p>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>RTK-GNSS base-rover sets used to be a very expensive piece of equipment. Since a few years, company uBlox
+started producing low cost GNSS chipsets that have the ability to perform RTK computations on the chip
+using a large amount of satellite constellations and several wavelengths. Company Ardusimple sells ready to
+use base-rover kits based on these chipsets. These are very affordable. Including a measurement pole with
+spirit level you can expect to spend about 1000 euros for a complete set. It is ideal in sites where quite
+large distances are involved (50 - 100 meter or even wider river sections) as there disto measurements may
+become infeasible.</p>
+</div>
+<p class="rubric">Procedure</p>
+<ul class="simple">
+<li><p>First setup your base station following the user manual of the equipment. Let it measure long enough so that
+it has a stable point. Absolute accuracy is not needed, so usually a survey of 15-30 minutes is sufficient.
+Once survey is completed, the base station will send out correction messages. DO NOT switch off the base
+station during the survey if you use Survey-In mode for a short period.</p></li>
+<li><p>Fix the camera to a satisfactory position and angle so that it oversees the entire cross section you wish
+to use.</p></li>
+<li><p>Spread or look for suitable objects to serve as GCPs. Make sure any object is clearly marked and slightly
+tilted towards the camera, such that you can
+find it back in the image. Only white, or only dark usually is not sufficient. Use a combination of white and
+dark.</p></li>
+<li><p><strong>IMPORTANT:</strong> make a sample video with all GCPs in view. Make sure nothing or no-one is within line of
+sight. This video is essential, and used later in the calibration process.</p></li>
+<li><p>Prepare your rover, putting the antenna on a pole with a spirit level. The pole should be high enough so that
+it can be used for the bottom cross section survey.</p></li>
+<li><p>Measure and note down the length of the stick from bottom to the centre of the marker if needed.</p></li>
+<li><p>Measure GCPs, cross-section, water level, and camera position. Again make sure that during this survey
+the base station is never switched on/off.</p></li>
+<li><p>Store the results immediately in a CSV or Shapefile or other geographical format.</p></li>
+<li><p>Make another control video in case you made any changes in the layout during the survey for whatever reason.</p></li>
+<li><p>Whilst in the field and before wrapping up, do some postprocessing on the CSV file where needed (see below)
+and feed in the control video, GCPs and cross section (split the CSV in parts for GCP and cross section)
+and check if the fit of the control points and the layout of the cross-section looks accurate.</p></li>
+<li><p>Considering doing the survey again if anything seems wrong. Otherwise, clear out all control points, pack up
+the base and rover stations and make sure no rubbish is left behind.</p></li>
+</ul>
+<p class="rubric">Guidance in use</p>
+<p>RTK-GNSS use is more complex and error prone than a Leica disto P2P device. Therefore read the guidelines
+below and make sure you practice the entire procedure in a controlled environment before going into the
+field:</p>
+<ul class="simple">
+<li><p>First consider if RTK-GNSS will work in the chosen environment. RTK-GNSS does not work well in areas with
+very high buildings, just next to a wall or under or near thick vegetation. Make sure that you can position
+GCPs in some clear part of the area.</p></li>
+<li><p>When placing GCPs, make sure you can easily reach the point with the survey pole, while still being able
+to read the spirit level and whether a “FIX” status is reached or not. A steep slope is usually not ideal.</p></li>
+<li><p>Before taking a point (especially a GCP), the survey pole <strong>must be kept perfectly vertical!</strong> A small
+deviation from vertical can easily result in errors of 10cm (several inches) or more. <strong>A spirit level on
+the pole is a MUST!</strong></p></li>
+<li><p>Only record a point when the status is “FIX”. If the status is “FLOAT” or (even worse) “DGPS” or “SINGLE”
+the accuracy of the measurement will be too low to give a good result. Most surveying software like SW
+Maps have settings that accept points only when they have a certain minimum status. Set this setting to
+“FIX”!</p></li>
+<li><p>With every point collected, check if the device really recorded it. If “FIX” is not reached, the point
+should not have been recorded. Sometimes, keeping the pole stable for a few seconds helps to obtain
+status “FIX”.</p></li>
+<li><p>After the survey, you may need to do some postprocessing to get all points in the same system.
+The exported file may be a geographical file such as Shapefile or GeoJSON. Ensure the file is first
+converted into a GeoJSON with a local projection with unit metre (not degrees!). You can do this with
+the free and open-source and excellent <a class="reference external" href="https://qgis.org">QGIS</a> software.</p></li>
+<li><p>After converting, split your data into two files: one only containing the GCPs and one only containing
+the cross section. Also this can be done in <a class="reference external" href="https://qgis.org">QGIS</a>.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="site_conditions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Suitable site conditions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../user-guide/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">User guide</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirement-measurements">Requirement measurements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#camera-placement-and-aim">Camera placement and aim</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gcp-placement">GCP placement</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#survey-guide">Survey guide</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Rainbow Sensing.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

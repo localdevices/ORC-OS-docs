@@ -1,0 +1,747 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Creating background services &#8212; OpenRiverCam Operating System 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinxcontrib-screenshot/screenshot-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/theme-localdevices.css?v=064fede3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/docs.css?v=2b17d517" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/developers/services';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/localdevices/ORC-OS-docs/gh-pages/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../../_static/orc_favicon.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example service: relay management" href="relay.html" />
+    <link rel="prev" title="Console and virtual environment" href="backend.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../_static/searchtools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script src="../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/orc_logo_color.svg" class="logo__image only-light" alt=""/>
+    <img src="../../_static/orc_logo_color.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">ORC-OS 1.0.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../hardware/index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">General</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../general/first_use.html">First use</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../general/menus.html">Menus</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">App pages</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../app/home.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/videos.html">Videos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/timeseries.html">Time series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/device.html">Device Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/log.html">Log file</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/aim.html">Aim your camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/recipes.html">Recipes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../app/cross_sections.html">Cross sections</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Settings</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../settings/general.html">General</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/disk_management.html">Disk management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/water_level_settings.html">Automated water level retrieval</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/liveorc.html">Setting up LiveORC link</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/updates.html">Over the air updates</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="../settings/daemon.html">Daemon for automated processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../settings/services.html">Background services</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Video configuration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../video_conf/intro.html">What is a video configuration?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_conf/preparations.html">Field preparations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_conf/camera_calib.html">Camera calibration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_conf/cross_sections.html">Water level and cross sections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../video_conf/processing.html">Processing options</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developers</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">What can a developer do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="backend.html">Console and virtual environment</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Creating background services</a></li>
+<li class="toctree-l1"><a class="reference internal" href="relay.html">Example service: relay management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command-line interface</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">User guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Creating background services</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="creating-background-services">
+<span id="devel-services"></span><h1>Creating background services<a class="headerlink" href="#creating-background-services" title="Link to this heading">#</a></h1>
+<p>Background services are processes that run in the background as entirely
+independent processes from the web server. They can be used to run any kind of
+additional process that you like. Examples include:</p>
+<ul class="simple">
+<li><p>Running a script, that monitors the state of your battery and reports
+this in the <code class="docutils literal notranslate"><span class="pre">misc</span></code> field of the time series table.</p></li>
+<li><p>Running a script that continuously monitors the database and if a new record
+appears, send it to a separate connected logger or an API of a third-party
+service.</p></li>
+<li><p>Handling power management, so that the device turns on and off at certain
+times of the day**</p></li>
+</ul>
+<p>A service consists of a set of parameters, stored as environment variables,
+and a Bash or Python script, which is run once the service is started.
+Other things that help define the service are a short name, a description, and a
+README (which can contain Markdown language). Each parameter in turn also has
+additional properties, including the environment variable it is linked to,
+the type (boolean, integer, float or string), whether it is mandatory or not,
+and a default value. The parameters allow for user-side configuration of the
+service.</p>
+<section id="running-orc-os-in-developers-mode">
+<span id="devel-mode"></span><h2>Running ORC-OS in developers mode<a class="headerlink" href="#running-orc-os-in-developers-mode" title="Link to this heading">#</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Creating a new service requires the web server to be in development mode.
+The ready-to-flash images from Rainbow Sensing can be started in development
+mode by simply pressing the on-board power button briefly. This will start
+the web server in development mode, and even start a WiFi Hotspot so that
+you can easily connect to your device. No need to log into the back-end and
+no hard cables required!</p>
+</div>
+<p>A new service can be created from the web interface but only when the web server
+is running in development mode. If you have built your own device and installed
+ORC-OS yourself, follow these instructions:</p>
+<p>To run the web server in development mode, stop the running web server backend,
+and set the <code class="docutils literal notranslate"><span class="pre">ORC_DEV_MODE</span></code> environment variable to <code class="docutils literal notranslate"><span class="pre">1</span></code> (true). Then run the
+web service interactively. Usually you do this with uvicorn, as follows:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># stop the running web server backend</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>stop<span class="w"> </span>orc-api
+<span class="c1"># set the DEV MODE environment variable to 1 (true)</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ORC_DEV_MODE</span><span class="o">=</span><span class="m">1</span>
+uvicorn<span class="w"> </span>orc_api.main:app<span class="w"> </span>--host<span class="w"> </span><span class="m">0</span>.0.0.0<span class="w"> </span>--port<span class="w"> </span><span class="m">5000</span><span class="w"> </span>--workers<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+<p>The port number is important because the web front-end is usually configured to
+look for the web server on port <code class="docutils literal notranslate"><span class="pre">5000</span></code>. If you have chosen a different port
+in your nginx configuration, then change the port to this port instead.</p>
+</section>
+<section id="create-a-new-service">
+<h2>Create a new service<a class="headerlink" href="#create-a-new-service" title="Link to this heading">#</a></h2>
+<p>Once the webserver is in development mode, navigate to
+<span class="menuselection">Settings ‣ Manage Services</span>.</p>
+<figure class="align-default" id="id1">
+<img alt="../../_images/df0b9736cb85313029fe23d9a6592660.png" src="../../_images/df0b9736cb85313029fe23d9a6592660.png" />
+<figcaption>
+<p><span class="caption-text">The Manage Services page, where you can create, edit, delete and deploy
+background services.</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Here you can create a new service, or edit or delete an existing one. When
+you create a new service, you will be asked for a short name (only small letters
+and dashes, no other special characters, spaces or capital are allowed), a
+long name, Service type (run once or at intervals), a description and a README.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/services_create.png"><img alt="../../_images/services_create.png" src="../../_images/services_create.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The form to create a new background service.</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A created service can be edited with the “Edit” button.</p>
+<p>Once created, you can add parameters, change their value, deploy the service,
+and start and stop it. This is explained in more detail below.</p>
+</section>
+<section id="adding-parameters">
+<h2>Adding parameters<a class="headerlink" href="#adding-parameters" title="Link to this heading">#</a></h2>
+<p>To manage a service, click on the “Manage” button of the service you wish
+to manage. This will reveal the following page:</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/service_manage.png"><img alt="../../_images/service_manage.png" src="../../_images/service_manage.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The page to manage a background service, where you can add parameters, change parameter values, and deploy the service.</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Parameters are added by clicking the “Add parameter” button. A form will be
+brought up where can fill in the details.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/parameter_create.png"><img alt="../../_images/parameter_create.png" src="../../_images/parameter_create.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The form to add a parameter to a background service.</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The short name must be capitalized
+and can only contain “_” as a special character. This is because the
+short name will be used as the name of the environment variable that is linked
+to this parameter. The long name can be anything you want.
+The type can be boolean, integer, float or string. The default value must be of
+the type you have specified. You may also specify whether the parameter is
+mandatory or not by selecting or deselecting “Nullable”.
+The description may be important for users, explain here carefully what the
+parameter does and how it should be used.</p>
+<p>Once saved, the parameter will appear in the list of parameters and you may
+change its behaviour by clicking “Edit”. You can also change the value of the
+parameter for this service by entering it in the designated field. The parameter
+values will be stored as a list of environment variables when you click on
+“Update parameters”. Once you have done this, each time you revisit this page,
+the fields will be filled with the values you have defined. If you change the
+parameter values and click “Update parameters” again, the new values will be
+stored and will overwrite the previous values. Changing the parameters can
+also be done by the user when not in developers mode. This allows you to
+quickly change parameters if this is needed while the device is in operation.</p>
+</section>
+<section id="deploying-the-service">
+<h2>Deploying the service<a class="headerlink" href="#deploying-the-service" title="Link to this heading">#</a></h2>
+<p>At this stage the service contours are defined, but the service is not yet
+deployed: a script must be run as part of the service, and this script must
+be encapsulated in a so-called “service file”. To do this, click on “Deploy”.
+This will bring you to the deployment page, where you can upload a script.
+A service file will be generated automatically and once this is done, you will
+be able to start, stop, enable disable and restart the service. Again, this
+can be done even if not in developers mode, so that you can quickly update
+parameters and then restart the service. You may also want to interrupt a
+service that is running. This is for instance very important if you want to
+have a longer look at the device and a service is running that power cycles
+the device. If you interrupt this, you will have more time to check the device.
+Once you are done you can restart the service again. The meaning of the buttons
+is described in the general description of the <a class="reference internal" href="../settings/services.html#services"><span class="std std-ref">services pages</span></a>
+for normal users.</p>
+<p>We have prepared a full example of a service for managing power to external devices
+via relays. To get a better understanding, please implement this service yourself
+by following the instructions in the next section.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="backend.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Console and virtual environment</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="relay.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Example service: relay management</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-orc-os-in-developers-mode">Running ORC-OS in developers mode</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-service">Create a new service</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-parameters">Adding parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deploying-the-service">Deploying the service</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Rainbow Sensing.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

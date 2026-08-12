@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>A typical set of parts &#8212; OpenRiverCam Operating System 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=90905a2f556bf617f1a9" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinxcontrib-screenshot/screenshot-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/theme-localdevices.css?v=064fede3" />
+    <link rel="stylesheet" type="text/css" href="../_static/docs.css?v=2b17d517" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=90905a2f556bf617f1a9"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hardware/typical_setup';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.20.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://raw.githubusercontent.com/localdevices/ORC-OS-docs/gh-pages/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '1.0.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="icon" href="../_static/orc_favicon.svg"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assemblage" href="assemblage.html" />
+    <link rel="prev" title="General required parts" href="parts.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/orc_logo_color.svg" class="logo__image only-light" alt=""/>
+    <img src="../_static/orc_logo_color.svg" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">ORC-OS 1.0.0</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../intro/index.html">
+    Introduction
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_orcos.html">
+    Getting ORC-OS
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="index.html">
+    Hardware setup
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../field_guide/index.html">
+    Field guide
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user-guide/index.html">
+    User guide
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://openrivercam.org" title="Local Devices" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><img src="../_static/orc_logo_color.svg" class="icon-link-image" alt="Local Devices"/></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">Hardware setup</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="parts.html">General required parts</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">A typical set of parts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="assemblage.html">Assemblage</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Hardware setup</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">A typical set of parts</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="a-typical-set-of-parts">
+<span id="typical-setup"></span><h1>A typical set of parts<a class="headerlink" href="#a-typical-set-of-parts" title="Link to this heading">#</a></h1>
+<p>Once the software is installed, you will need a proper setup in the field. We
+provide guidance here how to establish a complete field setup.</p>
+<figure class="align-default" id="id1">
+<img alt="../_images/hardware_setup_example.png" src="../_images/hardware_setup_example.png" />
+<figcaption>
+<p><span class="caption-text">Impression of a typical hardware setup and the required connections
+:scale: 50 %
+:alt: hardware setup</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We here turn to more practical guidance.
+To help you build your own camera setup we here give an overview of possible
+parts that we have ourselves tested with. You will see that these parts
+broadly cover what we have described in the previous section.
+The figure above gives an impression what the entire build would look like. Some
+details are left out for simplicity, but the general idea should be clear:
+your small electronic components and most of the wiring is inside an enclosure.
+The camera and the power supply are outside. If your battery is small enough
+you can place it in the same enclosure.</p>
+<p>We assume a setup with solar power and running
+every 30 minutes. We are not frequently and actively maintaining the parts list.
+Please let us know if anything seems out of order by creating a Github issue on
+the <a class="reference external" href="https://github.com/localdevices/ORC-OS-docs">ORC-OS-docs GitHub repository</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We do NOT give any guarantee that with these parts, your build will work. We also do not give
+any support without a agreed project. It may be that certain parts change in time. We are never responsible for
+any issue related to your own build nor for any incompatibilities with the ORC-OS software.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 35.0%" />
+<col style="width: 65.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Example specific item</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Raspberry Pi 5 CM (8/32GB)</p></td>
+<td><p><a class="reference external" href="https://www.raspberrypi.com/products/raspberry-pi-5/">Raspberry Pi 5</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Compute Module board (8/32GB, note that there are also industrial grade options,
+that can handle a larger temperature range, but these are more expensive and may be
+more difficult to get).</p></td>
+<td><p><a class="reference external" href="https://www.waveshare.com/cm5-io-base-b.htm?sku=30703">Waveshare CM5-IO-Base-B</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Active cooler for Raspberry Pi 5</p></td>
+<td><p><a class="reference external" href="https://www.waveshare.com/cm5-fan-3007-5v.htm?srsltid=AfmBOopLk_ws8IzYfTvdiKfIjJIpYJ7of6YJRmunQx7_f5n9zkALIaFL">Waveshare active cooler for CM5</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Rechargeable battery for Real-Time clock and power management. For larger
+carrier boards, a CM/ML2032 is needed. For smaller boards, (e.g. the
+Waveshare CM5 IO Base-B) typically a CR/ML1220 is needed.
+The normal Raspberry Pi 5 model with SD card has a special prepared battery.</p></td>
+<td><p>Please check availability locally. 3.7V LIR rechargeable batteries typically work.
+The battery does not have to be rechargeable, but it is more convenient as you do
+not have to replace it when it runs out.</p></td>
+</tr>
+<tr class="row-even"><td><p>Weather proof IP camera (ideally &gt;= 20Mbps, 1080p, capable to record on event-basis, e.g. during startup, or
+at time-intervals).</p></td>
+<td><p><a class="reference external" href="https://www.axis.com/products/axis-m1135-e-mk-ii">AXIS P1135-E Mk II</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>4G modem (can also be a Raspberry Pi modem HAT like a Waveshare7600E-H)</p></td>
+<td><p><a class="reference external" href="https://www.amazon.com/Industrial-SIM7600G-H-4G-DTU-Communication/dp/B09R4KT3YR/ref=sr_1_3?crid=2OY18KJIUO6GI&amp;dib=eyJ2IjoiMSJ9.g_UQWhh0M8xCpU_VY4zkv_T8UAGLn_itDNlcnXPPbgKn1wepvusOoJ9ymFRSRqI1EN1UiNLd8XPPZ1LXS2ZQGxWOTQ_HYdxXTmtkT4iEyld8gGRcE-gr7gbhryLNpZSoirfdWuU3fFsDuyY-ZM1HMh1c-SrPBLM-eIUowGt3L-Q_m6lKL0jbp6mAdmc6rldNlm_mKnULhkpMYDPto_jFPKHEvZiBLhXLPfWZgKIXSjo.DCbhAH0y5nIyISu5cJDb52RSWEg7AsSxLSabXOoOn6g&amp;dib_tag=se&amp;keywords=industrial+7600G-H+waveshare&amp;qid=1779787837&amp;sprefix=industrial+7600g-h+waveshar%2Caps%2C194&amp;sr=8-3">Waveshare7600G-H industrial modem</a>
+You may also get a 7600G-H chipset on a HAT or other device. HATs may be more sensitive to
+cable damage as the cables are quite small. They all work in a similar way.</p></td>
+</tr>
+<tr class="row-even"><td><p>Relay module (can be a Pi HAT or a separate layout, if you need more peripherals, relay boards of 8 relays with Raspberry Pi
+header are available also).</p></td>
+<td><p><a class="reference external" href="https://www.waveshare.com/wiki/RPi_Relay_Board">RPi Relay Board</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>PoE adapter (12V; verify power specs). The one indicated below is very nice, as it can directly be connected
+to the solar charge load output (12V) with a simple +/- wire, and provides all the switch options
+you will need. Just be careful NOT to use the “passive PoE LAN port” (only one) on a device that is not designed
+for it, as this can damage your LAN port.</p></td>
+<td><p><a class="reference external" href="https://eu.linovision.com/en-eu/collections/all-poe-switches/products/4-ports-mini-solar-poe-switch-optimized-for-big-ptz-camera-and-wireless-bridges?_pos=2&amp;_fid=d8b5ba801&amp;_ss=c">LINOVISION PoE switch for DC powered systems</a></p></td>
+</tr>
+<tr class="row-even"><td><p>12V to 5V (USB) buck converter, 5A for Raspberry Pi 5. The device indicated here is very easy to use as you
+do not need to tweak the voltage or current. Just connect the 12V input and you get a stable 5V 5A output. We
+recommend to put a spare one inside the housing in case it fails.</p></td>
+<td><p>Sold on amazon.com e.g. <a class="reference external" href="https://www.amazon.com/DEVMO-Converter-Step-Down-Regulator-Transformer/dp/B09C4HPNJ8/ref=sr_1_11?dib=eyJ2IjoiMSJ9.RZsxLbFRLcU8Wb5O2N-5KjMcJ6uj1CoIoVbBQr4STi2nn6d88k_vvBEjd3TDfF1TUFG0_04Tchp9esoT8_nmfegVbZhdkErK-zT_2o9ZQX2eBJNbN-X9-kjJVchUWCA9eBo5tQZFStZovLdhs98BJyhv93V8ZhQyyslG4ILrTzFhK3OBGKHWr7ZUgFr1rJ9RxPkQkle4oxa4mNnuEAJevyGPTYtAqVepEHDPPPv1w8EHE_aqNBE0M0UVf_kjmDnycLmHf4u1SRdzXKlINuMrt2qboR1R5bS0C6TAlCN3q9o.zKXYl-61B5JUPgaXJbKZUSRhCvGflPU_vFfEAFQ1HIA&amp;dib_tag=se&amp;qid=1768307208&amp;refinements=p_89%3ADEVMO&amp;s=electronics&amp;sr=1-11">DEVMO 12V to 5V 5A Step-Down</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>CAT6 outdoor network cable of sufficient length to go from the PoE adapter to the camera</p></td>
+<td><p>Any computer hardware shop.</p></td>
+</tr>
+<tr class="row-even"><td><p>USB-C “open end” cable that can handle 5A current. This is for connecting the buck converter to the Raspberry
+Pi.</p></td>
+<td><p>E.g. <a class="reference external" href="https://www.amazon.com/11inch-Pigtail-Equipment-Installed-Replacement/dp/B0DLKPWF1G/ref=sr_1_3?crid=1I2ANFUJZR61V&amp;dib=eyJ2IjoiMSJ9.a4Ft-il2Dw8I7G-8lhyY7R-qoSNnJknf-mRPHak9BNrjZlcDMcM3oFtowb88AnhET1Sk4KceVfl1CFUFcHY4tAap2TuQDV7k9iDgYGSEO4VNES4wLqB-mPPJO-iHHAGEplTqud5WWDplv5CiQD849ItUpD-Tp33KlKYP-3Tb1NlgnrbaDJgnL7bhd6tNIDBxDtQC7c7hW3bJEQonujhv78WHmYafl_kShSBQHi0SGMM.rrJXGCxylumBzGiEWZ2Jw5cnIt3PMwM-9ez7y7sH1SA&amp;dib_tag=se&amp;keywords=USB-C%2Bbare%2Bwire%2B20%2BAVG%2B5A&amp;qid=1775045092&amp;sprefix=usb-c%2Bbare%2Bwire%2B20%2Bavg%2B5a%2Caps%2C178&amp;sr=8-3&amp;th=1">this link</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>A very short (e.g. 0.5 meter) CAT6 network cable. This is for connecting the Raspberry Pi to the switch.</p></td>
+<td><p>Any computer hardware shop.</p></td>
+</tr>
+<tr class="row-even"><td><p>Solar panel (&gt;= 50W)</p></td>
+<td><p>Any electronics/solar shop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>MQTT Solar charge controller</p></td>
+<td><p>Any electronics/solar shop.</p></td>
+</tr>
+<tr class="row-even"><td><p>12V battery (&gt;= 96Wh)</p></td>
+<td><p>Any electronics/solar shop. Consider a compact LiFePO4 battery for better environmental performance. Note that the battery size
+required will be strongly dependent on the frequency of observations, the total power requirements of your setup,
+and the amount of sunlight in your location. We recommend to calculate your power requirements carefully. If your battery empties,
+the solar charge controller will stop providing power to the setup, until the battery is sufficiently charged again. After that the
+setup will automatically start again. So even with a smaller battery, you can still get a working setup, but it may be less stable
+and you may have more “downtime” of your camera.</p></td>
+</tr>
+<tr class="row-odd"><td><p>+/- terminal connectors compatible with the 12V battery.</p></td>
+<td><p>Any electronics shop.</p></td>
+</tr>
+<tr class="row-even"><td><p>A fuse (e.g. 5A or 7A) for safety, to be placed directly behind the “+” terminal of the battery. We like fuse holders
+with a blade fuse, as it makes things so simple to replace but there are many options for this. Also here,
+recommended to put a few spare fuses inside the housing in case of failure.</p></td>
+<td><p>Any electronics shop.</p></td>
+</tr>
+<tr class="row-odd"><td><p>a IP66 (minimum) enclosure. Look for one that has optional cable outlets so that you can bring +/- of solar panel into
+the device and a network cable out. At least two cables will need to pass through. If you need more holes, carefully
+prepare these with a step drill.
+Ideally get one or two DIN rail pieces in the box for proper and neat device and cable management.</p></td>
+<td><p>Sold on amazon.com, but look carefully for one, large enough, and with the proper cable options.</p></td>
+</tr>
+<tr class="row-even"><td><p>watertight cable enclosures</p></td>
+<td><p>Sold on amazon.com e.g. <a class="reference external" href="https://www.amazon.com/Junction-Waterproof-Electrical-Connector-3-5-10mm/dp/B083HRLQG3/ref=sr_1_8?crid=HEXI3WRNBK05&amp;dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&amp;dib_tag=se&amp;keywords=cable%2Bconnectors%2Boutdoor&amp;qid=1768311613&amp;sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&amp;sr=8-8&amp;th=1">3.5-10mm waterproof IP68 electrical cable connectors</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>passthrough cable connectors for watertight connection where cables enter/exit the enclosure.</p></td>
+<td><p>Sold on amazon.com e.g. <a class="reference external" href="https://www.amazon.com/QILIPSU-Waterproof-Adjustable-Locknut-Diameter/dp/B07ZRH3V59/ref=sr_1_9?crid=HEXI3WRNBK05&amp;dib=eyJ2IjoiMSJ9.1OgXdhDDhFyRtnLGA9HrHG7yCSQf3A_MBkggyG9Ps9lv6DH14X6Rou6pRoXwdBd1S_5NyPLheFDoA9PCpXOyiUILaiG--e_MmnNDt_nRV508q1TGmHOfWa69i_woKkwZbBnw8zu5mEHXyfcVZDekmMhnBlnwYLVj2GDWc1F9--lTXAsviXI18nyE8OYQO4nzxGLvk1Rr7_nx5Ba2JUU1zJ0e-74Z0N8y_0vqtyURkI6J3jQq8LzkBMO5wZjLV_61di_vjqmocnXhGFOHzkUkbA2nUlQS2Bm8-Yt_owMLAcs.paFNW_AIQxvCP420cI06YyJN6FrAUH3UcIP2MYbzs54&amp;dib_tag=se&amp;keywords=cable%2Bconnectors%2Boutdoor&amp;qid=1768311613&amp;sprefix=cable%2Bconnectors%2Boutdoo%2Caps%2C190&amp;sr=8-9&amp;th=1">QILIPSU NPT Cable Gland Waterproof IP68</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You will need basic tools such as:</p>
+<ul class="simple">
+<li><p>a wire stripper.</p></li>
+<li><p>a drill to make holes in the enclosure for cable glands and connectors.
+for drilling holes in the enclosure, we recommend using a step drill bit, as
+this allows you to make holes of different sizes with the same bit, and it is
+less likely to crack the enclosure compared to a regular drill bit. Let the
+drill do its work! Do not apply too much pressure.</p></li>
+<li><p>a small cutter.</p></li>
+<li><p>small screw drivers (phillips and flat head, for terminals and relay connections).</p></li>
+<li><p>a crimping tool for the terminal connectors.</p></li>
+<li><p>a crimping tool for crimping electrical ferrules on your cable ends.</p></li>
+<li><p>a multimeter to check voltages and connections.</p></li>
+</ul>
+<p>You will also need basic electrical components:</p>
+<ul class="simple">
+<li><p>when you use HATs, get some stacking headers, heighteners and screws.
+These are needed to raise the HAT to a higher level to make enough space.
+A stacking header can be inserted into the Raspberry Pi 40-pin GPIO header
+to create a gap between the Raspberry Pi and the HAT, allowing for better
+airflow and easier access to the GPIO pins.</p></li>
+<li><p>12V electric wire (wire used for speakers usually is great for 12V projects,
+but never use this for 220V applications!). We recommend at least 0.75mm2
+(or 18 AWG) for the 12V connections to ensure a stable power supply and
+minimize voltage drops, especially if you have a longer distance between the
+battery and the Raspberry Pi. For shorter distances, 0.5mm2 (or 20 AWG) may
+be sufficient, but always check the specifications of your wire and consider
+the current requirements of your setup.</p></li>
+<li><p>terminal and cable connectors for the 12V battery and charge controller
+connections.</p></li>
+<li><p>a splitter that can split the 12V output from the charge controller into several
+outputs, e.g. one for the buck converter and Pi, and one for the PoE switch.</p></li>
+<li><p>Ferrules for electrical wire. Ferrules are used to protect the ends of stranded
+wires and provide a secure connection when inserted into terminal blocks
+or connectors. They prevent deterioration of the wire strands and ensure a reliable
+electrical connection, also over longer periods of time. If you do not apply
+this, loose copper wires may in time oxidize, get loose from the terminal
+and cause problems in your power supply. It may even lead to short cuts and
+very bad cases to fire hazard.</p></li>
+<li><p>isolation tape for safety to cover exposed wires and connections.</p></li>
+</ul>
+<p>Optional but highly recommended:</p>
+<ul class="simple">
+<li><p>to get a nice clean build, we recommend getting a (or two) so-called DIN rail
+in your enclosure. This allows you to neatly mount your Raspberry Pi, relay
+board, modem and buck converter on the DIN rail. For industrial components
+(such as the suggested PoE switch and buck converter) a DIN rail mount is
+integrated. Simply click it on and you are done!</p></li>
+<li><p>For Raspberry Pi 5 CM, DIN rail mounts can be acquired also from shops like
+Amazon. Just make sure to get the right one for your carrier board. Sometimes
+it is easier to get a pretty generic DIN rail mount and use some drilled holes
+and screws to fix your equipment. These are very cheap to get.</p></li>
+</ul>
+<p>Read in the next section for guidance on how to assemble these parts into a
+working setup.</p>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="parts.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">General required parts</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="assemblage.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Assemblage</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=90905a2f556bf617f1a9"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=90905a2f556bf617f1a9"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Rainbow Sensing.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.20.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
