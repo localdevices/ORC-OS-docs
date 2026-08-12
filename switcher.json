@@ -4,6 +4,11 @@
     "url": "https://localdevices.github.io/ORC-OS-docs/v0.7.0/"
   },
   {
+    "version": "1.0.0",
+    "url": "https://localdevices.github.io/ORC-OS-docs/v1.0.0/"
+  },
+  
+  {
     "version": "latest",
     "url": "https://localdevices.github.io/ORC-OS-docs/latest/"
   }
