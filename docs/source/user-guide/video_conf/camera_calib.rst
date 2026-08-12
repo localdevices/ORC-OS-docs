@@ -13,7 +13,8 @@ Camera pose
    estimation.
    
    Your camera lens may be made such that it "bends" light coming into the lens.
-   This has a purpose: it allows the camera to have a wider field of view. However, this also means that the image captured by the camera will be distorted.
+   This has a purpose: it allows the camera to have a wider field of view. However, this also means that the image 
+   captured by the camera will be distorted.
    This distortion can also be described by a set of parameters. These parameters can be
    constrained along with the position and orientation, provided that there is enough
    control information in the calibration targets. 8 GCPs is a good number for this.
@@ -105,6 +106,15 @@ each GCP. The validation procedure does this by estimating the pose, and reconst
 from the pixel coordinates and finally, estimating how far apart these are from your field measurements. If this error is 
 larger than 0.1 meter, the message will be an orange colored warning and you may want to change or resurvey.
 Good measurements should result in an error of around 0.05 meters.
+
+After this step, you may click on the green "Fine-tune lens" button. This will open a view with lens distorted straight
+horizontal and vertical lines. If you have objects in the objective that have long straight lines, such as a bridge
+deck, a long straight road, a long straight wall, or a straight ladder close the the camera, you can also manually draw
+these lines in the objective by selecting the first and last pixel of the line. The software will then draw the 
+distorted line on the image. You can then select "Manual adjustment" and you may manually fine tune the k1 and k2 
+parameters to make the distorted line, match the real line as you see it in the objective. This is a very useful tool 
+to get a better lens distortion fit. After this, you must click on the "Validate" button again to refit the parameters
+in order to ensure that the new lens distortion parameters are used in the camera pose estimation.
 
 .. tip::
 

@@ -61,11 +61,13 @@ In the video configuration screen, you will see 4 major fields:
 
 * The left-side shows the ``Camera view``  and ``Top view``. Using the two tabs, you can change between one or the
   other. The Top view does not show any information yet, as that only displays your measurement data and camera
-  location.
+  location. In the Frame preview, you can also scroll to a specific frame in case the sample video contains frames
+  that are still moving or frames where required control points are not visible. Skip to a frame where everything
+  you need is visible with the backward/forward buttons or the scroll bar.
 * The top-right shows several tabs to manage the video configuration, with tabs for ``Name + details``, ``Camera pose``,
   ``Cross sections``, and ``Processing``. You must go through all tabs to get to a completed video configuration.
-  If a tab is orange-coloured, it means it is not yet available because an earlier step is not yet completed. If it is
-  blue, it is available, if it is white, it is selected.
+  Some or even most of the tabs will not be available at the start. You can only fill in certain tabs and fields
+  after having made selections in other tabs.
 * The bottom-right shows side views of selected cross-sections and set water levels. This starts empty. 
   You must first upload and select cross-sections which happens in one of the tabs in due time.
 * The Save/Run/Delete buttons just above the configuration tabs on the top-right. We recommend to save frequently, if 
@@ -74,15 +76,10 @@ In the video configuration screen, you will see 4 major fields:
   run the video, the Video Configuration must be entirely completed!
 
 You first need to give the video configuration a name and click on save! The save button can be found on the top-right 
-just above the tabs. If you have saved the first time, the next tab will become available, indicated in blue.
+just above the tabs. If you have saved the first time, the next tab will become available. The active tab is indicated in blue.
 In the next sections we go through the different tabs one by one. In practice you also need to do this for your sample
 video.
 
-
-.. tip::
-
-  Under the ``Processing`` tab, you can change the first frame to process. This will also change the displayed frame
-  in the ``Camera view`` to the one selected here.
 
 .. figure:: ../../_images/_screenshots/video_config_start.png
    :align: center

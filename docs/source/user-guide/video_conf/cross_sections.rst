@@ -142,9 +142,20 @@ You may also decide to "Straighten cross section". If you enable this option bef
 Selecting an area of interest
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Once water levels and cross sections are selected, you may draw an area of interest in the camera view. This area of
-interest will be rectangular in reality, but will appear in the camera's perspective. You can select the area of 
-interest in 4 simple clicks after which you may do some refinements:
+Once water levels and cross sections are selected, you may create an area of interest in the form of a rectangular
+bounding box, as seen from above. Note that you will see the bounding in the camera perspective also giving a good
+impression how the bounding box is projected on the image frame. Parts of the bounding box may be outside the field
+of view, which is no problem at all. No computations will be made for these areas and it will also not consume
+unnecessary storage.
+
+We recommend to first click on "Estimate bounding box first". This will draw a solid
+bounding box, with enough space upstream to downstream around the cross section to warrant good coverage, without
+making more computations than required. If you want to enlarge or make the box smaller (e.g. if the stream is
+quite large, or fast flowing) or move or rotate it, you can do so using the controls on the top-right of the Camera
+view.
+
+If you want more flexibility you can also click "Draw bounding box". You then use the mouse cursor to
+draw an area of interest in the camera view in 3 simple clicks:
 
 * First click on either one of the "Draw bounding box" buttons (see red rectangles in the figure below).
 * Then click on the left bank of the river in the camera view, at the location where you want the area of interest to
@@ -156,8 +167,8 @@ interest in 4 simple clicks after which you may do some refinements:
   bounding box that has a bit of space up as well as downstream. Try to aim for about 2 meters up- and downstream space.
   Click once you are satisfied.
 * This gives you a first version of the bounding box. You can click on "Top view" to check the rectangle from above
-  and compare it against the cross section. You may then rotate and move it with the buttons shown within the green
-  rectangle in the image below.
+  and compare it against the cross section. You may then rotate, move or change the size in up- or downstreeam direction
+  with the buttons shown within the green rectangle in the image below.
 
 .. figure:: ../../_images/_screenshots/video_config_bbox.png
 
