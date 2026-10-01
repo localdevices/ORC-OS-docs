@@ -120,11 +120,14 @@ User menu
 
   User menu
 
-The user menu is also situated on the top-right side. It allows you to logout and change your password. Make sure to 
-save or remember the password. You can only
-reset it by logging into the backend of the device running ORC-OS, if you are not logged in. If you have the impression
-that the device is not behaving properly, you can also restart it here. This normally takes about 30 to 45 seconds
-on a Raspberry Pi 5. When you are in :ref:`developers mode <devel_mode>`, you can also shutdown the device from this menu. The reason why
-we only allow this in developers mode is because shutting down is risky when done remotely. You can easily get 
-locked out of your device when you shut it down remotely, and you will need physical access to the device to turn it on 
-again.
+The user menu is also situated on the top-right side. You may decide here to display time series data in Metric units
+or Imperial units. This will be reflected in the timeseries view, as well as the tabular data in the video view that
+shows the summary of the analysis of each video in terms of water level, velocities and discharge.
+
+The user menu also allows you to logout and change your password. Make sure to
+save or remember the password. You can only reset it by logging into the backend of the device running ORC-OS, if you
+are not logged in. If you have the impression that the device is not behaving properly, you can also restart it here.
+This normally takes about 30 to 45 seconds on a Raspberry Pi 5. When you are in :ref:`developers mode <devel_mode>`,
+you can also shutdown the device from this menu. The reason why we only allow this in developers mode is because
+shutting down is risky when done remotely. You can easily get locked out of your device when you shut it down remotely,
+and you will need physical access to the device to turn it on again.

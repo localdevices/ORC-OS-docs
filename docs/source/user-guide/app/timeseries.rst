@@ -19,6 +19,11 @@ The time series page shows detailed plots of time series with filter options to 
 or filter out videos with certain quality criteria or other thresholds. The selected records can also be downloaded 
 as a CSV file or deleted from the database.
 
+.. tip::
+
+   If you wish to display and download time series in Imperial units, then click on the User menu (top-right)
+   and select Imperial. Any plot and any download will now be done entirely in imperial units.
+
 .. screenshot:: http://localhost:5173/time_series
   :browser: chromium
   :viewport-width: 1280

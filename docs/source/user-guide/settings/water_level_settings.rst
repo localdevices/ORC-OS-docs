@@ -28,6 +28,9 @@ In the form you must fill out:
    seconds**. If the script returns identical timestamp values (for instance because the API does not yet deliver any
    new data), then no new value will be written to the database. This ensures that you do not get any duplicates.
 2. Script type. Select PYTHON or BASH.
+3. Water level unit. Select water level being collected in either Meters or Feet. The data will always be stored in
+   metric units in the database. In case Feet is selected, the water level data is automatically converted to meters
+   before storing in the database.
 3. Script content, i.e. the script itself.
 
 The script MUST comply to the following rules:
