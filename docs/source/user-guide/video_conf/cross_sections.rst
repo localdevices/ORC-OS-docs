@@ -13,6 +13,12 @@ Water level and cross-sections
 Entering water levels
 ^^^^^^^^^^^^^^^^^^^^^
 
+.. warning::
+
+   Be aware that all cross section data MUST be entered in meters following typical projection systems.
+   Only the water level in local gauge reference may be in "Feet" in case your gauge normally records in
+   imperial units.
+
 The water level is set in the cross-section tab. You here set the water level as it occurred during the survey.
 The water level is needed for two reasons:
 
@@ -24,7 +30,7 @@ The water level is needed for two reasons:
   1. as measured during your survey in ``Water level in GCP coordinate system [m]``. This water level is indicated 
      with the black arrow on the left-hand side of the staff gauge in the image shown below. 
   2. as measured at the same moment, but through the water level measurement device in
-     ``Water level in local gauge reference [m]``. 
+     ``Water level in local gauge reference [m]``. You may here select either "Meters" or "Feet" as unit.
   
   This is illustrated with the green arrow on the right-hand side of 
   the staff gauge in the image shown below. The image suggests a staff gauge is the local reference, but this can also be a 

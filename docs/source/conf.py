@@ -102,3 +102,4 @@ remove_from_toctrees = ["_generated/*", "_build/doctrees/*"]
 # create screenshots
 
 make_screenshots(screenshots, overwrite=False)
+

@@ -199,6 +199,10 @@ are available to make your plot look the way you want it to look. These can be f
     * - Setting
       - Description (default)
       - Guidance
+    * - Plot units (default: Metric)
+      - The unit system used to produce overlay text on the augmented reality view produced with each video.
+      - When Metric is selected, m is used for water level, m3/s for discharge and m/s for velocities.
+        When Imperial is selected, ft is used for water level, ft3/s for discharge and ft/s for velocities.
     * - Grid arrow scale (default: 1.0)
       - The scale of the arrows in the velocity grid. E.g. if set to 2.0, the arrows will be twice as long as the
         default.
