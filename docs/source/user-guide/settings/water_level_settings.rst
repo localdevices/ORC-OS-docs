@@ -31,7 +31,7 @@ In the form you must fill out:
 3. Water level unit. Select water level being collected in either Meters or Feet. The data will always be stored in
    metric units in the database. In case Feet is selected, the water level data is automatically converted to meters
    before storing in the database.
-3. Script content, i.e. the script itself.
+4. Script content, i.e. the script itself.
 
 The script MUST comply to the following rules:
 
